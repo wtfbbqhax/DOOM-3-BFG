@@ -26,9 +26,25 @@ If you have questions concerning this license or the applicable additional terms
 ===========================================================================
 */
 
-#include "precompiled.h"
 #pragma hdrstop
 
+#include <stdlib.h>
+
+#include "../d3xp/Game.h"
+#include "../framework/CmdSystem.h"
+#include "../framework/Common.h"
+#include "../idlib/CmdArgs.h"
+#include "../idlib/Heap.h"
+#include "../idlib/LangDict.h"
+#include "../idlib/Lib.h"
+#include "../idlib/Str.h"
+#include "../idlib/containers/Array.h"
+#include "../idlib/containers/List.h"
+#include "../idlib/sys/sys_assert.h"
+#include "../idlib/sys/sys_types.h"
+#include "../sys/sys_leaderboards.h"
+#include "../sys/sys_session.h"
+#include "../sys/sys_stats_misc.h"
 #include "Game_local.h"
 #include "Leaderboards.h"
 #include "MultiplayerGame.h"

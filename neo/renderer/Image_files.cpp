@@ -28,9 +28,20 @@ If you have questions concerning this license or the applicable additional terms
 */
 
 #pragma hdrstop
-#include "precompiled.h"
+#include <stdarg.h>
+#include <stdio.h>
+#include <string.h>
 
-
+#include "../framework/Common.h"
+#include "../framework/File.h"
+#include "../framework/FileSystem.h"
+#include "../idlib/Heap.h"
+#include "../idlib/Lib.h"
+#include "../idlib/Str.h"
+#include "../idlib/sys/sys_defines.h"
+#include "../idlib/sys/sys_types.h"
+#include "../renderer/../libs/png/pngconf.h"
+#include "../renderer/Image.h"
 #include "tr_local.h"
 
 /*
@@ -49,7 +60,9 @@ void R_LoadImage( const char *name, byte **pic, int *width, int *height, bool ma
  * You may also wish to include "jerror.h".
  */
 
-#include "../libs/jpeg-6/jpeglib.h"
+extern "C" {
+#include "../libs/jpeg-6b/jpeglib.h"
+}
 
 // hooks from jpeg lib to our system
 
@@ -451,7 +464,7 @@ static void LoadJPG( const char* filename, unsigned char** pic, int* width, int*
 	JSAMPARRAY buffer;		/* Output row buffer */
 	int row_stride;		/* physical row width in output buffer */
 	unsigned char* out;
-	byte*	fbuffer;
+	FILE*	fbuffer;
 	byte*  bbuf;
 	
 	/* In this example we want to open the input file before doing anything else,
@@ -485,7 +498,7 @@ static void LoadJPG( const char* filename, unsigned char** pic, int* width, int*
 			fileSystem->CloseFile( f );
 			return;	// just getting timestamp
 		}
-		fbuffer = ( byte* )Mem_ClearedAlloc( len + 4096, TAG_JPG );
+		fbuffer = ( FILE* )Mem_ClearedAlloc( len + 4096, TAG_JPG );
 		f->Read( fbuffer, len );
 		fileSystem->CloseFile( f );
 	}

@@ -28,6 +28,9 @@ If you have questions concerning this license or the applicable additional terms
 #ifndef __SYS_LEADERBOARDS_H__
 #define __SYS_LEADERBOARDS_H__
 
+#include "../idlib/Callback.h"                   // for idCallback
+
+#include "../sys/sys_stats_misc.h"
 
 /*
 ================================================================================================
@@ -54,8 +57,10 @@ the level for matchmaking, etc.
 ================================================================================================
 */
 
+/* KORTEMIK: in sys_stats_misc.h
 const int MAX_LEADERBOARDS			= 256;
 const int MAX_LEADERBOARD_COLUMNS	= 16;
+
 
 enum aggregationMethod_t
 {
@@ -86,6 +91,8 @@ struct columnDef_t
 	aggregationMethod_t			aggregationMethod;
 	statsColumnDisplayType_t	displayType;
 };
+
+
 
 extern struct leaderboardDefinition_t* registeredLeaderboards[MAX_LEADERBOARDS];
 extern int								numRegisteredLeaderboards;
@@ -128,6 +135,7 @@ struct column_t
 	int64				value;
 };
 
+*/
 
 /*
 ================================================================================================
@@ -142,6 +150,8 @@ typedef int32			leaderboardHandle_t;
 idLeaderBoardEntry
 ================================================
 */
+
+/* KORTEMIK: in sys_stats_misc.h
 class idLeaderBoardEntry
 {
 public:
@@ -153,6 +163,7 @@ public:
 
 const leaderboardDefinition_t* Sys_FindLeaderboardDef( int id );
 
+*/
 
 //------------------------
 // leaderboardError_t
@@ -168,6 +179,8 @@ enum leaderboardError_t
 	LEADERBOARD_ERROR_DOWNLOAD,				// An error occurred while downloading the leaderboard
 	LEADERBOARD_ERROR_MAX
 };
+
+
 
 /*
 ================================================

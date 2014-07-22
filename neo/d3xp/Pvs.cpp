@@ -26,10 +26,22 @@ If you have questions concerning this license or the applicable additional terms
 ===========================================================================
 */
 
-#include "precompiled.h"
 #pragma hdrstop
 
+#include <string.h>
+
+#include "../d3xp/Pvs.h"
+#include "../idlib/Heap.h"
+#include "../idlib/Lib.h"
+#include "../idlib/bv/Bounds.h"
+#include "../idlib/geometry/Winding.h"
+#include "../idlib/math/Plane.h"
+#include "../idlib/math/Vector.h"
+#include "../idlib/sys/sys_assert.h"
+#include "../idlib/sys/sys_types.h"
+#include "../renderer/RenderWorld.h"
 #include "Game_local.h"
+#include "Timer.h"
 
 #define MAX_BOUNDS_AREAS	16
 

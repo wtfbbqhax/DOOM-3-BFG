@@ -30,6 +30,11 @@ If you have questions concerning this license or the applicable additional terms
 #define __LEADERBOARDS_LOCAL_H__
 
 
+//#include "../sys/sys_leaderboards.h"
+#include "../sys/sys_stats_misc.h"
+
+struct lobbyUserID_t;
+
 struct leaderboardStats_t
 {
 	int		frags;
