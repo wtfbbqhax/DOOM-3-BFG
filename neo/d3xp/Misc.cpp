@@ -4471,8 +4471,16 @@ idPortalSky::Spawn
 */
 void idPortalSky::Spawn()
 {
-	if( !spawnArgs.GetBool( "triggered" ) )
-	{
+
+    if ( spawnArgs.GetInt( "ps_type" ) == PORTALSKY_GLOBAL ) {
+        gameLocal.SetGlobalPortalSky( spawnArgs.GetString( "name" ) );
+        gameLocal.portalSkyGlobalOrigin = GetPhysics()->GetOrigin();
+    }
+
+	if( !spawnArgs.GetBool( "triggered" ) )	{
+        if ( spawnArgs.GetInt( "ps_type" ) != PORTALSKY_STANDARD ) {
+            gameLocal.portalSkyScale = spawnArgs.GetInt( "ps_scale", "16" );
+        }
 		PostEventMS( &EV_PostSpawn, 1 );
 	}
 }
@@ -4484,6 +4492,13 @@ idPortalSky::Event_PostSpawn
 */
 void idPortalSky::Event_PostSpawn()
 {
+    gameLocal.SetCurrentPortalSkyType( spawnArgs.GetInt( "ps_type", "0" ) );
+
+    if ( gameLocal.GetCurrentPortalSkyType() != PORTALSKY_GLOBAL ) {
+        gameLocal.portalSkyOrigin = GetPhysics()->GetOrigin();
+        // both standard and local portalSky share the origin, 
+        // it's in their execution that things change.
+    }
 	gameLocal.SetPortalSkyEnt( this );
 }
 
@@ -4494,5 +4509,14 @@ idPortalSky::Event_Activate
 */
 void idPortalSky::Event_Activate( idEntity* activator )
 {
+    gameLocal.SetCurrentPortalSkyType( spawnArgs.GetInt( "ps_type", "0" ) );
+
+    if ( gameLocal.GetCurrentPortalSkyType() != PORTALSKY_GLOBAL ) {
+        gameLocal.portalSkyOrigin = GetPhysics()->GetOrigin();
+        // both standard and local portalSky share the origin, 
+        //it's in their execution that things change.
+    }
+
+    gameLocal.portalSkyScale = spawnArgs.GetInt( "ps_scale", "16" );
 	gameLocal.SetPortalSkyEnt( this );
 }
