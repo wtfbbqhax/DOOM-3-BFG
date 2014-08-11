@@ -74,9 +74,9 @@ extern "C" {
 #endif // USE_FFMPEG
 
 extern "C" {
-#include "../libs/jpeg-6b/jconfig.h"
-#include "../libs/jpeg-6b/jmorecfg.h"
-#include "../libs/jpeg-6b/jpeglib.h"
+#include <jconfig.h>
+#include <jmorecfg.h>
+#include <jpeglib.h>
 }
 
 extern idCVar s_noSound;

@@ -40,7 +40,7 @@ If you have questions concerning this license or the applicable additional terms
 #include "../idlib/Str.h"
 #include "../idlib/sys/sys_defines.h"
 #include "../idlib/sys/sys_types.h"
-#include "../renderer/../libs/png/pngconf.h"
+
 #include "../renderer/Image.h"
 #include "tr_local.h"
 
@@ -61,7 +61,7 @@ void R_LoadImage( const char *name, byte **pic, int *width, int *height, bool ma
  */
 
 extern "C" {
-#include "../libs/jpeg-6b/jpeglib.h"
+#include <jpeglib.h>
 }
 
 // hooks from jpeg lib to our system
@@ -630,26 +630,32 @@ PNG LOADING
 
 extern "C"
 {
-#include "../libs/png/png.h"
+#include <png.h>
+#include <pngconf.h>
+}
 
+static void png_Error( png_structp pngPtr, png_const_charp msg )
+{
+	common->FatalError( "%s", msg );
+}
 
-	static void png_Error( png_structp pngPtr, png_const_charp msg )
-	{
-		common->FatalError( "%s", msg );
-	}
-	
-	static void png_Warning( png_structp pngPtr, png_const_charp msg )
-	{
-		common->Warning( "%s", msg );
-	}
-	
-	static void	png_ReadData( png_structp pngPtr, png_bytep data, png_size_t length )
-	{
-		memcpy( data, ( byte* )pngPtr->io_ptr, length );
-		
-		pngPtr->io_ptr = ( ( byte* ) pngPtr->io_ptr ) + length;
-	}
-	
+static void png_Warning( png_structp pngPtr, png_const_charp msg )
+{
+	common->Warning( "%s", msg );
+}
+
+struct pngIO
+{
+	byte *buffer;
+	size_t size;
+};
+
+static void	png_ReadData( png_structp pngPtr, png_bytep data, png_size_t length )
+{
+	struct pngIO* p=(struct pngIO*)png_get_io_ptr(pngPtr);
+	memcpy(data, p->buffer, length);
+	p->buffer += length;
+
 }
 
 /*
@@ -659,7 +665,7 @@ LoadPNG
 */
 static void LoadPNG( const char* filename, unsigned char** pic, int* width, int* height, ID_TIME_T* timestamp )
 {
-	byte*	fbuffer;
+	struct pngIO buffer_t;
 	
 	if( !pic )
 	{
@@ -672,8 +678,8 @@ static void LoadPNG( const char* filename, unsigned char** pic, int* width, int*
 	//
 	// load the file
 	//
-	int fileSize = fileSystem->ReadFile( filename, ( void** )&fbuffer, timestamp );
-	if( !fbuffer )
+	int fileSize = fileSystem->ReadFile( filename, ( void** )&buffer_t.buffer, timestamp );
+	if( !buffer_t.buffer )
 	{
 		return;
 	}
@@ -692,7 +698,7 @@ static void LoadPNG( const char* filename, unsigned char** pic, int* width, int*
 		common->Error( "LoadPNG( %s ): png_create_info_struct failed", filename );
 	}
 	
-	png_set_read_fn( pngPtr, fbuffer, png_ReadData );
+	png_set_read_fn( pngPtr, &buffer_t, png_ReadData );
 	
 	png_set_sig_bytes( pngPtr, 0 );
 	
@@ -769,26 +775,27 @@ static void LoadPNG( const char* filename, unsigned char** pic, int* width, int*
 	png_destroy_read_struct( &pngPtr, &infoPtr, NULL );
 	
 	R_StaticFree( rowPointers );
-	Mem_Free( fbuffer );
+	Mem_Free( buffer_t.buffer );
 }
 
-
-extern "C"
+static void	png_WriteData( png_structp pngPtr, png_bytep pngData, png_size_t length )
 {
 
-	static int png_compressedSize = 0;
-	static void	png_WriteData( png_structp pngPtr, png_bytep data, png_size_t length )
-	{
-		memcpy( ( byte* )pngPtr->io_ptr, data, length );
-		
-		pngPtr->io_ptr = ( ( byte* ) pngPtr->io_ptr ) + length;
-		
-		png_compressedSize += length;
-	}
-	
-	static void	png_FlushData( png_structp pngPtr ) { }
-	
+	struct pngIO* p=(struct pngIO*)png_get_io_ptr(pngPtr);
+	size_t nsize = p->size + length;
+
+	if(!p->buffer)
+	    png_error(pngPtr, "Write Error");
+
+	// appends compressed pngData to buffer
+	memcpy(p->buffer + p->size, pngData, length);
+	p->size += length;
+
+	//common->Warning( "Wrote %u bytes PNG", p->size );
 }
+
+static void	png_FlushData( png_structp pngPtr ) { }
+
 
 /*
 ================
@@ -808,10 +815,14 @@ void R_WritePNG( const char* filename, const byte* data, int bytesPerPixel, int 
 	{
 		common->Error( "R_WritePNG( %s ): png_create_info_struct failed", filename );
 	}
-	
-	png_compressedSize = 0;
-	byte* buffer = ( byte* ) Mem_Alloc( width * height * bytesPerPixel, TAG_TEMP );
-	png_set_write_fn( pngPtr, buffer, png_WriteData, png_FlushData );
+
+	struct pngIO buffer_t;
+
+	// allocates 'safe' amount of memory assuming image does not grow in png compression as we don't have realloc
+	buffer_t.buffer = ( byte* ) Mem_Alloc( width * height * bytesPerPixel, TAG_TEMP );
+	buffer_t.size = 0;
+
+	png_set_write_fn( pngPtr, &buffer_t, png_WriteData, png_FlushData );
 	
 	if( bytesPerPixel == 4 )
 	{
@@ -852,10 +863,11 @@ void R_WritePNG( const char* filename, const byte* data, int bytesPerPixel, int 
 	png_destroy_write_struct( &pngPtr, &infoPtr );
 	
 	Mem_Free( rowPointers );
+
+	fileSystem->WriteFile( filename, buffer_t.buffer, buffer_t.size, basePath );
 	
-	fileSystem->WriteFile( filename, buffer, png_compressedSize, basePath );
-	
-	Mem_Free( buffer );
+	Mem_Free( buffer_t.buffer );
+
 }
 // RB end
 

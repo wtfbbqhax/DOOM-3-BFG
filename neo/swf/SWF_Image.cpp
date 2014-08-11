@@ -43,8 +43,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../swf/SWF_Enums.h"
 
 extern "C" {
-#include "../libs/jpeg-6b/jpeglib.h"
-#include "../libs/jpeg-6b/jmorecfg.h"
+#include <jpeglib.h>
+#include <jmorecfg.h>
 }
 
 /*
