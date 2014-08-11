@@ -99,6 +99,7 @@ extern const char* const temp_chat_macros[];
 
 void Globals::InitGlobals()
 {
+#include "constructs.h"
 }
 
 Globals *g;
