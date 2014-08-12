@@ -69,6 +69,9 @@ extern "C" {
 #include <libavutil/pixfmt.h>
 #include <libavutil/rational.h>
 #include <libavutil/version.h>
+#if LIBAVCODEC_VERSION_INT < AV_VERSION_INT(55,28,1)
+#include <libavutil/frame.h>
+#endif
 }
 #endif
 #endif // USE_FFMPEG
