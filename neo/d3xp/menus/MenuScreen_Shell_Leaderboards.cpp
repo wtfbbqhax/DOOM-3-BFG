@@ -52,7 +52,13 @@ If you have questions concerning this license or the applicable additional terms
 #include "../swf/SWF_ScriptVar.h"
 #include "../swf/SWF_SpriteInstance.h"
 #include "../swf/SWF_TextInstance.h"
+
+#ifdef USE_STEAM_API
 #include "../sys/sys_leaderboards.h"
+#else
+#include "../sys/sys_stats.h"
+#endif
+
 #include "../sys/sys_public.h"
 #include "../sys/sys_session.h"
 #include "../sys/sys_signin.h"

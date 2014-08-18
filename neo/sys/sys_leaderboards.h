@@ -25,6 +25,8 @@ If you have questions concerning this license or the applicable additional terms
 
 ===========================================================================
 */
+
+
 #ifndef __SYS_LEADERBOARDS_H__
 #define __SYS_LEADERBOARDS_H__
 
@@ -57,7 +59,7 @@ the level for matchmaking, etc.
 ================================================================================================
 */
 
-/* KORTEMIK: in sys_stats_misc.h
+
 const int MAX_LEADERBOARDS			= 256;
 const int MAX_LEADERBOARD_COLUMNS	= 16;
 
@@ -135,7 +137,7 @@ struct column_t
 	int64				value;
 };
 
-*/
+
 
 /*
 ================================================================================================
@@ -151,7 +153,6 @@ idLeaderBoardEntry
 ================================================
 */
 
-/* KORTEMIK: in sys_stats_misc.h
 class idLeaderBoardEntry
 {
 public:
@@ -162,8 +163,6 @@ public:
 };
 
 const leaderboardDefinition_t* Sys_FindLeaderboardDef( int id );
-
-*/
 
 //------------------------
 // leaderboardError_t

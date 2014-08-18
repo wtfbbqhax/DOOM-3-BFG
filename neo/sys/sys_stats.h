@@ -29,8 +29,8 @@ If you have questions concerning this license or the applicable additional terms
 #define __SYS_STATS_H__
 
 #include "../idlib/Callback.h"                   // for idCallback
+#include "../sys/sys_stats_misc.h"
 
-/* KORTEMIK in leaderboardError_t
 //------------------------
 // leaderboardError_t
 //------------------------
@@ -45,14 +45,13 @@ enum leaderboardError_t
 	LEADERBOARD_ERROR_DOWNLOAD,				// An error occurred while downloading the leaderboard
 	LEADERBOARD_ERROR_MAX
 };
-*/
+
 
 /*
 ================================================
 idLeaderboardCallback
 ================================================
 */
-/* KORTEMIK: in sys_leaderboards.h
 class idLeaderboardCallback : public idCallback
 {
 public:
@@ -132,7 +131,5 @@ protected:
 	int								numRowsInLeaderboard;	// total number of rows in the online leaderboard
 	leaderboardError_t				errorCode;				// error, if any, that occurred during last operation
 };
-
-*/
 
 #endif // !__SYS_STATS_H__

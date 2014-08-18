@@ -31,7 +31,11 @@ If you have questions concerning this license or the applicable additional terms
 
 #include "../../renderer/tr_local.h"
 
+#ifdef USE_STEAM_API
 #include "../sys/sys_leaderboards.h"
+#else
+#include "../sys/sys_stats.h"
+#endif
 
 #include "../sys/sys_signin.h"          // for idSignInManagerBase
 

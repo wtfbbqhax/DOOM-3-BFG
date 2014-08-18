@@ -42,9 +42,14 @@ If you have questions concerning this license or the applicable additional terms
 #include "../idlib/containers/List.h"
 #include "../idlib/sys/sys_assert.h"
 #include "../idlib/sys/sys_types.h"
-#include "../sys/sys_leaderboards.h"
 #include "../sys/sys_session.h"
-#include "../sys/sys_stats_misc.h"
+
+#ifdef USE_STEAM_API
+#include "../sys/sys_leaderboards.h"
+#else
+#include "../sys/sys_stats.h"
+#endif
+
 #include "Game_local.h"
 #include "Leaderboards.h"
 #include "MultiplayerGame.h"
