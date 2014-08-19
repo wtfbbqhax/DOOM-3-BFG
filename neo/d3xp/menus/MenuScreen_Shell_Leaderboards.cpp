@@ -62,7 +62,6 @@ If you have questions concerning this license or the applicable additional terms
 #include "../sys/sys_public.h"
 #include "../sys/sys_session.h"
 #include "../sys/sys_signin.h"
-#include "../sys/sys_stats_misc.h"
 
 const static int NUM_LEADERBOARD_ITEMS = 16;
 const int MAX_STAT_LISTINGS = 16;
@@ -217,7 +216,11 @@ void idMenuScreen_Shell_Leaderboards::Initialize( idMenuHandler* data )
 				const leaderboardDefinition_t* lbDef = Sys_FindLeaderboardDef( boardID );
 				if( lbDef != NULL )
 				{
+#ifdef USE_STEAM_API
+					doomLeaderboard_t lb = doomLeaderboard_t( lbDef, "NOT STEAM_API IMPLEMENTED" );
+#else
 					doomLeaderboard_t lb = doomLeaderboard_t( lbDef, lbDef->boardName );
+#endif
 					leaderboards.Append( lb );
 				}
 			}

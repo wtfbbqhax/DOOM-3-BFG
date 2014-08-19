@@ -160,11 +160,11 @@ void LeaderboardLocal_Init()
 						gamemode.checkAgainstCurrent );
 						
 						
-						
+#ifndef USE_STEAM_API
 				// Set the leaderboard name.
 				const char* mapname = idLocalization::GetString( maps[ mapIdx ].mapName );
 				newLeaderboardDef->boardName.Format( "%s %s", mapname, gamemode.abrevName );
-				
+#endif
 				// sanity check.
 				if( Sys_FindLeaderboardDef( boardID ) != newLeaderboardDef )
 				{
