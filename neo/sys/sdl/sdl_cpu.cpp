@@ -36,7 +36,7 @@ If you have questions concerning this license or the applicable additional terms
 #undef vsnprintf
 // DG end
 
-#include <SDL/SDL.h>
+#include <SDL.h>
 #include <stdio.h>
 
 #include "../idlib/sys/sys_types.h"

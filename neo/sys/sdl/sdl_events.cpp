@@ -40,7 +40,7 @@ If you have questions concerning this license or the applicable additional terms
 #include <stdint.h>
 #include <string.h>
 
-#include <SDL/SDL.h>
+#include <SDL.h>
 
 #include "../d3xp/Game.h"
 #include "../framework/CVarSystem.h"
