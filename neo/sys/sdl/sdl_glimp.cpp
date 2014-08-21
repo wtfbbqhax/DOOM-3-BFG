@@ -36,13 +36,7 @@ If you have questions concerning this license or the applicable additional terms
 #undef vsnprintf
 // DG end
 
-#include <SDL.h>
-#include <SDL/SDL_error.h>
-#include <SDL/SDL_events.h>
-#include <SDL/SDL_mouse.h>
-#include <SDL/SDL_stdinc.h>
-#include <SDL/SDL_version.h>
-#include <SDL/SDL_video.h>
+#include <SDL/SDL.h>
 #include <assert.h>
 #include <stddef.h>
 

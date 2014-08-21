@@ -40,11 +40,7 @@ If you have questions concerning this license or the applicable additional terms
 #include <stdint.h>
 #include <string.h>
 
-#include <SDL/SDL_events.h>
-#include <SDL/SDL_keyboard.h>
-#include <SDL/SDL_keysym.h>
-#include <SDL/SDL_mouse.h>
-#include <SDL/SDL_version.h>
+#include <SDL/SDL.h>
 
 #include "../d3xp/Game.h"
 #include "../framework/CVarSystem.h"
