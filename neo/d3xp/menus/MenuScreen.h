@@ -31,7 +31,7 @@ If you have questions concerning this license or the applicable additional terms
 
 #include "../../renderer/tr_local.h"
 
-#ifdef USE_STEAM_API
+#if 0 // no steam api
 #include "../sys/sys_leaderboards.h"
 #else
 #include "../sys/sys_stats.h"

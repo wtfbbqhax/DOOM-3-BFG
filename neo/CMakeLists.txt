@@ -23,9 +23,6 @@ option(FFMPEG
 option(IDTOOLS
 		"Compile the built-in game tools" ON)
 
-option(STEAM_API
-		"Use SteamWorks API instead of generic" OFF)
-
 #options########################################################################
 
 option(BUNDLED_JPEG
@@ -61,10 +58,6 @@ option(BUNDLED_OGGVORBIS
 
 if(UNIX)
   set(OPENAL openal)
-endif()
-
-if(STEAM_API)
-  add_definitions(-DUSE_STEAM_API)
 endif()
 
 ################################################################################

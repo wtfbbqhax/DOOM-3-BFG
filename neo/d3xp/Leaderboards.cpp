@@ -44,7 +44,7 @@ If you have questions concerning this license or the applicable additional terms
 #include "../idlib/sys/sys_types.h"
 #include "../sys/sys_session.h"
 
-#ifdef USE_STEAM_API
+#if 0 // no steam api
 #include "../sys/sys_leaderboards.h"
 #else
 #include "../sys/sys_stats.h"

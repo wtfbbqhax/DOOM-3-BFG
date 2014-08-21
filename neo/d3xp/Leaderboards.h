@@ -29,7 +29,7 @@ If you have questions concerning this license or the applicable additional terms
 #ifndef __LEADERBOARDS_LOCAL_H__
 #define __LEADERBOARDS_LOCAL_H__
 
-#ifdef USE_STEAM_API
+#if 0 // no steam api
 #include "../sys/sys_leaderboards.h"
 #else
 #include "../sys/sys_stats.h"

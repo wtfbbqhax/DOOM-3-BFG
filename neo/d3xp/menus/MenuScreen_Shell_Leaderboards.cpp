@@ -53,7 +53,7 @@ If you have questions concerning this license or the applicable additional terms
 #include "../swf/SWF_SpriteInstance.h"
 #include "../swf/SWF_TextInstance.h"
 
-#ifdef USE_STEAM_API
+#if 0  // no steam api
 #include "../sys/sys_leaderboards.h"
 #else
 #include "../sys/sys_stats.h"
@@ -216,7 +216,7 @@ void idMenuScreen_Shell_Leaderboards::Initialize( idMenuHandler* data )
 				const leaderboardDefinition_t* lbDef = Sys_FindLeaderboardDef( boardID );
 				if( lbDef != NULL )
 				{
-#ifdef USE_STEAM_API
+#if 0 // no steam api
 					doomLeaderboard_t lb = doomLeaderboard_t( lbDef, "NOT STEAM_API IMPLEMENTED" );
 #else
 					doomLeaderboard_t lb = doomLeaderboard_t( lbDef, lbDef->boardName );

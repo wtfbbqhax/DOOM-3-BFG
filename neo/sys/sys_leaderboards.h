@@ -36,7 +36,7 @@ If you have questions concerning this license or the applicable additional terms
 /*
 ================================================================================================
 
-	Stats (for achievements, matchmaking, etc.)
+	Stats (for achievements, matchmaking, etc.) for Valve's Steam
 
 ================================================================================================
 */
