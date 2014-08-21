@@ -28,7 +28,6 @@ If you have questions concerning this license or the applicable additional terms
 */
 
 #pragma hdrstop
-#include "../../idlib/precompiled.h"
 
 // DG: SDL_*.h somehow needs the following functions, so #undef those silly
 //     "don't use" #defines from Str.h
@@ -37,7 +36,11 @@ If you have questions concerning this license or the applicable additional terms
 #undef vsnprintf
 // DG end
 
-#include <SDL_cpuinfo.h>
+#include <SDL.h>
+#include <stdio.h>
+
+#include "../idlib/sys/sys_types.h"
+#include "../sys/sys_public.h"
 
 
 #pragma warning(disable:4740)	// warning C4740: flow in or out of inline asm code suppresses global optimization

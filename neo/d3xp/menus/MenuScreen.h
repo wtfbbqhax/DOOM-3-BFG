@@ -31,6 +31,16 @@ If you have questions concerning this license or the applicable additional terms
 
 #include "../../renderer/tr_local.h"
 
+#if 0 // no steam api
+#include "../sys/sys_leaderboards.h"
+#else
+#include "../sys/sys_stats.h"
+#endif
+
+#include "../sys/sys_signin.h"          // for idSignInManagerBase
+
+#include "../d3xp/menus/MenuWidget.h"   // for idMenuWidget
+
 enum mainMenuTransition_t
 {
 	MENU_TRANSITION_INVALID = -1,

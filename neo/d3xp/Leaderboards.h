@@ -29,6 +29,13 @@ If you have questions concerning this license or the applicable additional terms
 #ifndef __LEADERBOARDS_LOCAL_H__
 #define __LEADERBOARDS_LOCAL_H__
 
+#if 0 // no steam api
+#include "../sys/sys_leaderboards.h"
+#else
+#include "../sys/sys_stats.h"
+#endif
+
+struct lobbyUserID_t;
 
 struct leaderboardStats_t
 {
