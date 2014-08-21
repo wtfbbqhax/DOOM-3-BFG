@@ -50,30 +50,25 @@ If you have questions concerning this license or the applicable additional terms
 #include "../sound/sound.h"
 #include "../sys/sys_public.h"
 
-#ifdef USE_FFMPEG
-#ifdef _WIN32
-extern "C" {
-#include "libavcodec/version.h"
-#include "libavutil/avutil.h"
-#include "libavutil/frame.h"
-#include "libavutil/mem.h"
-#include "libavutil/pixfmt.h"
-#include "libavutil/rational.h"
-#include "libavutil/version.h"
-}
-#else
-extern "C" {
-#include <libavcodec/version.h>
+#if defined(USE_FFMPEG)
+// Carl: ffmpg for bink video files
+
+extern "C"
+{
+//#ifdef WIN32
+#ifndef INT64_C
+#define INT64_C(c) (c ## LL)
+#define UINT64_C(c) (c ## ULL)
+#endif
+//#include <inttypes.h>
+//#endif
+
 #include <libavutil/avutil.h>
 #include <libavutil/mem.h>
-#include <libavutil/pixfmt.h>
-#include <libavutil/rational.h>
-#include <libavutil/version.h>
-#if LIBAVCODEC_VERSION_INT < AV_VERSION_INT(55,28,1)
-#include <libavutil/frame.h>
-#endif
+#include <libavcodec/avcodec.h>
+#include <libavformat/avformat.h>
+#include <libswscale/swscale.h>
 }
-#endif
 #endif // USE_FFMPEG
 
 extern "C" {
@@ -98,25 +93,6 @@ struct SwsContext;
 #define	CIN_hold	4
 #define CIN_silent	8
 #define CIN_shader	16
-
-#if defined(USE_FFMPEG)
-// Carl: ffmpg for bink video files
-extern "C"
-{
-
-//#ifdef WIN32
-#ifndef INT64_C
-#define INT64_C(c) (c ## LL)
-#define UINT64_C(c) (c ## ULL)
-#endif
-//#include <inttypes.h>
-//#endif
-
-#include <libavcodec/avcodec.h>
-#include <libavformat/avformat.h>
-#include <libswscale/swscale.h>
-}
-#endif
 
 class idCinematicLocal : public idCinematic
 {
@@ -2193,7 +2169,6 @@ skip_input_data( j_decompress_ptr cinfo, long num_bytes )
 METHODDEF(void)
 term_source( j_decompress_ptr cinfo )
 {
-	cinfo = cinfo;
 	/* no work necessary here */
 }
 
