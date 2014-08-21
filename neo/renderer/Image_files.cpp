@@ -665,7 +665,7 @@ LoadPNG
 */
 static void LoadPNG( const char* filename, unsigned char** pic, int* width, int* height, ID_TIME_T* timestamp )
 {
-	struct pngIO buffer_t;
+	struct pngIO io_s;
 	
 	if( !pic )
 	{
@@ -678,8 +678,8 @@ static void LoadPNG( const char* filename, unsigned char** pic, int* width, int*
 	//
 	// load the file
 	//
-	int fileSize = fileSystem->ReadFile( filename, ( void** )&buffer_t.buffer, timestamp );
-	if( !buffer_t.buffer )
+	int fileSize = fileSystem->ReadFile( filename, ( void** )&io_s.buffer, timestamp );
+	if( !io_s.buffer )
 	{
 		return;
 	}
@@ -698,7 +698,7 @@ static void LoadPNG( const char* filename, unsigned char** pic, int* width, int*
 		common->Error( "LoadPNG( %s ): png_create_info_struct failed", filename );
 	}
 	
-	png_set_read_fn( pngPtr, &buffer_t, png_ReadData );
+	png_set_read_fn( pngPtr, &io_s, png_ReadData );
 	
 	png_set_sig_bytes( pngPtr, 0 );
 	
@@ -775,7 +775,7 @@ static void LoadPNG( const char* filename, unsigned char** pic, int* width, int*
 	png_destroy_read_struct( &pngPtr, &infoPtr, NULL );
 	
 	R_StaticFree( rowPointers );
-	Mem_Free( buffer_t.buffer );
+	Mem_Free( io_s.buffer );
 }
 
 static void	png_WriteData( png_structp pngPtr, png_bytep pngData, png_size_t length )
@@ -816,13 +816,13 @@ void R_WritePNG( const char* filename, const byte* data, int bytesPerPixel, int 
 		common->Error( "R_WritePNG( %s ): png_create_info_struct failed", filename );
 	}
 
-	struct pngIO buffer_t;
+	struct pngIO io_s;
 
 	// allocates 'safe' amount of memory assuming image does not grow in png compression as we don't have realloc
-	buffer_t.buffer = ( byte* ) Mem_Alloc( width * height * bytesPerPixel, TAG_TEMP );
-	buffer_t.size = 0;
+	io_s.buffer = ( byte* ) Mem_Alloc( width * height * bytesPerPixel, TAG_TEMP );
+	io_s.size = 0;
 
-	png_set_write_fn( pngPtr, &buffer_t, png_WriteData, png_FlushData );
+	png_set_write_fn( pngPtr, &io_s, png_WriteData, png_FlushData );
 	
 	if( bytesPerPixel == 4 )
 	{
@@ -864,9 +864,9 @@ void R_WritePNG( const char* filename, const byte* data, int bytesPerPixel, int 
 	
 	Mem_Free( rowPointers );
 
-	fileSystem->WriteFile( filename, buffer_t.buffer, buffer_t.size, basePath );
+	fileSystem->WriteFile( filename, io_s.buffer, io_s.size, basePath );
 	
-	Mem_Free( buffer_t.buffer );
+	Mem_Free( io_s.buffer );
 
 }
 // RB end
