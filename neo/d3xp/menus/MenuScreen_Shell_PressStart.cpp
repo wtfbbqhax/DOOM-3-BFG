@@ -127,8 +127,6 @@ void idMenuScreen_Shell_PressStart::Initialize( idMenuHandler* data )
 	AddEventAction( WIDGET_EVENT_SCROLL_LEFT_LSTICK_RELEASE ).Set( new( TAG_SWF ) idWidgetActionHandler( this, WIDGET_ACTION_EVENT_STOP_REPEATER, WIDGET_EVENT_SCROLL_LEFT_LSTICK_RELEASE ) );
 	AddEventAction( WIDGET_EVENT_SCROLL_RIGHT_LSTICK_RELEASE ).Set( new( TAG_SWF ) idWidgetActionHandler( this, WIDGET_ACTION_EVENT_STOP_REPEATER, WIDGET_EVENT_SCROLL_RIGHT_LSTICK_RELEASE ) );
 	
-	doomCover = declManager->FindMaterial( "guis/assets/mainmenu/doom_cover.tga" );
-	doom2Cover = declManager->FindMaterial( "guis/assets/mainmenu/doom2_cover.tga" );
 	doom3Cover = declManager->FindMaterial( "guis/assets/mainmenu/doom3_cover.tga" );
 	
 	startButton = new idMenuWidget_Button();
@@ -204,9 +202,7 @@ void idMenuScreen_Shell_PressStart::ShowScreen( const mainMenuTransition_t trans
 		
 			idList<const idMaterial*> coverIcons;
 			
-			coverIcons.Append( doomCover );
 			coverIcons.Append( doom3Cover );
-			coverIcons.Append( doom2Cover );
 			
 			if( itemList != NULL )
 			{
@@ -293,35 +289,21 @@ bool idMenuScreen_Shell_PressStart::HandleAction( idWidgetAction& action, const 
 					Update();
 				}
 			}
-			
-			// RB begin
-#if defined(USE_DOOMCLASSIC)
-			if( itemList->GetMoveToIndex() == 0 )
+
+			if( itemList->GetMoveToIndex() == 1 )
 			{
-				common->SwitchToGame( DOOM_CLASSIC );
+				if( session->GetSignInManager().GetMasterLocalUser() == NULL )
+				{
+					const int device = event.parms[ 0 ].ToInteger();
+					session->GetSignInManager().RegisterLocalUser( device );
+				}
+				else
+				{
+					menuData->SetNextScreen( SHELL_AREA_ROOT, MENU_TRANSITION_SIMPLE );
+				}
 			}
-			else
-#endif
-				if( itemList->GetMoveToIndex() == 1 )
-				{
-					if( session->GetSignInManager().GetMasterLocalUser() == NULL )
-					{
-						const int device = event.parms[ 0 ].ToInteger();
-						session->GetSignInManager().RegisterLocalUser( device );
-					}
-					else
-					{
-						menuData->SetNextScreen( SHELL_AREA_ROOT, MENU_TRANSITION_SIMPLE );
-					}
-				}
-#if defined(USE_DOOMCLASSIC)
-				else if( itemList->GetMoveToIndex() == 2 )
-				{
-					common->SwitchToGame( DOOM2_CLASSIC );
-				}
-#endif
-			// RB end
-			
+
+
 			return true;
 		}
 		case WIDGET_ACTION_START_REPEATER:

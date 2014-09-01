@@ -438,8 +438,6 @@ public:
 		startButton( NULL ),
 		options( NULL ),
 		itemList( NULL ),
-		doomCover( NULL ),
-		doom2Cover( NULL ),
 		doom3Cover( NULL )
 	{
 	}
@@ -452,8 +450,6 @@ private:
 	idMenuWidget_Button* 		startButton;
 	idMenuWidget_DynamicList* 	options;
 	idMenuWidget_Carousel* 		itemList;
-	const idMaterial* 			doomCover;
-	const idMaterial* 			doom2Cover;
 	const idMaterial* 			doom3Cover;
 };
 
@@ -469,8 +465,6 @@ public:
 		startButton( NULL ),
 		options( NULL ),
 		itemList( NULL ),
-		doomCover( NULL ),
-		doom2Cover( NULL ),
 		doom3Cover( NULL )
 	{
 	}
@@ -483,8 +477,6 @@ private:
 	idMenuWidget_Button* 		startButton;
 	idMenuWidget_DynamicList* 	options;
 	idMenuWidget_Carousel* 		itemList;
-	const idMaterial* 			doomCover;
-	const idMaterial* 			doom2Cover;
 	const idMaterial* 			doom3Cover;
 };
 

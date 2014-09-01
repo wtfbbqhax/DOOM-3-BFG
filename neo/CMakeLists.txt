@@ -37,9 +37,6 @@ option(BUNDLED_ZLIB
 option(BUNDLED_MINIZIP
 		"Use bundled minizip" ON)
 
-option(BUNDLED_TIMIDITY
-		"Use bundled timidity" ON)
-
 option(BUNDLED_IRRXML
 		"Use bundled irrxml" OFF)
 
@@ -512,16 +509,6 @@ if(BUNDLED_OGGVORBIS)
   set(OGGVORBIS_LIBRARY oggvorbis)
 endif()
 
-#timidity#######################################################################
-
-file(GLOB TIMIDITY_INCLUDES libs/timidity/*.h)
-file(GLOB TIMIDITY_SOURCES libs/timidity/*.cpp)
-
-if(BUNDLED_TIMIDITY)
-  add_library(timidity ${TIMIDITY_SOURCES} ${TIMIDITY_INCLUDES})
-  set(TIMIDITY_LIBRARY timidity)
-endif()
-
 #idtools########################################################################
 
 # not a library, but still optional
@@ -928,17 +915,6 @@ file(GLOB GAMED3XP_PHYSICS_SOURCES d3xp/physics/*.cpp)
 file(GLOB GAMED3XP_SCRIPT_INCLUDES d3xp/script/*.h)
 file(GLOB GAMED3XP_SCRIPT_SOURCES d3xp/script/*.cpp)
 
-file(GLOB DOOMCLASSIC_INCLUDES ../doomclassic/doom/*.h)
-file(GLOB DOOMCLASSIC_SOURCES ../doomclassic/doom/*.cpp)
-
-set(DOOMCLASSIC_STUBAUDIO_SOURCES ../doomclassic/doom/i_sound_stub.cpp)
-set(DOOMCLASSIC_OPENAL_SOURCES ../doomclassic/doom/i_sound_openal.cpp)
-set(DOOMCLASSIC_XAUDIO2_SOURCES ../doomclassic/doom/i_sound_win32.cpp)
-
-list(REMOVE_ITEM DOOMCLASSIC_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/../doomclassic/doom/i_sound_stub.cpp)
-list(REMOVE_ITEM DOOMCLASSIC_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/../doomclassic/doom/i_sound_openal.cpp)
-list(REMOVE_ITEM DOOMCLASSIC_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/../doomclassic/doom/i_sound_win32.cpp)
-
 file(GLOB_RECURSE WIN32_INCLUDES sys/win32/*.h)
 #file(GLOB_RECURSE WIN32_SOURCES sys/win32/*.cpp)
 
@@ -1095,13 +1071,6 @@ source_group("swf" FILES ${SWF_SOURCES})
 source_group("sys" FILES ${SYS_INCLUDES})
 source_group("sys" FILES ${SYS_SOURCES})
 
-source_group("doomclassic" FILES ${DOOMCLASSIC_INCLUDES})
-source_group("doomclassic" FILES ${DOOMCLASSIC_SOURCES})
-
-source_group("doomclassic" FILES ${DOOMCLASSIC_STUBAUDIO_SOURCES})
-source_group("doomclassic" FILES ${DOOMCLASSIC_OPENAL_SOURCES})
-source_group("doomclassic" FILES ${DOOMCLASSIC_XAUDIO2_SOURCES})
-
 source_group("game-d3xp" FILES ${GAMED3XP_INCLUDES})
 source_group("game-d3xp" FILES ${GAMED3XP_SOURCES})
 
@@ -1153,8 +1122,6 @@ set(RBDOOM3_INCLUDES
 			${UI_INCLUDES}
 			${SWF_INCLUDES}
 			${COMMON_INCLUDES}
-			${DOOMCLASSIC_INCLUDES}
-			
 			)
 			
 set(RBDOOM3_SOURCES
@@ -1174,10 +1141,7 @@ set(RBDOOM3_SOURCES
 			${UI_SOURCES}
 			${SWF_SOURCES}
 			${COMMON_SOURCES}
-			${DOOMCLASSIC_SOURCES}
 			)
-
-add_definitions(-DUSE_DOOMCLASSIC)
 
 add_definitions(-D__DOOM__
 				-DGLEW_STATIC
@@ -1259,9 +1223,7 @@ if(MSVC)
 		endif()
 		
 		list(APPEND RBDOOM3_INCLUDES ${OPENAL_INCLUDES})
-		list(APPEND RBDOOM3_SOURCES
-			${OPENAL_SOURCES}
-			${DOOMCLASSIC_OPENAL_SOURCES})
+		list(APPEND RBDOOM3_SOURCES ${OPENAL_SOURCES})
 		
 		set(OpenAL_LIBRARIES
 			OpenAL32)
@@ -1274,9 +1236,7 @@ if(MSVC)
 		endif()
 	else()
 		list(APPEND RBDOOM3_INCLUDES ${XAUDIO2_INCLUDES})
-		list(APPEND RBDOOM3_SOURCES
-			${XAUDIO2_SOURCES}
-			${DOOMCLASSIC_XAUDIO2_SOURCES})
+		list(APPEND RBDOOM3_SOURCES ${XAUDIO2_SOURCES})
 	endif()
 	
 	if(FFMPEG)
@@ -1357,7 +1317,6 @@ if(MSVC)
 	  ${PNG_LIBRARY}
 	  ${ZLIB_LIBRARY}
 	  ${MINIZIP_LIBRARY}
-	  ${TIMIDITY_LIBRARY}
 	  ${IRRXML_LIBRARY}
 	  ${GLEW_LIBRARY}
 	  ${FREETYPE_LIBRARY}
@@ -1435,14 +1394,10 @@ else()
 			#endif()
 			
 			list(APPEND RBDOOM3_INCLUDES ${OPENAL_INCLUDES})
-			list(APPEND RBDOOM3_SOURCES
-				${OPENAL_SOURCES}
-				${DOOMCLASSIC_OPENAL_SOURCES})
+			list(APPEND RBDOOM3_SOURCES ${OPENAL_SOURCES})
 		else()
 			list(APPEND RBDOOM3_INCLUDES ${STUBAUDIO_INCLUDES})
-			list(APPEND RBDOOM3_SOURCES
-				${STUBAUDIO_SOURCES}
-				${DOOMCLASSIC_STUBAUDIO_SOURCES})
+			list(APPEND RBDOOM3_SOURCES ${STUBAUDIO_SOURCES})
 		endif()
 			
 	endif()
@@ -1470,7 +1425,6 @@ else()
 		  ${PNG_LIBRARY}
 		  ${ZLIB_LIBRARY}
 		  ${MINIZIP_LIBRARY}
-		  ${TIMIDITY_LIBRARY}
 		  ${IRRXML_LIBRARY}
 		  ${GLEW_LIBRARY}
 		  ${FREETYPE_LIBRARY}
