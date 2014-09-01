@@ -31,9 +31,7 @@ If you have questions concerning this license or the applicable additional terms
 #include <XAudio2fx.h>
 
 #include <string.h>
-#if defined(USE_DOOMCLASSIC)
-#include "../../../doomclassic/doom/i_sound.h"
-#endif
+
 #include "../framework/CVarSystem.h"
 #include "../framework/CmdSystem.h"
 #include "../framework/Common.h"
@@ -354,13 +352,6 @@ void idSoundHardware_XAudio2::Init()
 	
 	idSoundVoice::InitSurround( outputChannels, channelMask );
 	
-#if defined(USE_DOOMCLASSIC)
-	// ---------------------
-	// Initialize the Doom classic sound system.
-	// ---------------------
-	I_InitSoundHardware( outputChannels, channelMask );
-#endif
-	
 	// ---------------------
 	// Create VU Meter Effect
 	// ---------------------
@@ -443,13 +434,6 @@ void idSoundHardware_XAudio2::Shutdown()
 	voices.Clear();
 	freeVoices.Clear();
 	zombieVoices.Clear();
-	
-#if defined(USE_DOOMCLASSIC)
-	// ---------------------
-	// Shutdown the Doom classic sound system.
-	// ---------------------
-	I_ShutdownSoundHardware();
-#endif
 	
 	if( pXAudio2 != NULL )
 	{
