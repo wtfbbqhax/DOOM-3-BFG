@@ -509,6 +509,8 @@ if(BUNDLED_OGGVORBIS)
   set(OGGVORBIS_LIBRARY oggvorbis)
 endif()
 
+#idtools########################################################################
+
 # not a library, but still optional
 
 file(GLOB COMPILER_INCLUDES tools/compilers/*.h)
