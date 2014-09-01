@@ -37,9 +37,6 @@ option(BUNDLED_ZLIB
 option(BUNDLED_MINIZIP
 		"Use bundled minizip" ON)
 
-option(BUNDLED_TIMIDITY
-		"Use bundled timidity" ON)
-
 option(BUNDLED_IRRXML
 		"Use bundled irrxml" OFF)
 
@@ -511,18 +508,6 @@ if(BUNDLED_OGGVORBIS)
   add_library(oggvorbis ${OGGVORBIS_SOURCES} ${OGGVORBIS_INCLUDES})
   set(OGGVORBIS_LIBRARY oggvorbis)
 endif()
-
-#timidity#######################################################################
-
-file(GLOB TIMIDITY_INCLUDES libs/timidity/*.h)
-file(GLOB TIMIDITY_SOURCES libs/timidity/*.cpp)
-
-if(BUNDLED_TIMIDITY)
-  add_library(timidity ${TIMIDITY_SOURCES} ${TIMIDITY_INCLUDES})
-  set(TIMIDITY_LIBRARY timidity)
-endif()
-
-#idtools########################################################################
 
 # not a library, but still optional
 
@@ -1330,7 +1315,6 @@ if(MSVC)
 	  ${PNG_LIBRARY}
 	  ${ZLIB_LIBRARY}
 	  ${MINIZIP_LIBRARY}
-	  ${TIMIDITY_LIBRARY}
 	  ${IRRXML_LIBRARY}
 	  ${GLEW_LIBRARY}
 	  ${FREETYPE_LIBRARY}
@@ -1439,7 +1423,6 @@ else()
 		  ${PNG_LIBRARY}
 		  ${ZLIB_LIBRARY}
 		  ${MINIZIP_LIBRARY}
-		  ${TIMIDITY_LIBRARY}
 		  ${IRRXML_LIBRARY}
 		  ${GLEW_LIBRARY}
 		  ${FREETYPE_LIBRARY}
