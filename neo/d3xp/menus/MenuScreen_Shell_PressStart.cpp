@@ -54,7 +54,7 @@ class idMaterial;
 
 #pragma hdrstop
 
-static const int NUM_GAME_SELECTIONS_VISIBLE = 5;
+static const int NUM_GAME_SELECTIONS_VISIBLE = 0;
 extern idCVar g_demoMode;
 
 namespace
