@@ -127,8 +127,6 @@ void idMenuScreen_Shell_PressStart::Initialize( idMenuHandler* data )
 	AddEventAction( WIDGET_EVENT_SCROLL_LEFT_LSTICK_RELEASE ).Set( new( TAG_SWF ) idWidgetActionHandler( this, WIDGET_ACTION_EVENT_STOP_REPEATER, WIDGET_EVENT_SCROLL_LEFT_LSTICK_RELEASE ) );
 	AddEventAction( WIDGET_EVENT_SCROLL_RIGHT_LSTICK_RELEASE ).Set( new( TAG_SWF ) idWidgetActionHandler( this, WIDGET_ACTION_EVENT_STOP_REPEATER, WIDGET_EVENT_SCROLL_RIGHT_LSTICK_RELEASE ) );
 	
-	doomCover = declManager->FindMaterial( "guis/assets/mainmenu/doom_cover.tga" );
-	doom2Cover = declManager->FindMaterial( "guis/assets/mainmenu/doom2_cover.tga" );
 	doom3Cover = declManager->FindMaterial( "guis/assets/mainmenu/doom3_cover.tga" );
 	
 	startButton = new idMenuWidget_Button();

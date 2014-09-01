@@ -113,12 +113,6 @@ enum errorParm_t
 	ERP_DISCONNECT					// don't kill server
 };
 
-enum gameLaunch_t
-{
-	LAUNCH_TITLE_DOOM = 0,
-	LAUNCH_TITLE_DOOM2,
-};
-
 struct netTimes_t
 {
 	int localTime;
