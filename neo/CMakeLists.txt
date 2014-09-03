@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 2.8)
 set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake)
 
-project(RBDoom3BFG)
+project(OpenTechEngine)
 
 ################################################################################
 
@@ -1183,7 +1183,7 @@ source_group("sys\\common" FILES ${COMMON_SOURCES})
 source_group("sys\\sdl" FILES ${SDL_INCLUDES})
 source_group("sys\\sdl" FILES ${SDL_SOURCES})
 
-set(RBDOOM3_INCLUDES
+set(OpenTechBFG_INCLUDES
 			${AAS_INCLUDES}
 			${CM_INCLUDES}
 			${FRAMEWORK_INCLUDES}
@@ -1202,7 +1202,7 @@ set(RBDOOM3_INCLUDES
 			${COMMON_INCLUDES}
 			)
 			
-set(RBDOOM3_SOURCES
+set(OpenTechBFG_SOURCES
 			${AAS_SOURCES}
 			${CM_SOURCES}
 			${FRAMEWORK_SOURCES}
@@ -1227,7 +1227,7 @@ add_definitions(-D__DOOM__
 				)
 				
 if(MONOLITH)
-	list(APPEND RBDOOM3_INCLUDES
+	list(APPEND OpenTechBFG_INCLUDES
 		${GAMED3XP_INCLUDES}
 		${GAMED3XP_AI_INCLUDES} 
 		${GAMED3XP_ANIM_INCLUDES} 
@@ -1236,7 +1236,7 @@ if(MONOLITH)
 		${GAMED3XP_PHYSICS_INCLUDES}
 		${GAMED3XP_SCRIPT_INCLUDES})
 		
-	list(APPEND RBDOOM3_SOURCES
+	list(APPEND OpenTechBFG_SOURCES
 		${GAMED3XP_SOURCES}
 		${GAMED3XP_AI_SOURCES}
 		${GAMED3XP_ANIM_SOURCES}
@@ -1258,11 +1258,11 @@ include_directories(
 if(IDTOOLS)
   add_definitions(-DUSE_IDTOOLS)
  
-	list(APPEND RBDOOM3_INCLUDES
+	list(APPEND OpenTechBFG_INCLUDES
 	  ${IDTOOLS_INCLUDES}
 	)
 		
-	list(APPEND RBDOOM3_SOURCES
+	list(APPEND OpenTechBFG_SOURCES
 	  ${IDTOOLS_SOURCES} 
 	)
 endif()
@@ -1299,8 +1299,8 @@ if(MSVC)
 			link_directories(${CMAKE_CURRENT_SOURCE_DIR}/libs/openal-soft/lib/win32)
 		endif()
 		
-		list(APPEND RBDOOM3_INCLUDES ${OPENAL_INCLUDES})
-		list(APPEND RBDOOM3_SOURCES ${OPENAL_SOURCES})
+		list(APPEND OpenTechBFG_INCLUDES ${OPENAL_INCLUDES})
+		list(APPEND OpenTechBFG_SOURCES ${OPENAL_SOURCES})
 		
 		set(OpenAL_LIBRARIES
 			OpenAL32)
@@ -1312,8 +1312,8 @@ if(MSVC)
 			install(FILES libs/openal-soft/lib/win32/OpenAL32.pdb DESTINATION .)
 		endif()
 	else()
-		list(APPEND RBDOOM3_INCLUDES ${XAUDIO2_INCLUDES})
-		list(APPEND RBDOOM3_SOURCES ${XAUDIO2_SOURCES})
+		list(APPEND OpenTechBFG_INCLUDES ${XAUDIO2_INCLUDES})
+		list(APPEND OpenTechBFG_SOURCES ${XAUDIO2_SOURCES})
 	endif()
 	
 	if(FFMPEG)
@@ -1356,7 +1356,7 @@ if(MSVC)
 		
 		add_definitions(-DUSE_MFC_TOOLS)
 		
-		list(APPEND RBDOOM3_SOURCES
+		list(APPEND OpenTechBFG_SOURCES
 			${TOOLS_INCLUDES}
 			${TOOLS_COMAFX_INCLUDES} ${TOOLS_COMAFX_SOURCES}
 			${TOOLS_COMMON_INCLUDES} ${TOOLS_COMMON_SOURCES}
@@ -1374,21 +1374,21 @@ if(MSVC)
 			${EDITOR_SOUND_INCLUDES} ${EDITOR_SOUND_SOURCES})
 	endif()
 	
-	list(APPEND RBDOOM3_INCLUDES
+	list(APPEND OpenTechBFG_INCLUDES
 		${SYS_INCLUDES} 
 		${WIN32_INCLUDES})
 		
-	list(APPEND RBDOOM3_SOURCES
+	list(APPEND OpenTechBFG_SOURCES
 		${SYS_SOURCES}
 		${WIN32_SOURCES})
 
-	list(REMOVE_DUPLICATES RBDOOM3_SOURCES)
+	list(REMOVE_DUPLICATES OpenTechBFG_SOURCES)
 	
-	list(APPEND RBDOOM3_SOURCES ${WIN32_RESOURCES})
+	list(APPEND OpenTechBFG_SOURCES ${WIN32_RESOURCES})
 	
-	add_executable(RBDoom3BFG WIN32 ${RBDOOM3_INCLUDES} ${RBDOOM3_SOURCES})
+	add_executable(OpenTechEngine WIN32 ${OpenTechBFG_INCLUDES} ${OpenTechBFG_SOURCES})
 		
-	target_link_libraries(RBDoom3BFG
+	target_link_libraries(OpenTechEngine
 	  idlib
 	  ${JPEG_LIBRARY}
 	  ${PNG_LIBRARY}
@@ -1414,16 +1414,16 @@ if(MSVC)
 		
 	#CMAKE_BINARY_DIR
 	if(CMAKE_CL_64)
-		install(TARGETS RBDoom3BFG
+		install(TARGETS OpenTechEngine
 			RUNTIME DESTINATION .)
 	else()
-		install(TARGETS RBDoom3BFG
+		install(TARGETS OpenTechEngine
 			RUNTIME DESTINATION .)
 	endif()
 	
 else()
 
-	list(APPEND RBDOOM3_SOURCES
+	list(APPEND OpenTechBFG_SOURCES
 		${SYS_INCLUDES} ${SYS_SOURCES})
 	
 	find_package(OpenGL REQUIRED)
@@ -1454,7 +1454,7 @@ else()
 			list(REMOVE_ITEM POSIX_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/sys/posix/platform_osx.cpp)
 		endif()
 
-		list(APPEND RBDOOM3_SOURCES
+		list(APPEND OpenTechBFG_SOURCES
 			${POSIX_INCLUDES} ${POSIX_SOURCES}
 			${SDL_INCLUDES} ${SDL_SOURCES})
 			
@@ -1470,22 +1470,22 @@ else()
 			#	link_directories(${CMAKE_CURRENT_SOURCE_DIR}/libs/openal-soft/lib/win32)
 			#endif()
 			
-			list(APPEND RBDOOM3_INCLUDES ${OPENAL_INCLUDES})
-			list(APPEND RBDOOM3_SOURCES ${OPENAL_SOURCES})
+			list(APPEND OpenTechBFG_INCLUDES ${OPENAL_INCLUDES})
+			list(APPEND OpenTechBFG_SOURCES ${OPENAL_SOURCES})
 		else()
-			list(APPEND RBDOOM3_INCLUDES ${STUBAUDIO_INCLUDES})
-			list(APPEND RBDOOM3_SOURCES ${STUBAUDIO_SOURCES})
+			list(APPEND OpenTechBFG_INCLUDES ${STUBAUDIO_INCLUDES})
+			list(APPEND OpenTechBFG_SOURCES ${STUBAUDIO_SOURCES})
 		endif()
 			
 	endif()
 
-	list(REMOVE_DUPLICATES RBDOOM3_SOURCES)
+	list(REMOVE_DUPLICATES OpenTechBFG_SOURCES)
 	
 	GET_DIRECTORY_PROPERTY(_directory_flags DEFINITIONS)
 	LIST(APPEND _compiler_FLAGS ${_directory_flags})
 	SEPARATE_ARGUMENTS(_compiler_FLAGS)
 
-	add_executable(RBDoom3BFG WIN32 ${RBDOOM3_SOURCES})
+	add_executable(OpenTechEngine WIN32 ${OpenTechBFG_SOURCES})
 
 	if(NOT WIN32)
 		if(NOT "${CMAKE_SYSTEM}" MATCHES "Darwin")
@@ -1496,7 +1496,7 @@ else()
 			set(DL_LIBRARY dl)
 		endif()
 
-		target_link_libraries(RBDoom3BFG
+		target_link_libraries(OpenTechEngine
 		  idlib
 		  ${JPEG_LIBRARY}
 		  ${PNG_LIBRARY}
