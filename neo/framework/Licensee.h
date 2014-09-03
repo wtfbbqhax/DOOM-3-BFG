@@ -35,12 +35,12 @@ If you have questions concerning this license or the applicable additional terms
 ===============================================================================
 */
 
-#define GAME_NAME						"DOOM 3: BFG Edition"		// appears on window titles and errors
+#define GAME_NAME						"OpenTechEngine"		// appears on window titles and errors
 
 // RB: changed home folder so we don't break the savegame of the original game
 #define SAVE_PATH						"\\id Software\\RBDOOM 3 BFG"
 
-#define ENGINE_VERSION					"RBDOOM 3 BFG 1.0.2"	// printed in console
+#define ENGINE_VERSION					"BFG $Id$"	// printed in console
 // RB end
 
 #define	BASE_GAMEDIR					"base"

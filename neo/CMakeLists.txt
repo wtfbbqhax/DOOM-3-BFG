@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 2.8)
 set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake)
 
-project(RBDoom3BFG)
+project(OpenTechEngine)
 
 ################################################################################
 
@@ -32,7 +32,7 @@ option(BUNDLED_PNG
 		"Use bundled libpng" OFF)
 
 option(BUNDLED_ZLIB
-		"Use bundled zlib" ON)
+		"Use bundled zlib" OFF)
 
 option(BUNDLED_MINIZIP
 		"Use bundled minizip" ON)
@@ -41,7 +41,7 @@ option(BUNDLED_IRRXML
 		"Use bundled irrxml" OFF)
 
 option(BUNDLED_GLEW
-		"Use bundled glew" ON)
+		"Use bundled glew" OFF)
 
 option(BUNDLED_FREETYPE
 		"Use bundled freetype" OFF)
@@ -365,39 +365,110 @@ if(BUNDLED_JPEG)
   add_library(jpeg ${JPEG_SOURCES} ${JPEG_INCLUDES})
   set(JPEG_LIBRARY jpeg)
 else()
+  find_package(JPEG REQUIRED)
+  include_directories(${JPEG_INCLUDE_DIRS})
   set(JPEG_LIBRARY jpeg)
 endif()
 
 #libpng#########################################################################
 
 if(BUNDLED_PNG)	
-  file(GLOB PNG_INCLUDES libs/png/*.h)
-  file(GLOB PNG_SOURCES libs/png/*.c)
+  set(PNG_INCLUDES
+    libs/png/pngconf.h
+    libs/png/png.h)
+
+  set(PNG_SOURCES
+    #libs/png/example.c
+    libs/png/png.c
+    libs/png/pngerror.c
+    libs/png/pnggccrd.c
+    libs/png/pngget.c
+    libs/png/pngmem.c
+    libs/png/pngpread.c
+    libs/png/pngread.c
+    libs/png/pngrio.c
+    libs/png/pngrtran.c
+    libs/png/pngrutil.c
+    libs/png/pngset.c
+    libs/png/pngtrans.c
+    libs/png/pngvcrd.c
+    libs/png/pngwio.c
+    libs/png/pngwrite.c
+    libs/png/pngwtran.c
+    libs/png/pngwutil.c)
+
   include_directories(libs/png)
   add_library(png ${PNG_SOURCES} ${PNG_INCLUDES})
   set(PNG_LIBRARY png)
 else()
+  find_package(PNG REQUIRED)
+  include_directories(${PNG_INCLUDE_DIRS})
   set(PNG_LIBRARY png)
 endif()
 
 
 #libz###########################################################################
 
-file(GLOB ZLIB_INCLUDES libs/zlib/*.h)
-file(GLOB ZLIB_SOURCES libs/zlib/*.c)
-
 if(BUNDLED_ZLIB)
+  set(ZLIB_INCLUDES
+    libs/zlib/crc32.h
+    libs/zlib/deflate.h
+    libs/zlib/gzguts.h
+    libs/zlib/inffast.h
+    libs/zlib/inffixed.h
+    libs/zlib/inflate.h
+    libs/zlib/inftrees.h
+    libs/zlib/trees.h
+    libs/zlib/zconf.h
+    libs/zlib/zlib.h
+    libs/zlib/zutil.h)
+
+  set(ZLIB_SOURCES
+    libs/zlib/adler32.c
+    libs/zlib/compress.c
+    libs/zlib/crc32.c
+    libs/zlib/deflate.c
+    libs/zlib/gzclose.c
+    libs/zlib/gzlib.c
+    libs/zlib/gzread.c
+    libs/zlib/gzwrite.c
+    libs/zlib/infback.c
+    libs/zlib/inffast.c
+    libs/zlib/inflate.c
+    libs/zlib/inftrees.c
+    libs/zlib/trees.c
+    libs/zlib/uncompr.c
+    libs/zlib/zutil.c)
+
+  include_directories(libs/zlib)
   add_library(zlib ${ZLIB_SOURCES} ${ZLIB_INCLUDES})
   set(ZLIB_LIBRARY zlib)
+else()
+  find_package(ZLIB REQUIRED)
+  include_directories(${ZLIB_INCLUDE_DIRS})
+  set(ZLIB_LIBRARY z)
 endif()
 
 #minizip########################################################################
 
-file(GLOB MINIZIP_INCLUDES libs/zlib/minizip/*.h)
-file(GLOB MINIZIP_SOURCES libs/zlib/minizip/*.c libs/zlib/minizip/*.cpp)
-
 if(BUNDLED_MINIZIP)
+  set(MINIZIP_INCLUDES
+    libs/zlib/minizip/ioapi.h
+    libs/zlib/minizip/unzip.h
+    libs/zlib/minizip/zip.h)
+
+  set(MINIZIP_SOURCES
+    libs/zlib/minizip/ioapi.c
+    libs/zlib/minizip/unzip.cpp
+    libs/zlib/minizip/zip.cpp)
+
+  include_directories(libs/zlib)
   add_library(minizip ${MINIZIP_SOURCES} ${MINIZIP_INCLUDES})
+  set(MINIZIP_LIBRARY minizip)
+else()
+  #find_package(MINIZIP REQUIRED)
+  #include_directories(${MINIZIP_INCLUDE_DIRS})
+  include_directories(/usr/include)
   set(MINIZIP_LIBRARY minizip)
 endif()
 
@@ -413,21 +484,28 @@ endif()
 
 #glew###########################################################################
 
-set(GLEW_INCLUDES
-	libs/glew/include/GL/glew.h)
-	
-if(WIN32)
-	set(GLEW_INCLUDES ${GLEW_INCLUDES} libs/glew/include/GL/wglew.h)
-else()
-	set(GLEW_INCLUDES ${GLEW_INCLUDES} libs/glew/include/GL/glxew.h)
-endif()
-	
-set(GLEW_SOURCES
-	libs/glew/src/glew.c)
-
 if(BUNDLED_GLEW)
+  set(GLEW_INCLUDES
+      libs/glew/include/GL/glew.h)
+
+  if(WIN32)
+      set(GLEW_INCLUDES ${GLEW_INCLUDES} libs/glew/include/GL/wglew.h)
+  else()
+      set(GLEW_INCLUDES ${GLEW_INCLUDES} libs/glew/include/GL/glxew.h)
+  endif()
+
+  set(GLEW_SOURCES
+      libs/glew/src/glew.c)
+
+  include_directories(libs/glew/include)
   add_library(glew ${GLEW_SOURCES} ${GLEW_INCLUDES})
   set(GLEW_LIBRARY glew)
+
+  add_definitions(-DGLEW_STATIC)
+else()
+  find_package(GLEW REQUIRED)
+  include_directories(${GLEW_INCLUDE_DIRS})
+  set(GLEW_LIBRARY GLEW)
 endif()
 
 #freetype#######################################################################	
@@ -1105,7 +1183,7 @@ source_group("sys\\common" FILES ${COMMON_SOURCES})
 source_group("sys\\sdl" FILES ${SDL_INCLUDES})
 source_group("sys\\sdl" FILES ${SDL_SOURCES})
 
-set(RBDOOM3_INCLUDES
+set(OpenTechBFG_INCLUDES
 			${AAS_INCLUDES}
 			${CM_INCLUDES}
 			${FRAMEWORK_INCLUDES}
@@ -1124,7 +1202,7 @@ set(RBDOOM3_INCLUDES
 			${COMMON_INCLUDES}
 			)
 			
-set(RBDOOM3_SOURCES
+set(OpenTechBFG_SOURCES
 			${AAS_SOURCES}
 			${CM_SOURCES}
 			${FRAMEWORK_SOURCES}
@@ -1144,13 +1222,12 @@ set(RBDOOM3_SOURCES
 			)
 
 add_definitions(-D__DOOM__
-				-DGLEW_STATIC
 				#-DBUILD_FREETYPE
 				#-DFT2_BUILD_LIBRARY
 				)
 				
 if(MONOLITH)
-	list(APPEND RBDOOM3_INCLUDES
+	list(APPEND OpenTechBFG_INCLUDES
 		${GAMED3XP_INCLUDES}
 		${GAMED3XP_AI_INCLUDES} 
 		${GAMED3XP_ANIM_INCLUDES} 
@@ -1159,7 +1236,7 @@ if(MONOLITH)
 		${GAMED3XP_PHYSICS_INCLUDES}
 		${GAMED3XP_SCRIPT_INCLUDES})
 		
-	list(APPEND RBDOOM3_SOURCES
+	list(APPEND OpenTechBFG_SOURCES
 		${GAMED3XP_SOURCES}
 		${GAMED3XP_AI_SOURCES}
 		${GAMED3XP_ANIM_SOURCES}
@@ -1181,11 +1258,11 @@ include_directories(
 if(IDTOOLS)
   add_definitions(-DUSE_IDTOOLS)
  
-	list(APPEND RBDOOM3_INCLUDES
+	list(APPEND OpenTechBFG_INCLUDES
 	  ${IDTOOLS_INCLUDES}
 	)
 		
-	list(APPEND RBDOOM3_SOURCES
+	list(APPEND OpenTechBFG_SOURCES
 	  ${IDTOOLS_SOURCES} 
 	)
 endif()
@@ -1222,8 +1299,8 @@ if(MSVC)
 			link_directories(${CMAKE_CURRENT_SOURCE_DIR}/libs/openal-soft/lib/win32)
 		endif()
 		
-		list(APPEND RBDOOM3_INCLUDES ${OPENAL_INCLUDES})
-		list(APPEND RBDOOM3_SOURCES ${OPENAL_SOURCES})
+		list(APPEND OpenTechBFG_INCLUDES ${OPENAL_INCLUDES})
+		list(APPEND OpenTechBFG_SOURCES ${OPENAL_SOURCES})
 		
 		set(OpenAL_LIBRARIES
 			OpenAL32)
@@ -1235,8 +1312,8 @@ if(MSVC)
 			install(FILES libs/openal-soft/lib/win32/OpenAL32.pdb DESTINATION .)
 		endif()
 	else()
-		list(APPEND RBDOOM3_INCLUDES ${XAUDIO2_INCLUDES})
-		list(APPEND RBDOOM3_SOURCES ${XAUDIO2_SOURCES})
+		list(APPEND OpenTechBFG_INCLUDES ${XAUDIO2_INCLUDES})
+		list(APPEND OpenTechBFG_SOURCES ${XAUDIO2_SOURCES})
 	endif()
 	
 	if(FFMPEG)
@@ -1279,7 +1356,7 @@ if(MSVC)
 		
 		add_definitions(-DUSE_MFC_TOOLS)
 		
-		list(APPEND RBDOOM3_SOURCES
+		list(APPEND OpenTechBFG_SOURCES
 			${TOOLS_INCLUDES}
 			${TOOLS_COMAFX_INCLUDES} ${TOOLS_COMAFX_SOURCES}
 			${TOOLS_COMMON_INCLUDES} ${TOOLS_COMMON_SOURCES}
@@ -1297,21 +1374,21 @@ if(MSVC)
 			${EDITOR_SOUND_INCLUDES} ${EDITOR_SOUND_SOURCES})
 	endif()
 	
-	list(APPEND RBDOOM3_INCLUDES
+	list(APPEND OpenTechBFG_INCLUDES
 		${SYS_INCLUDES} 
 		${WIN32_INCLUDES})
 		
-	list(APPEND RBDOOM3_SOURCES
+	list(APPEND OpenTechBFG_SOURCES
 		${SYS_SOURCES}
 		${WIN32_SOURCES})
 
-	list(REMOVE_DUPLICATES RBDOOM3_SOURCES)
+	list(REMOVE_DUPLICATES OpenTechBFG_SOURCES)
 	
-	list(APPEND RBDOOM3_SOURCES ${WIN32_RESOURCES})
+	list(APPEND OpenTechBFG_SOURCES ${WIN32_RESOURCES})
 	
-	add_executable(RBDoom3BFG WIN32 ${RBDOOM3_INCLUDES} ${RBDOOM3_SOURCES})
+	add_executable(OpenTechEngine WIN32 ${OpenTechBFG_INCLUDES} ${OpenTechBFG_SOURCES})
 		
-	target_link_libraries(RBDoom3BFG
+	target_link_libraries(OpenTechEngine
 	  idlib
 	  ${JPEG_LIBRARY}
 	  ${PNG_LIBRARY}
@@ -1337,16 +1414,16 @@ if(MSVC)
 		
 	#CMAKE_BINARY_DIR
 	if(CMAKE_CL_64)
-		install(TARGETS RBDoom3BFG
+		install(TARGETS OpenTechEngine
 			RUNTIME DESTINATION .)
 	else()
-		install(TARGETS RBDoom3BFG
+		install(TARGETS OpenTechEngine
 			RUNTIME DESTINATION .)
 	endif()
 	
 else()
 
-	list(APPEND RBDOOM3_SOURCES
+	list(APPEND OpenTechBFG_SOURCES
 		${SYS_INCLUDES} ${SYS_SOURCES})
 	
 	find_package(OpenGL REQUIRED)
@@ -1377,7 +1454,7 @@ else()
 			list(REMOVE_ITEM POSIX_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/sys/posix/platform_osx.cpp)
 		endif()
 
-		list(APPEND RBDOOM3_SOURCES
+		list(APPEND OpenTechBFG_SOURCES
 			${POSIX_INCLUDES} ${POSIX_SOURCES}
 			${SDL_INCLUDES} ${SDL_SOURCES})
 			
@@ -1393,22 +1470,22 @@ else()
 			#	link_directories(${CMAKE_CURRENT_SOURCE_DIR}/libs/openal-soft/lib/win32)
 			#endif()
 			
-			list(APPEND RBDOOM3_INCLUDES ${OPENAL_INCLUDES})
-			list(APPEND RBDOOM3_SOURCES ${OPENAL_SOURCES})
+			list(APPEND OpenTechBFG_INCLUDES ${OPENAL_INCLUDES})
+			list(APPEND OpenTechBFG_SOURCES ${OPENAL_SOURCES})
 		else()
-			list(APPEND RBDOOM3_INCLUDES ${STUBAUDIO_INCLUDES})
-			list(APPEND RBDOOM3_SOURCES ${STUBAUDIO_SOURCES})
+			list(APPEND OpenTechBFG_INCLUDES ${STUBAUDIO_INCLUDES})
+			list(APPEND OpenTechBFG_SOURCES ${STUBAUDIO_SOURCES})
 		endif()
 			
 	endif()
 
-	list(REMOVE_DUPLICATES RBDOOM3_SOURCES)
+	list(REMOVE_DUPLICATES OpenTechBFG_SOURCES)
 	
 	GET_DIRECTORY_PROPERTY(_directory_flags DEFINITIONS)
 	LIST(APPEND _compiler_FLAGS ${_directory_flags})
 	SEPARATE_ARGUMENTS(_compiler_FLAGS)
 
-	add_executable(RBDoom3BFG WIN32 ${RBDOOM3_SOURCES})
+	add_executable(OpenTechEngine WIN32 ${OpenTechBFG_SOURCES})
 
 	if(NOT WIN32)
 		if(NOT "${CMAKE_SYSTEM}" MATCHES "Darwin")
@@ -1419,7 +1496,7 @@ else()
 			set(DL_LIBRARY dl)
 		endif()
 
-		target_link_libraries(RBDoom3BFG
+		target_link_libraries(OpenTechEngine
 		  idlib
 		  ${JPEG_LIBRARY}
 		  ${PNG_LIBRARY}
