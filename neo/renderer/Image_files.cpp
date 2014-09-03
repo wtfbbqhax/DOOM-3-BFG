@@ -772,10 +772,11 @@ static void LoadPNG( const char* filename, unsigned char** pic, int* width, int*
 	
 	png_read_end( pngPtr, infoPtr );
 	
+	fileSystem->FreeFile(io_s.buffer);
+
 	png_destroy_read_struct( &pngPtr, &infoPtr, NULL );
 	
 	R_StaticFree( rowPointers );
-	Mem_Free( io_s.buffer );
 }
 
 static void	png_WriteData( png_structp pngPtr, png_bytep pngData, png_size_t length )
