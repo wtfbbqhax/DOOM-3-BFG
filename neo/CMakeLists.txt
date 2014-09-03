@@ -32,7 +32,7 @@ option(BUNDLED_PNG
 		"Use bundled libpng" OFF)
 
 option(BUNDLED_ZLIB
-		"Use bundled zlib" ON)
+		"Use bundled zlib" OFF)
 
 option(BUNDLED_MINIZIP
 		"Use bundled minizip" ON)
@@ -41,7 +41,7 @@ option(BUNDLED_IRRXML
 		"Use bundled irrxml" OFF)
 
 option(BUNDLED_GLEW
-		"Use bundled glew" ON)
+		"Use bundled glew" OFF)
 
 option(BUNDLED_FREETYPE
 		"Use bundled freetype" OFF)
@@ -365,39 +365,110 @@ if(BUNDLED_JPEG)
   add_library(jpeg ${JPEG_SOURCES} ${JPEG_INCLUDES})
   set(JPEG_LIBRARY jpeg)
 else()
+  find_package(JPEG REQUIRED)
+  include_directories(${JPEG_INCLUDE_DIRS})
   set(JPEG_LIBRARY jpeg)
 endif()
 
 #libpng#########################################################################
 
 if(BUNDLED_PNG)	
-  file(GLOB PNG_INCLUDES libs/png/*.h)
-  file(GLOB PNG_SOURCES libs/png/*.c)
+  set(PNG_INCLUDES
+    libs/png/pngconf.h
+    libs/png/png.h)
+
+  set(PNG_SOURCES
+    #libs/png/example.c
+    libs/png/png.c
+    libs/png/pngerror.c
+    libs/png/pnggccrd.c
+    libs/png/pngget.c
+    libs/png/pngmem.c
+    libs/png/pngpread.c
+    libs/png/pngread.c
+    libs/png/pngrio.c
+    libs/png/pngrtran.c
+    libs/png/pngrutil.c
+    libs/png/pngset.c
+    libs/png/pngtrans.c
+    libs/png/pngvcrd.c
+    libs/png/pngwio.c
+    libs/png/pngwrite.c
+    libs/png/pngwtran.c
+    libs/png/pngwutil.c)
+
   include_directories(libs/png)
   add_library(png ${PNG_SOURCES} ${PNG_INCLUDES})
   set(PNG_LIBRARY png)
 else()
+  find_package(PNG REQUIRED)
+  include_directories(${PNG_INCLUDE_DIRS})
   set(PNG_LIBRARY png)
 endif()
 
 
 #libz###########################################################################
 
-file(GLOB ZLIB_INCLUDES libs/zlib/*.h)
-file(GLOB ZLIB_SOURCES libs/zlib/*.c)
-
 if(BUNDLED_ZLIB)
+  set(ZLIB_INCLUDES
+    libs/zlib/crc32.h
+    libs/zlib/deflate.h
+    libs/zlib/gzguts.h
+    libs/zlib/inffast.h
+    libs/zlib/inffixed.h
+    libs/zlib/inflate.h
+    libs/zlib/inftrees.h
+    libs/zlib/trees.h
+    libs/zlib/zconf.h
+    libs/zlib/zlib.h
+    libs/zlib/zutil.h)
+
+  set(ZLIB_SOURCES
+    libs/zlib/adler32.c
+    libs/zlib/compress.c
+    libs/zlib/crc32.c
+    libs/zlib/deflate.c
+    libs/zlib/gzclose.c
+    libs/zlib/gzlib.c
+    libs/zlib/gzread.c
+    libs/zlib/gzwrite.c
+    libs/zlib/infback.c
+    libs/zlib/inffast.c
+    libs/zlib/inflate.c
+    libs/zlib/inftrees.c
+    libs/zlib/trees.c
+    libs/zlib/uncompr.c
+    libs/zlib/zutil.c)
+
+  include_directories(libs/zlib)
   add_library(zlib ${ZLIB_SOURCES} ${ZLIB_INCLUDES})
   set(ZLIB_LIBRARY zlib)
+else()
+  find_package(ZLIB REQUIRED)
+  include_directories(${ZLIB_INCLUDE_DIRS})
+  set(ZLIB_LIBRARY z)
 endif()
 
 #minizip########################################################################
 
-file(GLOB MINIZIP_INCLUDES libs/zlib/minizip/*.h)
-file(GLOB MINIZIP_SOURCES libs/zlib/minizip/*.c libs/zlib/minizip/*.cpp)
-
 if(BUNDLED_MINIZIP)
+  set(MINIZIP_INCLUDES
+    libs/zlib/minizip/ioapi.h
+    libs/zlib/minizip/unzip.h
+    libs/zlib/minizip/zip.h)
+
+  set(MINIZIP_SOURCES
+    libs/zlib/minizip/ioapi.c
+    libs/zlib/minizip/unzip.cpp
+    libs/zlib/minizip/zip.cpp)
+
+  include_directories(libs/zlib)
   add_library(minizip ${MINIZIP_SOURCES} ${MINIZIP_INCLUDES})
+  set(MINIZIP_LIBRARY minizip)
+else()
+  #find_package(MINIZIP REQUIRED)
+  #include_directories(${MINIZIP_INCLUDE_DIRS})
+  include_directories(/usr/include)
   set(MINIZIP_LIBRARY minizip)
 endif()
 
@@ -413,21 +484,28 @@ endif()
 
 #glew###########################################################################
 
-set(GLEW_INCLUDES
-	libs/glew/include/GL/glew.h)
-	
-if(WIN32)
-	set(GLEW_INCLUDES ${GLEW_INCLUDES} libs/glew/include/GL/wglew.h)
-else()
-	set(GLEW_INCLUDES ${GLEW_INCLUDES} libs/glew/include/GL/glxew.h)
-endif()
-	
-set(GLEW_SOURCES
-	libs/glew/src/glew.c)
-
 if(BUNDLED_GLEW)
+  set(GLEW_INCLUDES
+      libs/glew/include/GL/glew.h)
+
+  if(WIN32)
+      set(GLEW_INCLUDES ${GLEW_INCLUDES} libs/glew/include/GL/wglew.h)
+  else()
+      set(GLEW_INCLUDES ${GLEW_INCLUDES} libs/glew/include/GL/glxew.h)
+  endif()
+
+  set(GLEW_SOURCES
+      libs/glew/src/glew.c)
+
+  include_directories(libs/glew/include)
   add_library(glew ${GLEW_SOURCES} ${GLEW_INCLUDES})
   set(GLEW_LIBRARY glew)
+
+  add_definitions(-DGLEW_STATIC)
+else()
+  find_package(GLEW REQUIRED)
+  include_directories(${GLEW_INCLUDE_DIRS})
+  set(GLEW_LIBRARY GLEW)
 endif()
 
 #freetype#######################################################################	
@@ -1144,7 +1222,6 @@ set(RBDOOM3_SOURCES
 			)
 
 add_definitions(-D__DOOM__
-				-DGLEW_STATIC
 				#-DBUILD_FREETYPE
 				#-DFT2_BUILD_LIBRARY
 				)
