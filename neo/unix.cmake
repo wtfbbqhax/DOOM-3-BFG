@@ -1,5 +1,5 @@
 
-set(OPENAL_LIBRARY openal)
+
 
 list(APPEND OpenTechBFG_SOURCES
   ${SYS_INCLUDES} ${SYS_SOURCES})
@@ -39,6 +39,7 @@ list(APPEND OpenTechBFG_SOURCES
 if(OPENAL)
   find_package(OpenAL REQUIRED)
   add_definitions(-DUSE_OPENAL)
+  set(OPENAL_LIBRARY openal)
   
   list(APPEND OpenTechBFG_INCLUDES ${OPENAL_INCLUDES})
   list(APPEND OpenTechBFG_SOURCES ${OPENAL_SOURCES})
