@@ -1,0 +1,57 @@
+# libjpeg
+if(BUNDLED_JPEG)
+  include_directories(../libs/jpeg/jpeg-6b)
+else()
+  find_package(JPEG REQUIRED)
+  include_directories(${JPEG_INCLUDE_DIRS})
+endif()
+set(JPEG_LIBRARY jpeg)
+
+# zlib and minizip
+if(BUNDLED_ZLIB)
+  include_directories(../libs/zlib/zlib)
+  set(ZLIB_LIBRARY zlib)
+else()
+  find_package(ZLIB REQUIRED)
+  include_directories(${ZLIB_INCLUDE_DIRS})
+  include_directories(/usr/include) # for minizip
+  set(ZLIB_LIBRARY z)
+endif()
+set(MINIZIP_LIBRARY minizip)
+
+# libpng
+if(BUNDLED_PNG)	
+  include_directories(../libs/png/png)
+else()
+  find_package(PNG REQUIRED)
+  include_directories(${PNG_INCLUDE_DIRS})
+endif()
+set(PNG_LIBRARY png)
+
+# glew
+if(BUNDLED_GLEW)
+  add_definitions(-DGLEW_STATIC)
+  include_directories(../libs/glew/glew/include)
+  set(GLEW_LIBRARY glew)
+else()
+  find_package(GLEW REQUIRED)
+  include_directories(${GLEW_INCLUDE_DIRS})
+  set(GLEW_LIBRARY GLEW)
+endif()
+
+# openal
+if(BUNDLED_OPENAL)	
+  include_directories(../libs/openal/openal-soft.git/include)
+  set(OPENAL_LIBRARY ../libs/openal/openal-soft.git/lib/openal.a) # need to check where it builds to
+else()
+# TODO: OS specific code handles currently, should we have it here?
+endif()
+
+
+# sdl
+if(BUNDLED_SDL)	
+  include_directories(../libs/sdl/SDL.git/include)
+  set(SDLx_LIBRARY ../libs/sdl/SDL.git/lib/SDL2.a) # need to check where it builds to
+else()
+# TODO: OS specific code handles currently, should we have it here?
+endif()
