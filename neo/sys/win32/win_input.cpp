@@ -28,6 +28,9 @@ If you have questions concerning this license or the applicable additional terms
 */
 
 #pragma hdrstop
+
+#include <string.h> // for memset
+
 #include "../framework/UsercmdGen.h"
 #include "../sys_session_local.h"
 
@@ -899,7 +902,9 @@ void idJoystickWin32::SetRumble( int inputDeviceNum, int rumbleLow, int rumbleHi
 	DWORD err = XInputSetState( inputDeviceNum, &vibration );
 	if( err != ERROR_SUCCESS )
 	{
-		idLib::Warning( "XInputSetState error: 0x%x", err );
+
+		idLib::Warning("XInputSetState error: 0x%" PRIxSIZE "", (size_t)err);
+
 	}
 }
 
