@@ -29,6 +29,8 @@ If you have questions concerning this license or the applicable additional terms
 #include <stddef.h>
 #include <string.h>
 
+#include <zlib.h>
+
 #include "../framework/CVarSystem.h"
 #include "../framework/CmdSystem.h"
 #include "../framework/Compressor.h"
@@ -42,7 +44,6 @@ If you have questions concerning this license or the applicable additional terms
 #include "../idlib/hashing/MD5.h"
 #include "../idlib/sys/sys_assert.h"
 #include "../idlib/sys/sys_types.h"
-#include "../libs/zlib/minizip/../zlib.h"
 #include "../sys/sys_public.h"
 #include "File_SaveGame.h"
 #include "sys/sys_threading.h"
@@ -1245,9 +1246,10 @@ static void TestProcessFile( const char* const filename )
 	
 	const uint64 endWriteMicroseconds = Sys_Microseconds();
 	const uint64 writeMicroseconds = endWriteMicroseconds - startWriteMicroseconds;
-	
-	idLib::Printf( "%lld microseconds to compress %i bytes to %i written bytes = %4.1f MB/s\n",
-				   writeMicroseconds, testDataLength, readDataLength, ( float )readDataLength / writeMicroseconds );
+
+	idLib::Printf("%" PRIu64 " microseconds to compress %i bytes to %i written bytes = %4.1f MB/s\n",
+					   writeMicroseconds, testDataLength, readDataLength, ( float )readDataLength / writeMicroseconds );
+
 				   
 	void* readData = ( void* )Mem_Alloc( testDataLength, TAG_SAVEGAMES );
 	
@@ -1260,8 +1262,8 @@ static void TestProcessFile( const char* const filename )
 	
 	const uint64 endReadMicroseconds = Sys_Microseconds();
 	const uint64 readMicroseconds = endReadMicroseconds - startReadMicroseconds;
-	
-	idLib::Printf( "%lld microseconds to decompress = %4.1f MB/s\n", readMicroseconds, ( float )testDataLength / readMicroseconds );
+
+	idLib::Printf("%" PRIu64 " microseconds to decompress = %4.1f MB/s\n", readMicroseconds, (float)testDataLength / readMicroseconds);
 	
 	int comparePoint;
 	for( comparePoint = 0; comparePoint < testDataLength; comparePoint++ )

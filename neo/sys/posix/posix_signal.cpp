@@ -88,7 +88,7 @@ void Posix_ClearSigs( )
 	{
 		if( sigaction( siglist[ i ], &action, NULL ) != 0 )
 		{
-			Sys_Printf( "Failed to reset %s handler: %s\n", signames[ i ], strerror( errno ) );
+			Sys_Printf( "Failed to reset %s handler: %s\n", signames[ i ], Sys_GetLastErrorString() );
 		}
 		i++;
 	}
@@ -151,13 +151,13 @@ void Posix_InitSigs( )
 			action.sa_sigaction = Sys_FPE_handler;
 			if( sigaction( siglist[ i ], &action, NULL ) != 0 )
 			{
-				Sys_Printf( "Failed to set SIGFPE handler: %s\n", strerror( errno ) );
+				Sys_Printf( "Failed to set SIGFPE handler: %s\n", Sys_GetLastErrorString() );
 			}
 			action.sa_sigaction = sig_handler;
 		}
 		else if( sigaction( siglist[ i ], &action, NULL ) != 0 )
 		{
-			Sys_Printf( "Failed to set %s handler: %s\n", signames[ i ], strerror( errno ) );
+			Sys_Printf( "Failed to set %s handler: %s\n", signames[ i ], Sys_GetLastErrorString() );
 		}
 		i++;
 	}

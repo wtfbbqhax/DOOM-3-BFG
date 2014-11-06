@@ -40,13 +40,13 @@ If you have questions concerning this license or the applicable additional terms
 
 #include <assert.h>
 #include <stddef.h>
+#include <GL/glew.h>
 
 #include "../framework/CVarSystem.h"
 #include "../framework/Common.h"
 #include "../framework/Licensee.h"
 #include "../idlib/containers/List.h"
 #include "../idlib/containers/Sort.h"
-#include "../libs/glew/include/GL/glew.h"
 #include "../renderer/RenderSystem.h"
 #include "renderer/tr_local.h"
 #include "sdl_local.h"
