@@ -279,7 +279,7 @@ extern volatile int ignoredReturnValue;
 #define PRId64 "I64d"
 #define PRIu64 "I64u"
 
-#else // ifdef _MSC_VER
+#else // not _WIN32
 
 #define PRIiSIZE "zi"
 #define PRIuSIZE "zu"
@@ -290,4 +290,4 @@ extern volatile int ignoredReturnValue;
 #define PRId64 "lld"
 #define PRIu64 "llu"
 
-#endif // ifdef _MSC_VER
+#endif // _WIN32
