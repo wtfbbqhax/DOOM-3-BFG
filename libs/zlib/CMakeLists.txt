@@ -12,6 +12,12 @@ if(CMAKE_COMPILER_IS_GNUCC OR CMAKE_C_COMPILER_ID STREQUAL "Clang")
   
   add_definitions(-fno-strict-aliasing)
   
+  if(CMAKE_C_COMPILER_ID STREQUAL "Clang")
+    # this is needed because minizip/(un)zip.cpp are modified and include Heap.h
+    # with the replacement new- and delete-operators
+    add_definitions(-Wno-inline-new-delete)
+  endif()
+  
   set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} -D_DEBUG -O0 -ggdb ")
   #set(CMAKE_C_FLAGS_DEBUGALL "${CMAKE_C_FLAGS_DEBUGALL} -g -ggdb -D_DEBUG")
   #set(CMAKE_C_FLAGS_PROFILE "${CMAKE_C_FLAGS_PROFILE} -g -ggdb -D_DEBUG -O1 -fno-omit-frame-pointer")

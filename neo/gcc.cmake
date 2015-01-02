@@ -49,16 +49,16 @@ add_definitions(-Woverloaded-virtual)
 
 # Disabling problematic ones
 add_definitions(-Wno-unknown-pragmas)
-add_definitions(-Wno-unused-local-typedefs)
-add_definitions(-Wno-unused-function)
 add_definitions(-Wno-switch)
 add_definitions(-Wno-sign-compare)
 add_definitions(-Wno-invalid-offsetof)
+
+# FIXME: at some point we should just clean up the unused crap!
+add_definitions(-Wno-unused-local-typedefs)
+add_definitions(-Wno-unused-function)
 add_definitions(-Wno-unused-variable)
 add_definitions(-Wno-unused-but-set-variable)
 add_definitions(-Wno-unused-value) # a were set for debugging?
-#add_definitions(-Wno-pragmas)
-#add_definitions(-Wno-multichar)
 
 
 if(CMAKE_C_COMPILER_ID STREQUAL "Clang")
@@ -67,13 +67,16 @@ if(CMAKE_C_COMPILER_ID STREQUAL "Clang")
   add_definitions(-Wno-unknown-warning-option)
   add_definitions(-Wno-inline-new-delete)
   add_definitions(-Wno-local-type-template-args)
+  
+  # FIXME: at some point we should just clean up the unused crap!
+  add_definitions(-Wno-unused-private-field)
 endif()
 
-if(NOT UNIX) # MinGW
+if(WIN32) # MinGW, 32 and 64bit
   # require msvcr70.dll or newer for _aligned_malloc etc
   # I think it is from Visual C++ .NET 2002, so it should be available on any remotely modern system.
   add_definitions(-D__MSVCRT_VERSION__=0x0700)
-endif()	# NOT UNIX
+endif()	# WIN32
 
 #if(NOT ANDROID)
 add_definitions(-DUSE_EXCEPTIONS)

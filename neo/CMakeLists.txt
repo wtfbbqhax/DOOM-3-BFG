@@ -26,8 +26,12 @@ include(${CMAKE_CURRENT_SOURCE_DIR}/libraries.cmake)
 
 ## TARGETS
 
-if(NOT UNIX) # Windows (MSVC and MinGW)
+if(WIN32) # Windows (MSVC and MinGW, 32 and 64bit)
   include(${CMAKE_CURRENT_SOURCE_DIR}/windows.cmake)
-else() # UNIX
+elseif(UNIX) # Linux, OSX, *BSD, Solaris, ...
   include(${CMAKE_CURRENT_SOURCE_DIR}/unix.cmake)
+else()
+  # if your platform is neither windows nor unix-ish, you'll have to adapt the
+  # cmake files for it (and you'll probably also have to write some system-specific code)
+  message(FATAL_ERROR, "Unsupported platform!")
 endif()
