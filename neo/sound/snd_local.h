@@ -30,68 +30,9 @@ If you have questions concerning this license or the applicable additional terms
 #ifndef __SND_LOCAL_H__
 #define __SND_LOCAL_H__
 
-
-/*_________________________________
-// RB: not available on Windows 8 SDK
-#if !defined(USE_WINRT) // (_WIN32_WINNT < 0x0602 ) //_WIN32_WINNT_WIN8
-#include <dxsdkver.h>
-#endif
-// RB end
-
-#include <xaudio2.h>
-#include <xaudio2fx.h>
-#include <X3DAudio.h>
-
-// RB: not available on Windows 8 SDK
-#if !defined(USE_WINRT) // (_WIN32_WINNT < 0x0602 ) //_WIN32_WINNT_WIN8
-#include <xma2defs.h>
-#endif
-// RB end
-
-#include "XAudio2/XA2_SoundSample.h"
-#include "XAudio2/XA2_SoundVoice.h"
-#include "XAudio2/XA2_SoundHardware.h"
-
-#else // not _MSC_VER => MinGW, GCC, ...
-// just a stub for now
-#include "stub/SoundStub.h"
-#endif // _MSC_VER ; DG end
-_________________________________*/
-
-
-#include "../idlib/Thread.h"                     // for idSysMutex
-
-#include "../sound/sound.h"
-
-#if defined(USE_OPENAL) // OpenAL backend
-
-//#define AL_ALEXT_PROTOTYPES
-
-#ifdef __APPLE__
-#include <OpenAL/al.h>
-#include <OpenAL/alc.h>
-#else
-#include <AL/al.h>
-#include <AL/alc.h>
-#include <AL/alext.h>
-#endif
-
-#include "../sound/OpenAL/AL_SoundVoice.h"  // for idSoundVoice_OpenAL
-#include "../sound/OpenAL/AL_SoundSample.h"  // for idSoundSample_OpenAL, etc
-#include "../sound/OpenAL/AL_SoundHardware.h" 
-
-#elif defined(_MSC_VER) // XAudio backend
-
-#include "../sound/XAudio2/XA2_SoundVoice.h"  // for idSoundVoice_XAudio2
-#include "../sound/XAudio2/XA2_SoundSample.h"  // for idSoundSample_XAudio2, etc
-#include "../sound/XAudio2/XA2_SoundHardware.h"
-
-#else // stub backend
-
-#include "../sound/stub/SoundVoice.h"  // for idSoundVoice
-#include "../sound/stub/SoundSample.h"  // for idSoundSample
-
-#endif
+#include "sound.h"
+#include "WaveFile.h"
+#include "idlib/Thread.h"
 
 // demo sound commands
 typedef enum
@@ -108,7 +49,24 @@ typedef enum
 	SCMD_FADE
 } soundDemoCommand_t;
 
-#if defined(USE_OPENAL) // OpenAL backend
+#include "SoundVoice.h"
+
+#if defined(USE_OPENAL)
+
+//#define AL_ALEXT_PROTOTYPES
+
+#ifdef __APPLE__
+#include <OpenAL/al.h>
+#include <OpenAL/alc.h>
+#else
+#include <AL/al.h>
+#include <AL/alc.h>
+#include <AL/alext.h>
+#endif
+
+#include "OpenAL/AL_SoundSample.h"
+#include "OpenAL/AL_SoundVoice.h"
+#include "OpenAL/AL_SoundHardware.h"
 
 ID_INLINE_EXTERN ALenum CheckALErrors_( const char* filename, int line )
 {
@@ -136,7 +94,58 @@ ID_INLINE_EXTERN ALCenum CheckALCErrors_( ALCdevice* device, const char* filenam
 
 #define OPERATION_SET 1
 
+// RB: not available on Windows 8 SDK
+#if defined(USE_WINRT) // (_WIN32_WINNT < 0x0602 /*_WIN32_WINNT_WIN8*/)
+#include <mmdeviceapi.h>
+#include <initguid.h> // For the pkey defines to be properly instantiated.
+#include <propkeydef.h>
+#include "functiondiscoverykeys_devpkey.h"
+#include <string>
+#include <vector>
+
+DEFINE_PROPERTYKEY( PKEY_AudioEndpoint_Path, 0x9c119480, 0xddc2, 0x4954, 0xa1, 0x50, 0x5b, 0xd2, 0x40, 0xd4, 0x54, 0xad, 1 );
+
+#pragma comment(lib,"xaudio2.lib")
+
+struct AudioDevice
+{
+	std::wstring name;
+	std::wstring id;
+};
+#else
+#include <dxsdkver.h>
 #endif
+// RB end
+
+#include <xaudio2.h>
+#include <xaudio2fx.h>
+#include <X3DAudio.h>
+
+// RB: not available on Windows 8 SDK
+#if !defined(USE_WINRT) // (_WIN32_WINNT < 0x0602 /*_WIN32_WINNT_WIN8*/)
+#include <xma2defs.h>
+#endif
+// RB end
+
+#include "XAudio2/XA2_SoundSample.h"
+#include "XAudio2/XA2_SoundVoice.h"
+#include "XAudio2/XA2_SoundHardware.h"
+
+#else // not _MSC_VER => MinGW, GCC, ...
+// just a stub for now
+#include "stub/SoundStub.h"
+#endif // _MSC_VER ; DG end
+
+//------------------------
+// Listener data
+//------------------------
+struct listener_t
+{
+	idMat3	axis;		// orientation of the listener
+	idVec3	pos;		// position in meters
+	int		id;			// the entity number, used to detect when a sound is local
+	int		area;		// area number the listener is in
+};
 
 class idSoundFade
 {
@@ -159,7 +168,6 @@ public:
 	
 	float	GetVolume( int soundTime ) const;
 };
-
 
 /*
 ================================================
@@ -203,17 +211,6 @@ public:
 	// only allocated by the soundWorld block allocator
 	idSoundChannel();
 	~idSoundChannel();
-};
-
-//------------------------
-// Listener data
-//------------------------
-struct listener_t
-{
-	idMat3	axis;		// orientation of the listener
-	idVec3	pos;		// position in meters
-	int		id;			// the entity number, used to detect when a sound is local
-	int		area;		// area number the listener is in
 };
 
 // Maximum number of SoundChannels for a single SoundEmitter.

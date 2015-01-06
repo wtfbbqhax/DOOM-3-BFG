@@ -50,11 +50,26 @@ If you have questions concerning this license or the applicable additional terms
 #include "../sound/sound.h"
 #include "../sys/sys_public.h"
 
+extern idCVar s_noSound;
+
+//#define JPEG_INTERNALS
+//extern "C" {
+#include <jpeglib.h>
+//}
+
+#include "tr_local.h"
+
+#define CIN_system	1
+#define CIN_loop	2
+#define	CIN_hold	4
+#define CIN_silent	8
+#define CIN_shader	16
+
 #if defined(USE_FFMPEG)
 // Carl: ffmpg for bink video files
-
 extern "C"
 {
+
 //#ifdef WIN32
 #ifndef INT64_C
 #define INT64_C(c) (c ## LL)
@@ -63,36 +78,11 @@ extern "C"
 //#include <inttypes.h>
 //#endif
 
-#include <libavutil/avutil.h>
-#include <libavutil/mem.h>
 #include <libavcodec/avcodec.h>
 #include <libavformat/avformat.h>
 #include <libswscale/swscale.h>
 }
 #endif // USE_FFMPEG
-
-extern "C" {
-#include <jconfig.h>
-#include <jmorecfg.h>
-#include <jpeglib.h>
-}
-
-extern idCVar s_noSound;
-extern idCVar r_skipDynamicTextures;
-
-#define JPEG_INTERNALS
-
-
-
-//#include "tr_local.h"
-
-struct SwsContext;
-
-#define CIN_system	1
-#define CIN_loop	2
-#define	CIN_hold	4
-#define CIN_silent	8
-#define CIN_shader	16
 
 class idCinematicLocal : public idCinematic
 {

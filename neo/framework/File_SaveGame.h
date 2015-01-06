@@ -86,8 +86,6 @@ public: // TODO_KC_CR for now...
 	bool				error;			// when loading, this is set if there is a problem
 };
 
-class idSGFcompressThread;
-class idSGFdecompressThread;
 /*
 ================================================
 idFile_SaveGamePipelined uses threads to pipeline overlap compression and IO
@@ -95,6 +93,8 @@ idFile_SaveGamePipelined uses threads to pipeline overlap compression and IO
 */
 class idSGFreadThread;
 class idSGFwriteThread;
+class idSGFdecompressThread;
+class idSGFcompressThread;
 
 struct blockForIO_t
 {

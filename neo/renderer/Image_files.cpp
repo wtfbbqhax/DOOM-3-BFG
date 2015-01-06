@@ -41,7 +41,6 @@ If you have questions concerning this license or the applicable additional terms
 #include "../idlib/sys/sys_defines.h"
 #include "../idlib/sys/sys_types.h"
 
-#include "../renderer/Image.h"
 #include "tr_local.h"
 
 /*
@@ -464,8 +463,9 @@ static void LoadJPG( const char* filename, unsigned char** pic, int* width, int*
 	JSAMPARRAY buffer;		/* Output row buffer */
 	int row_stride;		/* physical row width in output buffer */
 	unsigned char* out;
-	FILE*	fbuffer;
+	byte*	fbuffer;
 	byte*  bbuf;
+	int     len;
 	
 	/* In this example we want to open the input file before doing anything else,
 	 * so that the setjmp() error recovery below can assume the file is open.
@@ -480,7 +480,6 @@ static void LoadJPG( const char* filename, unsigned char** pic, int* width, int*
 		*pic = NULL;		// until proven otherwise
 	}
 	{
-		int		len;
 		idFile* f;
 		
 		f = fileSystem->OpenFileRead( filename );
@@ -498,7 +497,7 @@ static void LoadJPG( const char* filename, unsigned char** pic, int* width, int*
 			fileSystem->CloseFile( f );
 			return;	// just getting timestamp
 		}
-		fbuffer = ( FILE* )Mem_ClearedAlloc( len + 4096, TAG_JPG );
+		fbuffer = ( byte* )Mem_ClearedAlloc( len + 4096, TAG_JPG );
 		f->Read( fbuffer, len );
 		fileSystem->CloseFile( f );
 	}
@@ -518,7 +517,8 @@ static void LoadJPG( const char* filename, unsigned char** pic, int* width, int*
 	
 	/* Step 2: specify data source (eg, a file) */
 	
-	jpeg_stdio_src( &cinfo, fbuffer );
+	// jpeg_stdio_src( &cinfo, fbuffer ); // FIXME DG: WTF was this?
+	jpeg_mem_src( &cinfo, fbuffer, len ); // DG: this looks better.
 	
 	/* Step 3: read file parameters with jpeg_read_header() */
 	

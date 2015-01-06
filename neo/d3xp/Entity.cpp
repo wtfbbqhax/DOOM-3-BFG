@@ -1763,7 +1763,11 @@ idEntity::UpdateRenderEntity
 */
 bool idEntity::UpdateRenderEntity( renderEntity_s* renderEntity, const renderView_t* renderView )
 {
-
+	if( gameLocal.inCinematic && gameLocal.skipCinematic )
+	{
+		return false;
+	}
+	
 	idAnimator* animator = GetAnimator();
 	if( animator != NULL )
 	{
