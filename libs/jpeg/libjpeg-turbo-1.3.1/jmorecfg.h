@@ -159,8 +159,8 @@ typedef short INT16;
 
 /* INT32 must hold at least signed 32-bit values. */
 
-#ifndef XMD_H			/* X11/xmd.h correctly defines INT32 */
-typedef long INT32;
+#if !defined(XMD_H) && !defined(_WIN32)			/* X11/xmd.h correctly defines INT32 */
+typedef long INT32; // DG: window's basetsd.h has that too..
 #endif
 
 /* Datatype used for image dimensions.  The JPEG standard only supports
@@ -227,6 +227,11 @@ typedef unsigned int JDIMENSION;
  * specific header files that you want to include together with these files.
  * Defining HAVE_BOOLEAN before including jpeglib.h should make it work.
  */
+
+#ifdef __MINGW32__ // DG: mingw complains that rpcndr.h also typedefs a boolean type
+#include <wtypes.h> // at least if this is included.
+#define HAVE_BOOLEAN 1
+#endif
 
 #ifndef HAVE_BOOLEAN
 typedef int boolean;

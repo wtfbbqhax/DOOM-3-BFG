@@ -139,7 +139,8 @@
 #define VERSION "1.3.1"
 
 /* Use accelerated SIMD routines. */
-#define WITH_SIMD 0 // DG: don't, for now
+// #define WITH_SIMD 1 
+#undef WITH_SIMD // DG: don't, for now
 
 /* Define to 1 if type `char' is unsigned and you are not using gcc.  */
 #ifndef __CHAR_UNSIGNED__
