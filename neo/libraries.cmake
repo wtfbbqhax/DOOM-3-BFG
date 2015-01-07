@@ -1,6 +1,6 @@
 # libjpeg
 if(BUNDLED_JPEG)
-  include_directories(../libs/jpeg/jpeg-6b)
+  include_directories(../libs/jpeg/libjpeg-turbo-1.3.1)
 else()
   find_package(JPEG REQUIRED)
   include_directories(${JPEG_INCLUDE_DIRS})
