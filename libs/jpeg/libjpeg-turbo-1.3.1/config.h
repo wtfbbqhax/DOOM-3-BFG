@@ -83,8 +83,8 @@
 /* How to obtain function inlining. */
 #ifdef __GNUC__ // gcc, clang - DG: adjusted to also support MSVC
 #define INLINE inline __attribute__((always_inline))
-#else
-#define INLINE inline
+#else // for some reason it MSVC doesn't support inline at the place it's inserted from INLINE.. no inline then.
+#define INLINE
 #endif
 
 /* libjpeg API version */

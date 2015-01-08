@@ -16,7 +16,17 @@ option(SDL2
   "Use SDL2 instead of SDL1.2" OFF)
 
 option(OPENAL
-  "Use OpenAL soft instead of XAudio2" ON)
+  "Use OpenAL soft instead of XAudio2" OFF)
+
+
+option(OPENAL
+  "Use OpenAL soft instead of XAudio2" OFF)
+
+if(NOT MSVC)
+  # on other platforms we must use openal because they don't have xaudio - and mingw is missing XAudio2.h
+  # FIXME: can we somehow have it default to OFF on windows and ON everywhere else?
+  set(OPENAL TRUE)
+endif()
 
 option(FFMPEG
   "Use FMPEG to render Bink videos" OFF)
@@ -25,6 +35,9 @@ option(IDTOOLS
   "Compile the built-in game tools" ON)
 
 #options########################################################################
+
+
+
 
 # FIXME: should autodetect if there is a version available by CMake and use that if yes?
 

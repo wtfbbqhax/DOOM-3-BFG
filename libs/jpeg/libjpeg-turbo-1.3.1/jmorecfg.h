@@ -228,7 +228,7 @@ typedef unsigned int JDIMENSION;
  * Defining HAVE_BOOLEAN before including jpeglib.h should make it work.
  */
 
-#ifdef __MINGW32__ // DG: mingw complains that rpcndr.h also typedefs a boolean type
+#ifdef _WIN32 // DG: mingw/msvc complain that rpcndr.h also typedefs a boolean type
 #include <wtypes.h> // at least if this is included.
 #define HAVE_BOOLEAN 1
 #endif

@@ -10,8 +10,9 @@
  * These declarations are considered internal to the JPEG library; most
  * applications using the library shouldn't need to include this file.
  */
-
-
+#ifdef _WIN32 // DG: for INT32
+#include <basetsd.h>
+#endif
 /* Declarations for both compression & decompression */
 
 typedef enum {			/* Operating modes for buffer controllers */
