@@ -1,19 +1,19 @@
 ```
-    ____   ____   ____                           _____  ____   ______ ______
-   / __ \ / __ ) / __ \ ____   ____   ____ ___  |__  / / __ ) / ____// ____/
-  / /_/ // __  |/ / / // __ \ / __ \ / __ `__ \  /_ < / __  |/ /_   / / __  
- / _, _// /_/ // /_/ // /_/ // /_/ // / / / / /___/ // /_/ // __/  / /_/ /  
-/_/ |_|/_____//_____/ \____/ \____//_/ /_/ /_//____//_____//_/     \____/   
-_________________________________________
+ _____                _____         _     _____            _            
+|  _  |              |_   _|       | |   |  ___|          (_)           
+| | | |_ __   ___ _ __ | | ___  ___| |__ | |__ _ __   __ _ _ _ __   ___ 
+| | | | '_ \ / _ | '_ \| |/ _ \/ __| '_ \|  __| '_ \ / _` | | '_ \ / _ \
+\ \_/ | |_) |  __| | | | |  __| (__| | | | |__| | | | (_| | | | | |  __/
+ \___/| .__/ \___|_| |_\_/\___|\___|_| |_\____|_| |_|\__, |_|_| |_|\___|
+      | |                                             __/ |             
+      |_|                                            |___/ 
 ```
 
 [![Build Status](https://travis-ci.org/OpenTechEngine/OpenTechBFG.svg?branch=projectLayout)](https://travis-ci.org/OpenTechEngine/OpenTechBFG)
 
-RBDOOM-3-BFG Readme - https://github.com/RobertBeckebans/RBDOOM-3-BFG
+Thank you for downloading OpenTechEngine.
 
-Thank you for downloading RBDOOM-3-BFG.
-
-
+OpenTechEngine is idTech based engine, forked from RBDOOM-3-BFG.
 
 _______________________________________
 
@@ -95,7 +95,7 @@ any other Steam features.
 
 Bink:
 -----
-The RBDoom3BFG Edition GPL Source Code release includes functionality for rendering Bink Videos through FFmpeg.
+The OpenTechEngine GPL Source Code release includes functionality for rendering Bink Videos through FFmpeg.
 
 
 Back End Rendering of Stencil Shadows:
@@ -117,7 +117,7 @@ as well as force the content of your mod directory over the content of the game 
 
 "+set fs_resourceLoadPriority 0"
 
-so it would end up looking like: RBDoom3BFG +set fs_resourceLoadPriority 0 +set fs_game mymod
+so it would end up looking like: OpenTechEngine +set fs_resourceLoadPriority 0 +set fs_game mymod
 
 
 _______________________________
@@ -138,10 +138,10 @@ ___________________________________
 
 This project's GitHub.net Git repository can be checked out through Git with the following instruction set: 
 
-	> git clone https://github.com/RobertBeckebans/RBDOOM-3-BFG.git
+	> git clone https://github.com/OpenTechEngine/OpenTechBFG.git
 
 If you don't want to use git, you can download the source as a zip file at
-	https://github.com/RobertBeckebans/RBDOOM-3-BFG/archive/master.zip
+	https://github.com/OpenTechEngine/OpenTechBFG/archive/master.zip
 
 
 
@@ -160,11 +160,11 @@ __________________________________________________________
 4. Generate the VC13 projects using CMake by doubleclicking a matching configuration .bat file in the neo/ folder.
 
 5. Use the VC13 solution to compile what you need:
-	RBDOOM-3-BFG/build/RBDoom3BFG.sln
+	OpenTechEngine/build/OpenTechEngine.sln
 	
 6. Download ffmpeg-20140405-git-ec8789a-win32-shared.7z from ffmpeg.zeranoe.com/builds/win32/shared
 
-7. Extract the FFmpeg DLLs to your current build directory under RBDOOM-3-BFG/build/
+7. Extract the FFmpeg DLLs to your current build directory under OpenTechEngine/build/
 
 
 __________________________________
@@ -173,7 +173,7 @@ __________________________________
 _________________________
 
 
-1. You need the following dependencies in order to compile RBDoom3BFG with all features:
+1. You need the following dependencies in order to compile OpenTechEngine with all features:
  
 	On Debian or Ubuntu:
 
@@ -204,7 +204,7 @@ _________________________
 	> cd neo/
 	> ./cmake-eclipse-linux-profile.sh
 	
-3. Compile RBDOOM-3-BFG targets with
+3. Compile OpenTechEngine targets with
 
 	> cd ../build
 	> make
@@ -216,7 +216,7 @@ __________________________________________
 
 
 If you use the prebuilt Win32 binaries then simply extract them to your
-C:\Program Files (x86)\Steam\SteamApps\common\Doom 3 BFG Edition\ directory and run RBDoom3BFG.exe.
+C:\Program Files (x86)\Steam\SteamApps\common\Doom 3 BFG Edition\ directory and run OpenTechEngine.exe.
 
 
 
@@ -244,12 +244,12 @@ Anyway:
    (e.g. /path/to/Doom3BFG/), it's in
 	/your/path/to/Steam/steamapps/common/DOOM 3 BFG Edition/base/
 
-4. Copy your RBDoom3BFG executable that you created in 5) or 6) and the FFmpeg DLLs to your own 
-   Doom 3 BFG directory (/path/to/Doom3BFG).
+4. Copy your OpenTechEngine executable that you created in 5) or 6) and the FFmpeg DLLs to your own 
+   OpenTechEngine directory (/path/to/OpenTechEngine/).
    
    Your own Doom 3 BFG directory now should look like:
 	/path/to/Doom3BFG/
-	 ->	RBDoom3BFG (or RBDoom3BFG.exe on Windows)
+	 ->	OpenTechEngine (or OpenTechEngine.exe on Windows)
 	 -> avcodec-55.dll
 	 -> avdevice-55.dll
 	 -> avfilter-4.dll
@@ -263,7 +263,7 @@ Anyway:
 		 ->	_common.crc
 		 ->	(etc)
 
-5. Run the game by executing the RBDoom3BFG executable.
+5. Run the game by executing the OpenTechEngine executable.
 
 6. Enjoy
 
@@ -324,12 +324,14 @@ ___________________________________________________
 11) BUG REPORTS
 __________________________________________
 
-RBDOOM-3-BFG is not perfect, it is not bug free as every other software.
+OpenTechEngine is not perfect, it is not bug free as every other software.
 For fixing as much problems as possible we need as much bug reports as possible.
 We cannot fix anything if we do not know about the problems.
 
 The best way for telling us about a bug is by submitting a bug report at our GitHub bug tracker page:
 
+	https://github.com/OpenTechEngine/OpenTechBFG/issues?state=open
+	And our fork source at
 	https://github.com/RobertBeckebans/RBDOOM-3-BFG/issues?state=open
 
 The most important fact about this tracker is that we cannot simply forget to fix the bugs which are posted there. 
@@ -342,7 +344,7 @@ If you want to report an issue with the game, you should make sure that your rep
     * If appropriate, send a console log, a screenshot, an strace ..
     * If you are sending a console log, make sure to enable developer output:
 
-              RBDoom3BFG.exe +set developer 1 +set logfile 2
+              OpenTechEngine.exe +set developer 1 +set logfile 2
 
 NOTE: We cannot help you with OS-specific issues like configuring OpenGL correctly, configuring ALSA or configuring the network.
 	
@@ -358,59 +360,6 @@ _______________________________________________________________________
 EXCLUDED CODE:  The code described below and contained in the Doom 3 BFG Edition GPL Source Code release
 is not part of the Program covered by the GPL and is expressly excluded from its terms. 
 You are solely responsible for obtaining from the copyright holder a license for such code and complying with the applicable license terms.
-
-
-JPEG library
------------------------------------------------------------------------------
-neo/libs/jpeg-6/*
-
-Copyright (C) 1991-1995, Thomas G. Lane
-
-Permission is hereby granted to use, copy, modify, and distribute this
-software (or portions thereof) for any purpose, without fee, subject to these
-conditions:
-(1) If any part of the source code for this software is distributed, then this
-README file must be included, with this copyright and no-warranty notice
-unaltered; and any additions, deletions, or changes to the original files
-must be clearly indicated in accompanying documentation.
-(2) If only executable code is distributed, then the accompanying
-documentation must state that "this software is based in part on the work of
-the Independent JPEG Group".
-(3) Permission for use of this software is granted only if the user accepts
-full responsibility for any undesirable consequences; the authors accept
-NO LIABILITY for damages of any kind.
-
-These conditions apply to any software derived from or based on the IJG code,
-not just to the unmodified library.  If you use our work, you ought to
-acknowledge us.
-
-NOTE: unfortunately the README that came with our copy of the library has
-been lost, so the one from release 6b is included instead. There are a few
-'glue type' modifications to the library to make it easier to use from
-the engine, but otherwise the dependency can be easily cleaned up to a
-better release of the library.
-
-zlib library
----------------------------------------------------------------------------
-neo/libs/zlib/*
-
-Copyright (C) 1995-2012 Jean-loup Gailly and Mark Adler
-
-This software is provided 'as-is', without any express or implied
-warranty.  In no event will the authors be held liable for any damages
-arising from the use of this software.
-
-Permission is granted to anyone to use this software for any purpose,
-including commercial applications, and to alter it and redistribute it
-freely, subject to the following restrictions:
-
-1. The origin of this software must not be misrepresented; you must not
- claim that you wrote the original software. If you use this software
- in a product, an acknowledgment in the product documentation would be
- appreciated but is not required.
-2. Altered source versions must be plainly marked as such, and must not be
- misrepresented as being the original software.
-3. This notice may not be removed or altered from any source distribution.
 
 Base64 implementation
 ---------------------------------------------------------------------------
@@ -444,34 +393,6 @@ HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
 STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
 ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
-
-IO for (un)compress .zip files using zlib
----------------------------------------------------------------------------
-neo/libs/zlib/minizip/*
-
-Copyright (C) 1998-2010 Gilles Vollant (minizip) ( http://www.winimage.com/zLibDll/minizip.html )
-
-Modifications of Unzip for Zip64
-Copyright (C) 2007-2008 Even Rouault
-
-Modifications for Zip64 support
-Copyright (C) 2009-2010 Mathias Svensson ( http://result42.com )
-
-This software is provided 'as-is', without any express or implied
-warranty.  In no event will the authors be held liable for any damages
-arising from the use of this software.
-
-Permission is granted to anyone to use this software for any purpose,
-including commercial applications, and to alter it and redistribute it
-freely, subject to the following restrictions:
-
-1. The origin of this software must not be misrepresented; you must not
-   claim that you wrote the original software. If you use this software
-   in a product, an acknowledgment in the product documentation would be
-   appreciated but is not required.
-2. Altered source versions must be plainly marked as such, and must not be
-   misrepresented as being the original software.
-3. This notice may not be removed or altered from any source distribution.
 
 MD4 Message-Digest Algorithm
 -----------------------------------------------------------------------------
@@ -536,17 +457,7 @@ CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 MATERIALS OR THE USE OR OTHER DEALINGS IN THE MATERIALS.
 
-Timidity
+Bundled libraries
 ---------------------------------------------------------------------------
-neo/libs/timidity/*
-
-Copyright (c) 1995 Tuukka Toivonen 
-
-From http://www.cgs.fi/~tt/discontinued.html :
-
-If you'd like to continue hacking on TiMidity, feel free. I'm
-hereby extending the TiMidity license agreement: you can now 
-select the most convenient license for your needs from (1) the
-GNU GPL, (2) the GNU LGPL, or (3) the Perl Artistic License.  
-
+Please see sub-directories under libs/ for bundled library license information.
 
