@@ -30,8 +30,8 @@ If you have questions concerning this license or the applicable additional terms
 
 #include "../Game_local.h"
 #include "../d3xp/Player.h"
-#include "../d3xp/menus/MenuHandler_SWF.h"
-#include "../d3xp/menus/MenuScreen_SWF.h"
+#include "../d3xp/menus/MenuHandler.h"
+#include "../d3xp/menus/MenuScreen.h"
 #include "../d3xp/menus/MenuWidget.h"
 #include "../framework/DeclEntityDef.h"
 #include "../framework/DeclManager.h"
@@ -52,6 +52,8 @@ If you have questions concerning this license or the applicable additional terms
 
 static const int MAX_PDA_ITEMS = 15;
 static const int MAX_NAV_OPTIONS = 4;
+
+namespace BFG {
 
 /*
 ========================
@@ -734,4 +736,4 @@ idMenuHandler_PDA::~idMenuHandler_PDA()
 	Cleanup();
 }
 
-
+} // namespace BFG

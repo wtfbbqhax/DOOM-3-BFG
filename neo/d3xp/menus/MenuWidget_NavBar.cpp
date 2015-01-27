@@ -35,9 +35,11 @@ If you have questions concerning this license or the applicable additional terms
 #include "../swf/SWF_SpriteInstance.h"
 #include "../swf/SWF_TextInstance.h"
 
-class idMenuHandler;
-
 #pragma hdrstop
+
+namespace BFG {
+
+class idMenuHandler;
 
 /*
 ========================
@@ -211,3 +213,4 @@ bool idMenuWidget_NavBar::PrepareListElement( idMenuWidget& widget, const int na
 	
 }
 
+} // namespace BFG

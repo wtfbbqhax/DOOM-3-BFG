@@ -35,6 +35,8 @@ If you have questions concerning this license or the applicable additional terms
 
 #include "../framework/CVarSystem.h"
 
+namespace BFG {
+
 class idGame;
 class idRenderWorld;
 class idSoundWorld;
@@ -333,5 +335,7 @@ public:
 };
 
 extern idCommon* 		common;
+
+} // namespace BFG
 
 #endif /* !__COMMON_H__ */

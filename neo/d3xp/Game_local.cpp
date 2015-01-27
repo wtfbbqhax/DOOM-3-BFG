@@ -123,6 +123,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "sys/sys_localuser.h"
 #include "sys/sys_savegame.h"
 
+namespace BFG {
+
 class idLeaderboardCallback;
 class idPreloadManifest;
 
@@ -6100,3 +6102,5 @@ bool idGameLocal::SimulateProjectiles()
 	
 	return moreProjectiles;
 }
+
+} // namespace BFG

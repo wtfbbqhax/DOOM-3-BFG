@@ -95,6 +95,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "Game_local.h"
 #include "PredictedValue_impl.h"
 
+namespace BFG {
+
 /***********************************************************************
 
   idWeapon
@@ -4854,3 +4856,6 @@ void idWeapon::SetIronsight( bool i )
         WEAPON_IRONSIGHT = i;
     }
 }
+
+} // namespace BFG
+

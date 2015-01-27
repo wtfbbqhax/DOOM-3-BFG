@@ -38,6 +38,8 @@ If you have questions concerning this license or the applicable additional terms
 
 #include "../d3xp/Player.h"             // for idPlayer
 
+namespace BFG {
+
 class idMenuHandler;
 class idMenuWidget;
 
@@ -1719,5 +1721,6 @@ private:
 	widgetEvent_t targetEvent;
 };
 
+} // namespace BFG
 
 #endif // __MENU_WIDGET_H__

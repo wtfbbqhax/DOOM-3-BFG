@@ -27,8 +27,8 @@ If you have questions concerning this license or the applicable additional terms
 */
 #include <stddef.h>
 
-#include "../d3xp/menus/MenuHandler_SWF.h"
-#include "../d3xp/menus/MenuScreen_SWF.h"
+#include "../d3xp/menus/MenuHandler.h"
+#include "../d3xp/menus/MenuWidget.h"
 #include "../idlib/Heap.h"
 #include "../idlib/LangDict.h"
 #include "../idlib/Str.h"
@@ -43,6 +43,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../sys/sys_session.h"
 
 #pragma hdrstop
+
+namespace BFG {
 
 /*
 ================================================================================================
@@ -711,4 +713,4 @@ void idMenuWidget_ScoreboardButton::SetButtonInfo( int index_, idList< idStr >& 
 	SetValues( list );
 }
 
-
+} // namespace BFG
