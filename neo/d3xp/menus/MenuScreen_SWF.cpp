@@ -25,7 +25,7 @@ If you have questions concerning this license or the applicable additional terms
 
 ===========================================================================
 */
-#include <stddef.h>
+#include <cstddef>
 
 #include "../d3xp/menus/MenuHandler_SWF.h"
 #include "../d3xp/menus/MenuScreen_SWF.h"
