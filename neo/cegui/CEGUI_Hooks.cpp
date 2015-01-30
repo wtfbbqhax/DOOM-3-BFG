@@ -42,6 +42,8 @@ If you have questions concerning this license or the applicable additional terms
 
 #include "menu/MenuSystem.h"
 
+using BFG::AssertFailed;
+
 namespace // anon. namespace for helper functions and global state
 {
 CEGUI::System* ceguiSys = NULL; // the CEGUI System Singleton, available after Init()
