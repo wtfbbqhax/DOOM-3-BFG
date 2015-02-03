@@ -247,7 +247,9 @@ public:
 	{
 		return weaponDef;
 	}
-	
+
+    void                    SetIronsight( bool i );
+
 	friend class idPlayer;
 private:
 	// script control
@@ -258,6 +260,7 @@ private:
 	idScriptBool			WEAPON_NETFIRING;
 	idScriptBool			WEAPON_RAISEWEAPON;
 	idScriptBool			WEAPON_LOWERWEAPON;
+    idScriptBool            WEAPON_IRONSIGHT;
 	weaponStatus_t			status;
 	idThread* 				thread;
 	idStr					state;
