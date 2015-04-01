@@ -10,6 +10,7 @@
 ```
 
 [![Build Status](https://travis-ci.org/OpenTechEngine/OpenTechBFG.svg?branch=projectLayout)](https://travis-ci.org/OpenTechEngine/OpenTechBFG)
+[![Coverity Scan](https://scan.coverity.com/projects/4341/badge.svg)](https://scan.coverity.com/projects/4341)
 
 Thank you for downloading OpenTechEngine.
 
