@@ -9,6 +9,23 @@ compiler:
   - gcc
   - clang
   - CXX=g++-mingw-w64-x86-64; g++
+
+env:
+  global:
+   # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
+   #   via the "travis encrypt" command using the project repo's public key
+   - secure: "UE8I6ubHMARmKBNBtDDW34DI+PlFe/g2XR4DStfAg34R193nevkpDj+WqBN88VCxN9Z57CMI5fweQUc6r5L5ZuQns8XKe4lu0AmtroOHf+e/FUDlSGz9DUZZk6oTwEtKrsg548ZTanU+fiFkwbvKwx/nHLdYzsI8PYgmw7vci8w="
+
+addons:
+  coverity_scan:
+    project:
+      name: "OpenTechEngine/OpenTechBFG"
+      description: "Build submitted via Travis CI"
+    notification_email: kordex@gmail.com
+    build_command_prepend: 'mkdir build && cd build &&  if [ \"$CXX\" = \"g++-mingw-w64-x86-64\" ]; then cmake -G \"Eclipse CDT4 - Unix Makefiles\" -DCMAKE_TOOLCHAIN_FILE=../scripts/mingw32.toolchain.cmake -DCMAKE_BUILD_TYPE=Debug -DSDL2=OFF ../ ;else cmake -G \"Eclipse CDT4 - Unix Makefiles\" -DCMAKE_BUILD_TYPE=Debug -DSDL2=OFF ../;fi'
+    build_command:   "make -j 9"
+    branch_pattern: coverity
+
 install:
  - if [ "$CXX" = "g++" ]; then sudo sed -i 's/precise/trusty/g' /etc/apt/sources.list; fi
  - if [ "$CXX" = "g++-mingw-w64-x86-64" ]; then sudo sed -i 's/precise/trusty/g' /etc/apt/sources.list; fi
@@ -16,4 +33,4 @@ install:
  - sudo apt-get install libsdl1.2-dev libopenal-dev
  - if [ "$CXX" = "g++" ]; then sudo apt-get install -qqy gcc g++; fi
  - if [ "$CXX" = "g++-mingw-w64-x86-64" ]; then sudo apt-get install -qqy g++-mingw-w64-x86-64; fi
-script: mkdir build && cd build &&  if [ "$CXX" = "g++-mingw-w64-x86-64" ]; then cmake -G "Eclipse CDT4 - Unix Makefiles" -DCMAKE_TOOLCHAIN_FILE=../scripts/mingw32.toolchain.cmake -DCMAKE_BUILD_TYPE=Debug -DSDL2=OFF ../ ;else cmake -G "Eclipse CDT4 - Unix Makefiles" -DCMAKE_BUILD_TYPE=Debug -DSDL2=OFF ../;fi && make -j9
+script: mkdir -p build && cd build && if [ "$CXX" = "g++-mingw-w64-x86-64" ]; then cmake -G "Eclipse CDT4 - Unix Makefiles" -DCMAKE_TOOLCHAIN_FILE=../scripts/mingw32.toolchain.cmake -DCMAKE_BUILD_TYPE=Debug -DSDL2=OFF ../ ;else cmake -G "Eclipse CDT4 - Unix Makefiles" -DCMAKE_BUILD_TYPE=Debug -DSDL2=OFF ../;fi && make -j9

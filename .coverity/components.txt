@@ -1,0 +1,25 @@
+Component name 	Pattern 			Ignore in analysis 	
+libs-cegui 	.*/OpenTechBFG/libs/cegui/.* 	No 
+libs-ffmpeg 	.*/OpenTechBFG/libs/ffmpeg/.* 	No 
+libs-freetype 	.*/OpenTechBFG/libs/freetype/.* No 
+libs-glew 	.*/OpenTechBFG/libs/glew/.* 	No 
+libs-jpeg 	.*/OpenTechBFG/libs/jpeg/.* 	No 
+libs-openal 	.*/OpenTechBFG/libs/openal/.* 	No 
+libs-png 	.*/OpenTechBFG/libs/png/.* 	No 
+libs-zlib 	.*/OpenTechBFG/libs/zlib/.* 	No 
+libs 		.*/OpenTechBFG/libs/.*		No 
+neo-aas 	.*/OpenTechBFG/neo/aas/.* 	No 
+neo-amplitude 	.*/OpenTechBFG/neo/amplitude/.* No 
+neo-cegui 	.*/OpenTechBFG/neo/cegui/.* 	No 
+neo-cm 	.*/OpenTechBFG/neo/cm/.* 		No 
+neo-d3xp 	.*/OpenTechBFG/neo/d3xp/.* 	No 
+neo-framework 	.*/OpenTechBFG/neo/framework/.* No 
+neo-idlib 	.*/OpenTechBFG/neo/idlib/.* 	No 
+neo-renderer 	.*/OpenTechBFG/neo/renderer/.* 	No 
+neo-sound 	.*/OpenTechBFG/neo/sound/.* 	No 
+neo-swf 	.*/OpenTechBFG/neo/swf/.* 	No 
+neo-sys 	.*/OpenTechBFG/neo/sys/.* 	No 
+neo-tools 	.*/OpenTechBFG/neo/tools/.* 	No 
+neo-ui 		.*/OpenTechBFG/neo/ui/.* 	No 
+neo 		.*/OpenTechBFG/neo/.* 		No 
+
