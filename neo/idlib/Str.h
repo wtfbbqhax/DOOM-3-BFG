@@ -66,7 +66,6 @@ enum utf8Encoding_t
 };
 
 // these library functions should not be used for cross platform compatibility
-//#define strcmp			idStr::Cmp		// use_idStr_Cmp // FIXME investigate why this WAS here in the first place!
 #define strcmp			use_idStr_Cmp
 #define strncmp			use_idStr_Cmpn
 
@@ -90,7 +89,7 @@ enum utf8Encoding_t
 #endif
 #define StrCmpNI		use_idStr_Icmpn
 
-#define stricmp			idStr::Icmp		// use_idStr_Icmp
+#define stricmp			use_idStr_Icmp
 
 #undef strcasecmp // DG: redefining this without undefining it causes tons of compiler warnings
 
