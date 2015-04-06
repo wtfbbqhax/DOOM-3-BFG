@@ -46,6 +46,8 @@ SetShellState 4
 
  */
 
+namespace BFG {
+
 struct idMenuHandler::MenuVars
 {
 
@@ -270,4 +272,4 @@ void idMenuHandler_Scoreboard::UpdateScoreboardSelection()
 	common->Printf( "idMenuHandler_Scoreboard::UpdateScoreboardSelection\n" );
 }
 
-
+} // namespace BFG

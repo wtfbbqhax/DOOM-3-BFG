@@ -45,7 +45,7 @@ bool MainMenu::Handle_DemoMapClick( const CEGUI::EventArgs& )
 {
 	if( idCEGUI::IsInitialized() )
 	{
-		cmdSystem->BufferCommandText( CMD_EXEC_APPEND, "map demo.map\n" );
+		BFG::cmdSystem->BufferCommandText( BFG::CMD_EXEC_APPEND, "map demo.map\n" );
 		return true;
 	}
 	return false;
@@ -55,7 +55,7 @@ bool MainMenu::Handle_QuitClick( const CEGUI::EventArgs& )
 {
 	if( idCEGUI::IsInitialized() )
 	{
-		cmdSystem->BufferCommandText( CMD_EXEC_APPEND, "quit\n" );
+		BFG::cmdSystem->BufferCommandText( BFG::CMD_EXEC_APPEND, "quit\n" );
 		return true;
 	}
 	return false;

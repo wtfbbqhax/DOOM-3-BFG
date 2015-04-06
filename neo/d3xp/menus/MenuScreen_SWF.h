@@ -44,6 +44,8 @@ If you have questions concerning this license or the applicable additional terms
 
 #include "../d3xp/menus/MenuWidget.h"   // for idMenuWidget
 
+namespace BFG {
+
 /*
 ================================================
 idLBRowBlock
@@ -1838,5 +1840,6 @@ inline void InvitePartyOrFriends()
 	}
 }
 
+} // namespace BFG
 
 #endif // __MENUSCREENSWF_H__

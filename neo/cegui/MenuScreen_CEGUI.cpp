@@ -1,6 +1,8 @@
 
 #include "MenuScreen_CEGUI.h"
 
+namespace BFG {
+
 //*
 //================================================
 //idMenuScreen_HUD
@@ -54,3 +56,5 @@ void idMenuScreen_HUD::UpdateMessage( bool show, const idStr& message ) {}
 void idMenuScreen_HUD::ShowNewItem( const char* name, const char* icon ) {}
 void idMenuScreen_HUD::UpdateFlashlight( idPlayer* player ) {}
 void idMenuScreen_HUD::UpdateChattingHud( idPlayer* player ) {}
+
+} // namespace BFG

@@ -2,6 +2,8 @@
 #ifndef MENUSTATE_H_
 #define MENUSTATE_H_
 
+namespace BFG {
+
 enum shellState_t
 {
 	SHELL_STATE_INVALID = -1,
@@ -78,5 +80,7 @@ enum mainMenuTransition_t
 	MENU_TRANSITION_BACK,
 	MENU_TRANSITION_FORCE
 };
+
+} // namespace BFG
 
 #endif /* MENUSTATE_H_ */

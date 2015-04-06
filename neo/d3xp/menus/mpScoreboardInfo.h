@@ -7,7 +7,7 @@
 #ifndef MPSCOREBOARDINFO_H_
 #define MPSCOREBOARDINFO_H_
 
-
+namespace BFG {
 
 class mpScoreboardInfo
 {
@@ -83,5 +83,7 @@ public:
 	idStr name;
 	
 };
+
+} // namespace BFG
 
 #endif /* MPSCOREBOARDINFO_H_ */
