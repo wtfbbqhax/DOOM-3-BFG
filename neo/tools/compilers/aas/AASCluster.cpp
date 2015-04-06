@@ -34,7 +34,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../aas/AASFile_local.h"
 #include "AASCluster.h"
 
-namespace BFG {
+namespace BFG
+{
 
 /*
 ================

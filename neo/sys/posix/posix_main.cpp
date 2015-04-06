@@ -74,7 +74,8 @@ If you have questions concerning this license or the applicable additional terms
 
 #include "posix_public.h"
 
-namespace BFG {
+namespace BFG
+{
 
 class idFile;
 

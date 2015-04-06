@@ -41,7 +41,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "geometry/Winding.h"
 #include "sys/sys_defines.h"
 
-namespace BFG {
+namespace BFG
+{
 
 /*
 ============

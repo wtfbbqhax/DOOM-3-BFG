@@ -32,7 +32,8 @@ If you have questions concerning this license or the applicable additional terms
 
 #include "../sound/SoundVoice.h"
 
-namespace BFG {
+namespace BFG
+{
 
 static const int MAX_QUEUED_BUFFERS = 3;
 

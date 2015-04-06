@@ -33,7 +33,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../idlib/containers/HashIndex.h"
 #include "../idlib/math/Plane.h"
 
-namespace BFG {
+namespace BFG
+{
 
 /*
 ===============================================================================

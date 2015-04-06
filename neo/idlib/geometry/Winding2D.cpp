@@ -40,7 +40,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "sys/sys_assert.h"
 #include "sys/sys_types.h"
 
-namespace BFG {
+namespace BFG
+{
 
 /*
 ============

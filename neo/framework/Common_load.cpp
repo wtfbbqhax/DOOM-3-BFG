@@ -75,7 +75,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "Common_local.h"
 #include "sys/sys_savegame.h"
 
-namespace BFG {
+namespace BFG
+{
 
 class idSWFScriptFunction;
 

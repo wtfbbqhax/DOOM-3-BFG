@@ -56,7 +56,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "tr_local.h"
 #include "ParallelJobList.h"
 
-namespace BFG {
+namespace BFG
+{
 
 class idInteraction;
 

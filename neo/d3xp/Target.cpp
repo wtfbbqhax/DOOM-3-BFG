@@ -76,7 +76,8 @@ Invisible entities that affect other entities or the world when activated.
 #include "../ui/UserInterface.h"
 #include "Game_local.h"
 
-namespace BFG {
+namespace BFG
+{
 
 /*
 ===============================================================================

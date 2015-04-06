@@ -44,7 +44,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../sys/sys_public.h"
 #include "BoundsTrack.h"
 
-namespace BFG {
+namespace BFG
+{
 
 /*
 
@@ -304,7 +305,7 @@ void	idBoundsTrack::Test()
 		FindBoundsIntersectionsSimSIMD( shortTestBounds, boundsList, maxIndex, intersectedIndexes2 );
 	}
 	const int64 stop = Sys_Microseconds();
-	idLib::Printf("%" BFG_PRId64 " microseconds for 40 itterations\n", stop - start);
+	idLib::Printf( "%" BFG_PRId64 " microseconds for 40 itterations\n", stop - start );
 }
 
 

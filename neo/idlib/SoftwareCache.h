@@ -35,7 +35,8 @@ If you have questions concerning this license or the applicable additional terms
 #pragma warning( disable : 4324 )	// structure was padded due to __declspec(align())
 #endif
 
-namespace BFG {
+namespace BFG
+{
 
 /*
 ================================================================================================

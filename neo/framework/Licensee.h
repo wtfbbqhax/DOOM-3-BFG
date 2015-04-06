@@ -35,7 +35,8 @@ If you have questions concerning this license or the applicable additional terms
 ===============================================================================
 */
 
-namespace BFG {
+namespace BFG
+{
 
 #define GAME_NAME						"OpenTechEngine"		// appears on window titles and errors
 

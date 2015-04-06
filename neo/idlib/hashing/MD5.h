@@ -3,7 +3,8 @@
 
 #include <cstddef>                     // for size_t
 
-namespace BFG {
+namespace BFG
+{
 
 /*
 ===============================================================================

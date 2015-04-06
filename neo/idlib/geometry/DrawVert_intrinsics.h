@@ -33,7 +33,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../idlib/math/Vector.h"       // for idVec3, idVec
 #include "../idlib/geometry/DrawVert.h"  // for halfFloat_t
 
-namespace BFG {
+namespace BFG
+{
 
 #if defined(USE_INTRINSICS)
 static const __m128i vector_int_f32_sign_mask					= _mm_set1_epi32( 1U << IEEE_FLT_SIGN_BIT );

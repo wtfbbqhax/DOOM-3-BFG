@@ -35,7 +35,8 @@ If you have questions concerning this license or the applicable additional terms
 #undef uint64
 #endif
 
-namespace BFG {
+namespace BFG
+{
 
 /*
 ================================================================================================

@@ -35,7 +35,8 @@ If you have questions concerning this license or the applicable additional terms
 
 #include "../sys/sys_session.h"
 
-namespace BFG {
+namespace BFG
+{
 
 static const int MAX_JOYSTICKS = 4;
 

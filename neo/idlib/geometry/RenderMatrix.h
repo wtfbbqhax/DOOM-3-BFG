@@ -34,7 +34,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../idlib/bv/Bounds.h"
 #include "../idlib/bv/Box.h"
 
-namespace BFG {
+namespace BFG
+{
 
 static const int NUM_FRUSTUM_CORNERS	= 8;
 

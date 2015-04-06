@@ -37,7 +37,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "sys/../idlib/sys/sys_defines.h"
 #include "sys/sys_types.h"
 
-namespace BFG {
+namespace BFG
+{
 
 /*
 ======================================================================

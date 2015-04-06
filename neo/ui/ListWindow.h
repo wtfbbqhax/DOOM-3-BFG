@@ -39,7 +39,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../ui/SimpleWindow.h"
 #include "../ui/Window.h"
 
-namespace BFG {
+namespace BFG
+{
 
 class idMaterial;
 class idSliderWindow;

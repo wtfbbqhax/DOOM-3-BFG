@@ -34,7 +34,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../ui/Window.h"
 #include "../ui/Winvar.h"
 
-namespace BFG {
+namespace BFG
+{
 
 class idStr;
 class idUserInterfaceLocal;

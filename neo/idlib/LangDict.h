@@ -32,7 +32,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../idlib/containers/HashIndex.h"
 #include "../idlib/Str.h"
 
-namespace BFG {
+namespace BFG
+{
 
 class idLangKeyValue
 {

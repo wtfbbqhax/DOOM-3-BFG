@@ -33,7 +33,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../idlib/containers/Sort.h"
 #include "../idlib/Heap.h"              // for memTag_t
 
-namespace BFG {
+namespace BFG
+{
 
 /*
 ===============================================================================

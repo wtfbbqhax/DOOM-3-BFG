@@ -48,7 +48,8 @@ If you have questions concerning this license or the applicable additional terms
 #include <cstdlib>
 #undef new // TODO documentation for the reason of undef new
 
-namespace BFG {
+namespace BFG
+{
 
 /*
 ==================

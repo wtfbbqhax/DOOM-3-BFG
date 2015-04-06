@@ -37,7 +37,8 @@ If you have questions concerning this license or the applicable additional terms
 #undef AddJob
 #endif
 
-namespace BFG {
+namespace BFG
+{
 
 class idParallelJobList_Threads;
 class idColor;
@@ -45,7 +46,7 @@ struct CellSpursJob128;
 
 typedef void ( * jobRun_t )( void* );
 
-void SubmitJobList(idParallelJobList_Threads* jobList, int parallelism);
+void SubmitJobList( idParallelJobList_Threads* jobList, int parallelism );
 
 enum jobSyncType_t
 {

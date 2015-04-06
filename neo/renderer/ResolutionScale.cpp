@@ -35,7 +35,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../idlib/sys/sys_assert.h"
 #include "ResolutionScale.h"
 
-namespace BFG {
+namespace BFG
+{
 
 idResolutionScale	resolutionScale;
 

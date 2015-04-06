@@ -28,7 +28,8 @@ If you have questions concerning this license or the applicable additional terms
 #ifndef __SYS_STATS_MISC_H__
 #define __SYS_STATS_MISC_H__
 
-namespace BFG {
+namespace BFG
+{
 
 /*
 ================================================================================================

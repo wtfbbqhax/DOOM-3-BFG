@@ -46,7 +46,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../idlib/math/Random.h"
 #include "../idlib/math/Vector.h"
 
-namespace BFG {
+namespace BFG
+{
 
 CLASS_DECLARATION( idForce, idForce_Field )
 END_CLASS

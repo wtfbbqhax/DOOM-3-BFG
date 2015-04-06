@@ -33,7 +33,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../sys/sys_signin.h"
 #include "localuser.h"
 
-namespace BFG {
+namespace BFG
+{
 
 class idLocalUser;
 

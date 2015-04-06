@@ -66,7 +66,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../sound/snd_defines.h"
 #include "snd_local.h"
 
-namespace BFG {
+namespace BFG
+{
 
 idCVar s_lockListener( "s_lockListener", "0", CVAR_BOOL, "lock listener updates" );
 idCVar s_constantAmplitude( "s_constantAmplitude", "-1", CVAR_FLOAT, "" );

@@ -64,7 +64,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../sys/sys_session.h"
 #include "sys/sys_savegame.h"
 
-namespace BFG {
+namespace BFG
+{
 
 class idLeaderboardCallback;
 

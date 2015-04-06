@@ -35,7 +35,8 @@ If you have questions concerning this license or the applicable additional terms
 #endif
 
 #ifdef __cplusplus
- namespace BFG {
+namespace BFG
+{
 #endif // __cplusplus
 
 
@@ -297,7 +298,7 @@ extern volatile int ignoredReturnValue;
 #endif // _WIN32
 
 #ifdef __cplusplus
- } // namespace BFG
+} // namespace BFG
 #endif // __cplusplus
 
 #endif // SYS_DEFINES_H

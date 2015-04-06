@@ -36,7 +36,8 @@ If you have questions concerning this license or the applicable additional terms
 
 #include "win_local.h"
 
-namespace BFG {
+namespace BFG
+{
 
 #define DINPUT_BUFFERSIZE           256
 
@@ -904,9 +905,9 @@ void idJoystickWin32::SetRumble( int inputDeviceNum, int rumbleLow, int rumbleHi
 	DWORD err = XInputSetState( inputDeviceNum, &vibration );
 	if( err != ERROR_SUCCESS )
 	{
-
-		idLib::Warning("XInputSetState error: 0x%" BFG_PRIxSIZE "", (size_t)err);
-
+	
+		idLib::Warning( "XInputSetState error: 0x%" BFG_PRIxSIZE "", ( size_t )err );
+		
 	}
 }
 

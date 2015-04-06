@@ -28,7 +28,8 @@ If you have questions concerning this license or the applicable additional terms
 #ifndef REGEXP_H_
 #define REGEXP_H_
 
-namespace BFG {
+namespace BFG
+{
 
 class idWindow;
 

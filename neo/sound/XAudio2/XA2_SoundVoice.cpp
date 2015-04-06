@@ -43,7 +43,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../sys/sys_public.h"
 #include "../sound/snd_defines.h"
 
-namespace BFG {
+namespace BFG
+{
 
 idCVar s_skipHardwareSets( "s_skipHardwareSets", "0", CVAR_BOOL, "Do all calculation, but skip XA2 calls" );
 idCVar s_debugHardware( "s_debugHardware", "0", CVAR_BOOL, "Print a message any time a hardware voice changes" );

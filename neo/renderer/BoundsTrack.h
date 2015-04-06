@@ -29,7 +29,8 @@ If you have questions concerning this license or the applicable additional terms
 #ifndef __BOUNDSTRACK_H__
 #define __BOUNDSTRACK_H__
 
-namespace BFG {
+namespace BFG
+{
 
 class idBounds;
 struct shortBounds_t;

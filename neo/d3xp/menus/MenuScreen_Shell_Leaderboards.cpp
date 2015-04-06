@@ -63,7 +63,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../sys/sys_session.h"
 #include "../sys/sys_signin.h"
 
-namespace BFG {
+namespace BFG
+{
 
 const static int NUM_LEADERBOARD_ITEMS = 16;
 const int MAX_STAT_LISTINGS = 16;

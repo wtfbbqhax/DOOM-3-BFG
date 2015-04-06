@@ -34,7 +34,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../swf/SWF.h"
 #include "zconf.h"
 
-namespace BFG {
+namespace BFG
+{
 
 /*
 ========================

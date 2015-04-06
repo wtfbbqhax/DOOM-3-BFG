@@ -61,7 +61,8 @@ If you have questions concerning this license or the applicable additional terms
 
 #include "../d3xp/Game_local.h"
 
-namespace BFG {
+namespace BFG
+{
 
 class idAngles;
 class idDeclEntityDef;

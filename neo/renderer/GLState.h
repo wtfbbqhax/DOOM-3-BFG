@@ -31,7 +31,8 @@ If you have questions concerning this license or the applicable additional terms
 
 #include "../idlib/sys/sys_types.h"              // for uint64
 
-namespace BFG {
+namespace BFG
+{
 
 // one/zero is flipped on src/dest so a gl state of 0 is SRC_ONE,DST_ZERO
 static const uint64 GLS_SRCBLEND_ONE					= 0 << 0;

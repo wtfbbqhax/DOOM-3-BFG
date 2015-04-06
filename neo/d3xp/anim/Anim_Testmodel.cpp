@@ -82,7 +82,8 @@ move around it to view it from different angles.
 #include "../renderer/ModelManager.h"
 #include "../renderer/RenderWorld.h"
 
-namespace BFG {
+namespace BFG
+{
 
 class idRestoreGame;
 class idSaveGame;

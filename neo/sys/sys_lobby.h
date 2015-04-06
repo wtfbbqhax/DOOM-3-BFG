@@ -44,7 +44,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../sys/sys_session.h"
 #include "sys_lobby_backend.h"
 
-namespace BFG {
+namespace BFG
+{
 
 class idBitMsg;
 class idLocalUser;

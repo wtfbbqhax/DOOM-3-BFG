@@ -55,7 +55,8 @@ class idCVarSystem;
 class idFileSystem;
 class idSys;
 
-namespace BFG {
+namespace BFG
+{
 /*
 ===============================================================================
 

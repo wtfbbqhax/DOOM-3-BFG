@@ -50,7 +50,8 @@ Contains the Image implementation for OpenGL.
 #include "../renderer/RenderSystem.h"
 #include "../tr_local.h"
 
-namespace BFG {
+namespace BFG
+{
 
 /*
 ========================

@@ -86,7 +86,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "CollisionModel_local.h"
 #include "Timer.h"
 
-namespace BFG {
+namespace BFG
+{
 
 #define CMODEL_BINARYFILE_EXT	"bcmodel"
 

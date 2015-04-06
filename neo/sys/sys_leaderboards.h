@@ -33,7 +33,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../idlib/sys/sys_assert.h"
 #include "../idlib/Callback.h"                   // for idCallback
 
-namespace BFG {
+namespace BFG
+{
 
 /*
 ================================================================================================

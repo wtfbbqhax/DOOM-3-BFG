@@ -31,7 +31,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../idlib/Callback.h"                   // for idCallback
 #include "../sys/sys_stats_misc.h"
 
-namespace BFG {
+namespace BFG
+{
 
 //------------------------
 // leaderboardError_t

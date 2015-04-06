@@ -35,7 +35,8 @@ If you have questions concerning this license or the applicable additional terms
 
 #include "../framework/DebugGraph.h"
 
-namespace BFG {
+namespace BFG
+{
 
 class idSoundSample_XAudio2;
 class idSoundVoice_XAudio2;

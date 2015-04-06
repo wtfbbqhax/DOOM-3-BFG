@@ -33,7 +33,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../idlib/math/Plane.h"
 #include "../idlib/math/Vector.h"
 
-namespace BFG {
+namespace BFG
+{
 
 idPlane plane_origin( 0.0f, 0.0f, 0.0f, 0.0f );
 

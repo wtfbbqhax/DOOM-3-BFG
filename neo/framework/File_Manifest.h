@@ -33,7 +33,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../framework/File.h"          // for idFile, idFileLocal
 #include "../idlib/containers/StrList.h"         // for idStrList
 
-namespace BFG {
+namespace BFG
+{
 
 /*
 ==============================================================

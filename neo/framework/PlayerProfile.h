@@ -32,7 +32,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../idlib/containers/StaticList.h"      // for idStaticList
 #include "../idlib/sys/sys_types.h"
 
-namespace BFG {
+namespace BFG
+{
 
 class idSerializer;
 

@@ -31,7 +31,8 @@ If you have questions concerning this license or the applicable additional terms
 
 #include "../framework/File.h"          // for idFile
 
-namespace BFG {
+namespace BFG
+{
 
 /*
 ===============================================================================

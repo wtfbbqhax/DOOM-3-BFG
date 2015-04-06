@@ -38,7 +38,8 @@ Contains the windows implementation of the network session
 #include "sys/sys_lobby.h"
 #include "sys/sys_lobby_backend.h"
 
-namespace BFG {
+namespace BFG
+{
 
 class idBitMsg;
 class idCallback;

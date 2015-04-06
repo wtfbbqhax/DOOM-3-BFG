@@ -33,7 +33,8 @@ If you have questions concerning this license or the applicable additional terms
 
 #include "../d3xp/gamesys/Class.h"      // for idClass
 
-namespace BFG {
+namespace BFG
+{
 
 /*
 ===============================================================================

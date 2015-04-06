@@ -2,7 +2,8 @@
 // Microsoft Visual C++ generated include file.
 // Used by doom.rc
 //
-namespace BFG {
+namespace BFG
+{
 #define IDI_ICON1                       4001
 #define IDR_IDR_USYSGZPS11              4002
 

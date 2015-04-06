@@ -41,7 +41,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../idlib/sys/sys_types.h"
 #include "sys/sys_threading.h"
 
-namespace BFG {
+namespace BFG
+{
 
 #ifdef OUTPUT_FUNC
 #undef OUTPUT_FUNC

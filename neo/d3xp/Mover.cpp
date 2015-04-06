@@ -74,7 +74,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../ui/UserInterface.h"
 #include "Game_local.h"
 
-namespace BFG {
+namespace BFG
+{
 
 // _D3XP : rename all gameLocal.time to gameLocal.slow.time for merge!
 

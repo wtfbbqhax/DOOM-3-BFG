@@ -38,7 +38,8 @@ If you have questions concerning this license or the applicable additional terms
 
 #include "../d3xp/Player.h"             // for idPlayer
 
-namespace BFG {
+namespace BFG
+{
 
 class idMenuHandler;
 class idMenuWidget;

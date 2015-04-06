@@ -33,7 +33,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../idlib/MapFile.h"
 #include "../renderer/Material.h"       // for idMaterial, etc
 
-namespace BFG {
+namespace BFG
+{
 
 /*
 ===============================================================================

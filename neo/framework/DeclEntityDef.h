@@ -31,7 +31,8 @@ If you have questions concerning this license or the applicable additional terms
 
 #include "../framework/DeclManager.h"   // for declManager, idDeclManager
 
-namespace BFG {
+namespace BFG
+{
 
 /*
 ===============================================================================

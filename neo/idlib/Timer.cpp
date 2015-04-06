@@ -37,7 +37,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "containers/List.h"
 #include "sys/sys_assert.h"
 
-namespace BFG {
+namespace BFG
+{
 
 double idTimer::base = -1.0;
 

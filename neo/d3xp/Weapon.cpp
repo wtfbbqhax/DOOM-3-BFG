@@ -95,7 +95,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "Game_local.h"
 #include "PredictedValue_impl.h"
 
-namespace BFG {
+namespace BFG
+{
 
 /***********************************************************************
 
@@ -569,7 +570,7 @@ void idWeapon::Restore( idRestoreGame* savefile )
 	WEAPON_NETFIRING.LinkTo(	scriptObject, "WEAPON_NETFIRING" );
 	WEAPON_RAISEWEAPON.LinkTo(	scriptObject, "WEAPON_RAISEWEAPON" );
 	WEAPON_LOWERWEAPON.LinkTo(	scriptObject, "WEAPON_LOWERWEAPON" );
-    WEAPON_IRONSIGHT.LinkTo(    scriptObject, "WEAPON_IRONSIGHT" );
+	WEAPON_IRONSIGHT.LinkTo( scriptObject, "WEAPON_IRONSIGHT" );
 	
 	savefile->ReadObject( reinterpret_cast<idClass*&>( owner ) );
 	worldModel.Restore( savefile );
@@ -812,7 +813,7 @@ void idWeapon::Clear()
 	WEAPON_NETFIRING.Unlink();
 	WEAPON_RAISEWEAPON.Unlink();
 	WEAPON_LOWERWEAPON.Unlink();
-    WEAPON_IRONSIGHT.Unlink();
+	WEAPON_IRONSIGHT.Unlink();
 	
 	if( muzzleFlashHandle != -1 )
 	{
@@ -1350,7 +1351,7 @@ void idWeapon::GetWeaponDef( const char* objectname, int ammoinclip )
 	WEAPON_NETFIRING.LinkTo(	scriptObject, "WEAPON_NETFIRING" );
 	WEAPON_RAISEWEAPON.LinkTo(	scriptObject, "WEAPON_RAISEWEAPON" );
 	WEAPON_LOWERWEAPON.LinkTo(	scriptObject, "WEAPON_LOWERWEAPON" );
-    WEAPON_IRONSIGHT.LinkTo(    scriptObject, "WEAPON_IRONSIGHT" );
+	WEAPON_IRONSIGHT.LinkTo( scriptObject, "WEAPON_IRONSIGHT" );
 	
 	spawnArgs = weaponDef->dict;
 	
@@ -2981,7 +2982,7 @@ void idWeapon::EnterCinematic()
 		WEAPON_NETFIRING	= false;
 		WEAPON_RAISEWEAPON	= false;
 		WEAPON_LOWERWEAPON	= false;
-        WEAPON_IRONSIGHT    = false;
+		WEAPON_IRONSIGHT    = false;
 		
 		grabber.Update( this->GetOwner(), true );
 	}
@@ -4846,15 +4847,15 @@ void idWeapon::ForceAmmoInClip()
 
 void idWeapon::SetIronsight( bool i )
 {
-    if( !isLinked )
+	if( !isLinked )
 	{
-        return;
-    }
-
-    if ( WEAPON_IRONSIGHT != i )
-    {
-        WEAPON_IRONSIGHT = i;
-    }
+		return;
+	}
+	
+	if( WEAPON_IRONSIGHT != i )
+	{
+		WEAPON_IRONSIGHT = i;
+	}
 }
 
 } // namespace BFG

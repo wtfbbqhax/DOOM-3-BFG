@@ -29,7 +29,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../framework/CVarSystem.h"
 #include "achievements.h"
 
-namespace BFG {
+namespace BFG
+{
 
 class idLocalUser;
 template <class T_, int numElements> class idArray;

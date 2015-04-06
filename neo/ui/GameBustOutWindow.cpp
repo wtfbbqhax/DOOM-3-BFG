@@ -49,7 +49,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "Window.h"
 #include "sys/sys_types.h"
 
-namespace BFG {
+namespace BFG
+{
 
 #define BALL_RADIUS		12.f
 #define BALL_SPEED		250.f

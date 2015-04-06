@@ -38,7 +38,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../renderer/ImageOpts.h"
 #include "BinaryImageData.h"
 
-namespace BFG {
+namespace BFG
+{
 
 class idFile;
 

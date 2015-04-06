@@ -36,7 +36,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../idlib/sys/sys_types.h"
 #include "tr_local.h"
 
-namespace BFG {
+namespace BFG
+{
 
 /*
 ================

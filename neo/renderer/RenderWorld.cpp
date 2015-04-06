@@ -66,7 +66,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "bv/Box.h"
 #include "tr_local.h"
 
-namespace BFG {
+namespace BFG
+{
 
 class idCmdArgs;
 class idUserInterface;

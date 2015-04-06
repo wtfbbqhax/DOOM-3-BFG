@@ -46,7 +46,8 @@ If you have questions concerning this license or the applicable additional terms
 #include <xmmintrin.h>                  // for __m128, _mm_load_ps, etc
 #endif
 
-namespace BFG {
+namespace BFG
+{
 
 //===============================================================
 //                                                        M

@@ -32,7 +32,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../idlib/math/Vector.h"       // for idVec3, idVec2
 #include "../idlib/math/Math.h"
 
-namespace BFG {
+namespace BFG
+{
 
 /*
 ===============================================================================

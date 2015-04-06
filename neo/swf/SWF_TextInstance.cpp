@@ -51,7 +51,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../sys/sys_public.h"
 #include "SWF_TextInstance.h"
 
-namespace BFG {
+namespace BFG
+{
 
 idSWFScriptObject_TextInstancePrototype textInstanceScriptObjectPrototype;
 

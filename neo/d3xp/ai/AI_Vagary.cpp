@@ -56,7 +56,8 @@ Vagary specific AI code
 #include "../idlib/math/Random.h"
 #include "../idlib/math/Vector.h"
 
-namespace BFG {
+namespace BFG
+{
 
 class idAI_Vagary : public idAI
 {

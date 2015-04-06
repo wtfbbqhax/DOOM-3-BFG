@@ -59,7 +59,8 @@ If you have questions concerning this license or the applicable additional terms
 
 #include "tr_local.h"
 
-namespace BFG {
+namespace BFG
+{
 
 extern idCVar s_noSound;
 

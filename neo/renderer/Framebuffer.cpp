@@ -41,7 +41,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "Framebuffer.h"
 #include "tr_local.h"
 
-namespace BFG {
+namespace BFG
+{
 
 class idCmdArgs;
 

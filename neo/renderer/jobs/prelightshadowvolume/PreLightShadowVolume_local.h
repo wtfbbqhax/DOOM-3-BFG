@@ -44,7 +44,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../ShadowShared.h"
 #include "PreLightShadowVolume.h"
 
-namespace BFG {
+namespace BFG
+{
 
 } // namespace BFG
 

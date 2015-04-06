@@ -36,7 +36,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../ui/Rectangle.h"
 #include "../ui/Winvar.h"
 
-namespace BFG {
+namespace BFG
+{
 
 class idDeviceContext;
 class idFile;

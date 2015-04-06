@@ -31,7 +31,8 @@ If you have questions concerning this license or the applicable additional terms
 
 #include "../framework/CmdSystem.h"  // for idCommandLink, etc
 
-namespace BFG {
+namespace BFG
+{
 
 /*
 ========================

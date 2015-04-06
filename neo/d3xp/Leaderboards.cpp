@@ -54,7 +54,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "Leaderboards.h"
 #include "MultiplayerGame.h"
 
-namespace BFG {
+namespace BFG
+{
 
 /*
 ================================================================================================
@@ -293,10 +294,10 @@ class idLeaderboardCallbackTest : public idLeaderboardCallback
 		idLib::Printf( "%d total entries in leaderboard %d.\n", numRowsInLeaderboard, def->id );
 		for( int i = 0; i < rows.Num(); i++ )
 		{
-			idLib::Printf("%d: %s rank:%" BFG_PRId64 "", i, rows[i].name.c_str(), rows[i].rank);
+			idLib::Printf( "%d: %s rank:%" BFG_PRId64 "", i, rows[i].name.c_str(), rows[i].rank );
 			for( int j = 0; j < def->numColumns; j++ )
 			{
-				idLib::Printf(", score[%d]: %" BFG_PRId64 "", j, rows[i].columns[j]);
+				idLib::Printf( ", score[%d]: %" BFG_PRId64 "", j, rows[i].columns[j] );
 			}
 			idLib::Printf( "\n" );
 		}

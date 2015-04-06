@@ -33,7 +33,8 @@ If you have questions concerning this license or the applicable additional terms
 
 #include "BoundsTrack.h"
 
-namespace BFG {
+namespace BFG
+{
 
 // assume any lightDef or entityDef index above this is an internal error
 const int LUDICROUS_INDEX	= 10000;

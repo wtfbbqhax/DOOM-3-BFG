@@ -43,7 +43,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "ModelOverlay.h"
 #include "Interaction.h"
 
-namespace BFG {
+namespace BFG
+{
 
 // everything that is needed by the backend needs
 // to be double buffered to allow it to run in
@@ -1163,9 +1164,9 @@ void		GLimp_Shutdown();
 void		GLimp_SetGamma( unsigned short red[256],
 							unsigned short green[256],
 							unsigned short blue[256] );
-
-
-
+							
+							
+							
 /*
 ============================================================
 

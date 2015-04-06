@@ -35,7 +35,8 @@ Contains the DxtEncoder and DxtDecoder declarations.
 */
 #include "precompiled.h"
 
-namespace BFG {
+namespace BFG
+{
 
 } // namespace BFG
 

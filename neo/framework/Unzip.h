@@ -39,7 +39,8 @@
 
 #include <minizip/unzip.h>
 
-namespace BFG {
+namespace BFG
+{
 
 /*
  * DG: all unzip code has been moved to minizip/

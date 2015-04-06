@@ -37,7 +37,8 @@ If you have questions concerning this license or the applicable additional terms
 #include <GL/gl.h>
 #endif
 
-namespace BFG {
+namespace BFG
+{
 
 /*
 

@@ -42,7 +42,8 @@ If you have questions concerning this license or the applicable additional terms
 
 #include <dinput.h>
 
-namespace BFG {
+namespace BFG
+{
 
 #define	WINDOW_STYLE	(WS_OVERLAPPED|WS_BORDER|WS_CAPTION|WS_VISIBLE | WS_THICKFRAME)
 
@@ -79,7 +80,7 @@ LONG WINAPI MainWndProc( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam );
 
 void Conbuf_AppendText( const char* msg );
 
-void GLW_WM_CREATE(HWND hWnd);
+void GLW_WM_CREATE( HWND hWnd );
 
 struct Win32Vars_t
 {

@@ -69,7 +69,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../renderer/RenderWorld.h"
 #include "../sound/sound.h"
 
-namespace BFG {
+namespace BFG
+{
 
 class idClass;
 class idDeclSkin;

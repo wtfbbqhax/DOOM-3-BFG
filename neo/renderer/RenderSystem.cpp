@@ -60,7 +60,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../cegui/CEGUI_Hooks.h" // DG: the renderer must update cegui at the end of the frame
 #endif // USE_CEGUI
 
-namespace BFG {
+namespace BFG
+{
 
 class idFont;
 class idMaterial;

@@ -31,7 +31,8 @@ If you have questions concerning this license or the applicable additional terms
 
 #include "../tools/compilers/compiler_public.h"
 
-namespace BFG {
+namespace BFG
+{
 
 dmapGlobals_t	dmapGlobals;
 

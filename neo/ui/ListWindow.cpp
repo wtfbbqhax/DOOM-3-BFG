@@ -50,7 +50,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "UserInterfaceLocal.h"
 #include "Window.h"
 
-namespace BFG {
+namespace BFG
+{
 
 // Number of pixels above the text that the rect starts
 static const int pixelOffset = 3;

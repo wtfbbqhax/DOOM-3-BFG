@@ -31,7 +31,8 @@ If you have questions concerning this license or the applicable additional terms
 
 #include "../d3xp/script/Script_Interpreter.h"  // for idInterpreter
 
-namespace BFG {
+namespace BFG
+{
 
 extern const idEventDef EV_Thread_Execute;
 extern const idEventDef EV_Thread_SetCallback;

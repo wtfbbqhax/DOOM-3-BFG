@@ -32,7 +32,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../framework/File.h"          // for idFile, idFile_Memory
 #include "sys_localuser.h"
 
-namespace BFG {
+namespace BFG
+{
 
 extern idCVar net_maxSearchResultsToTry;
 extern idCVar net_peer_throttle_bps_host_threshold;

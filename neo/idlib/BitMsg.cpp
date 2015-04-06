@@ -37,7 +37,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../idlib/sys/sys_assert.h"             // for assert
 #include "../idlib/sys/sys_types.h"              // for uint64, byte, int64
 
-namespace BFG {
+namespace BFG
+{
 /*
 ================================================================================================
 
@@ -107,7 +108,7 @@ static uint64 maskForNumBits64[33] = {	NBM( 0x00 ), NBM( 0x01 ), NBM( 0x02 ), NB
 										NBM( 0x18 ), NBM( 0x19 ), NBM( 0x1A ), NBM( 0x1B ),
 										NBM( 0x1C ), NBM( 0x1D ), NBM( 0x1E ), NBM( 0x1F ), 0xFFFFFFFF
 									 };
-
+									 
 /*
 ========================
 idBitMsg::WriteBits

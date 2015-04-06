@@ -38,7 +38,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "sys_savegame.h"
 #include "sys_session_savegames.h"
 
-namespace BFG {
+namespace BFG
+{
 
 class idFile_SaveGame;
 class idLocalUser;

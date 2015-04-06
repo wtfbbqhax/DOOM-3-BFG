@@ -37,7 +37,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../swf/SWF_ScriptObject.h"
 #include "../swf/SWF_ScriptVar.h"
 
-namespace BFG {
+namespace BFG
+{
 
 class idSWFBitStream;
 class idSWFParmList;

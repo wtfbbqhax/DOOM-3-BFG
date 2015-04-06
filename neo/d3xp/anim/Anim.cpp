@@ -55,7 +55,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../renderer/Model.h"
 #include "../sys/sys_public.h"
 
-namespace BFG {
+namespace BFG
+{
 
 idCVar binaryLoadAnim( "binaryLoadAnim", "1", 0, "enable binary load/write of idMD5Anim" );
 

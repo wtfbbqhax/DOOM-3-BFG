@@ -33,7 +33,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../sys/sys_public.h"          // for sysEvent_t
 #include "../idlib/Dict.h"              // for idDict
 
-namespace BFG {
+namespace BFG
+{
 
 /*
 ===============================================================================

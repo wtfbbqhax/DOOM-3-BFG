@@ -28,7 +28,8 @@ If you have questions concerning this license or the applicable additional terms
 #ifndef IDRECTANGLE_H_
 #define IDRECTANGLE_H_
 
-namespace BFG {
+namespace BFG
+{
 
 //
 // simple rectangle

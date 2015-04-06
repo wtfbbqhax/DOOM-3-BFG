@@ -42,7 +42,8 @@ If you have questions concerning this license or the applicable additional terms
 
 #pragma warning( disable: 4189 ) // local variable is initialized but not referenced
 
-namespace BFG {
+namespace BFG
+{
 
 /*
 ========================

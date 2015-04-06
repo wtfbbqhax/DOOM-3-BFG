@@ -30,7 +30,8 @@ If you have questions concerning this license or the applicable additional terms
 #ifndef __SCRIPT_INTERPRETER_H__
 #define __SCRIPT_INTERPRETER_H__
 
-namespace BFG {
+namespace BFG
+{
 
 #define MAX_STACK_DEPTH 	64
 

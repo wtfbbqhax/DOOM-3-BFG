@@ -43,7 +43,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../idlib/sys/sys_defines.h"
 #include "../WaveFile.h"
 
-namespace BFG {
+namespace BFG
+{
 
 class idSoundVoice : public idSoundVoice_Base
 {

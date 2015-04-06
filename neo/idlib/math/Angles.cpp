@@ -35,7 +35,8 @@ If you have questions concerning this license or the applicable additional terms
 
 #include <cfloat>
 
-namespace BFG {
+namespace BFG
+{
 
 idAngles ang_zero( 0.0f, 0.0f, 0.0f );
 

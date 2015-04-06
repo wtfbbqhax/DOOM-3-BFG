@@ -32,7 +32,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../sys/sys_public.h"
 #include "../idlib/containers/StrList.h"
 
-namespace BFG {
+namespace BFG
+{
 
 /*
 ===============================================================================

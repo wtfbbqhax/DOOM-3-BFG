@@ -51,7 +51,8 @@ If you have questions concerning this license or the applicable additional terms
 #undef AddJob
 #endif
 
-namespace BFG {
+namespace BFG
+{
 
 class idColor;
 class idParallelJobList_Threads;

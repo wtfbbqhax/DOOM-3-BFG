@@ -34,7 +34,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "Brush.h"
 #include "BrushBSP.h"
 
-namespace BFG {
+namespace BFG
+{
 
 #define BSP_GRID_SIZE					512.0f
 #define SPLITTER_EPSILON				0.1f

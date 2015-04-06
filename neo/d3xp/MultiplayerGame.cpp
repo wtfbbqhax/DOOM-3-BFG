@@ -68,7 +68,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../ui/UserInterface.h"
 #include "Game_local.h"
 
-namespace BFG {
+namespace BFG
+{
 
 // could be a problem if players manage to go down sudden deaths till this .. oh well
 #define LASTMAN_NOLIVES -20

@@ -55,7 +55,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../renderer/Material.h"
 #include "CollisionModel_local.h"
 
-namespace BFG {
+namespace BFG
+{
 
 class idMapEntity;
 

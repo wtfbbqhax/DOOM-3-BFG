@@ -31,7 +31,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../cm/CollisionModel.h"
 #include "../renderer/tr_local.h"
 
-namespace BFG {
+namespace BFG
+{
 
 typedef struct primitive_s
 {

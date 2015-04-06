@@ -28,6 +28,7 @@ If you have questions concerning this license or the applicable additional terms
 
 #include "precompiled.h"
 
-namespace BFG {
+namespace BFG
+{
 
 } // namespace BFG

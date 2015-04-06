@@ -48,7 +48,8 @@ Worldspawn class.  Each map has one worldspawn which handles global spawnargs.
 #include "../idlib/sys/sys_assert.h"
 #include "Game_local.h"
 
-namespace BFG {
+namespace BFG
+{
 
 class idRestoreGame;
 class idSaveGame;

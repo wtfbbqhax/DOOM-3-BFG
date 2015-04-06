@@ -73,7 +73,8 @@ void R_LoadImage( const char *name, byte **pic, int *width, int *height, bool ma
  * You may also wish to include "jerror.h".
  */
 
-namespace BFG {
+namespace BFG
+{
 
 // hooks from jpeg lib to our system
 

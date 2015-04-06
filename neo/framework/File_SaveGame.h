@@ -39,7 +39,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../framework/File.h"
 #include "../idlib/StrStatic.h"
 
-namespace BFG {
+namespace BFG
+{
 
 // Listing of the types of files within a savegame package
 enum saveGameType_t

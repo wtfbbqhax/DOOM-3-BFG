@@ -79,7 +79,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "math/Math.h"
 #include "ParallelJobList.h"
 
-namespace BFG {
+namespace BFG
+{
 
 #if defined(_MSC_VER) && _MSC_VER >= 1600
 #undef NULL

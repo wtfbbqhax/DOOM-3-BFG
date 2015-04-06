@@ -37,7 +37,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../idlib/Str.h"
 #include "sys_local.h"
 
-namespace BFG {
+namespace BFG
+{
 
 const char* sysLanguageNames[] =
 {

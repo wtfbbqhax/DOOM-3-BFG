@@ -54,7 +54,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../renderer/Model.h"
 #include "Game_local.h"
 
-namespace BFG {
+namespace BFG
+{
 
 /*
 ===============================================================================

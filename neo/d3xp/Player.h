@@ -67,7 +67,8 @@ If you have questions concerning this license or the applicable additional terms
 
 #include "../idlib/containers/HashTable.h"       // for idHashTable
 
-namespace BFG {
+namespace BFG
+{
 
 class idAAS;
 class idAFEntity_Vehicle;

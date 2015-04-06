@@ -40,7 +40,8 @@ StaticShadowVolumeJob
 #include "../renderer/jobs/staticshadowvolume/StaticShadowVolume.h"
 #include "ParallelJobList.h"
 
-namespace BFG {
+namespace BFG
+{
 
 void StaticShadowVolumeJob( const staticShadowVolumeParms_t* parms )
 {

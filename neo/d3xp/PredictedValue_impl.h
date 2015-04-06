@@ -31,7 +31,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "PredictedValue.h"
 #include "Player.h"
 
-namespace BFG {
+namespace BFG
+{
 
 /*
 ===============

@@ -30,7 +30,8 @@ If you have questions concerning this license or the applicable additional terms
 #ifndef __CINEMATIC_H__
 #define __CINEMATIC_H__
 
-namespace BFG {
+namespace BFG
+{
 
 /*
 ===============================================================================

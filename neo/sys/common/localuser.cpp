@@ -30,7 +30,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../framework/CVarSystem.h"
 #include "localuser.h"
 
-namespace BFG {
+namespace BFG
+{
 
 extern idCVar win_userPersistent;
 extern idCVar win_userOnline;

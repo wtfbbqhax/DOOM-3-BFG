@@ -34,7 +34,8 @@ If you have questions concerning this license or the applicable additional terms
 
 #pragma hdrstop
 
-namespace BFG {
+namespace BFG
+{
 
 /*
 ========================

@@ -35,7 +35,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../idlib/sys/sys_intrinsics.h"         // for USE_INTRINSICS
 #include "../idlib/sys/sys_types.h"              // for dword
 
-namespace BFG {
+namespace BFG
+{
 
 const int SMALLEST_NON_DENORMAL					= 1 << IEEE_FLT_MANTISSA_BITS;
 const int NAN_VALUE								= 0x7f800000;

@@ -35,7 +35,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../idlib/containers/Array.h"
 #include "../idlib/sys/sys_assert.h"
 
-namespace BFG {
+namespace BFG
+{
 
 class idDict;
 class idLocalUser;

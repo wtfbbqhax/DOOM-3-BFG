@@ -31,7 +31,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../idlib/sys/sys_defines.h"
 #include "../idlib/sys/sys_assert.h"
 
-namespace BFG {
+namespace BFG
+{
 
 static ID_INLINE int MinInt( int a, int b )
 {

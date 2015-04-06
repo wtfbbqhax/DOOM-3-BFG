@@ -2,7 +2,8 @@
 #ifndef MENUSTATE_H_
 #define MENUSTATE_H_
 
-namespace BFG {
+namespace BFG
+{
 
 enum shellState_t
 {

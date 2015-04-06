@@ -36,7 +36,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../idlib/math/VecX.h"
 #include "../idlib/math/Vector.h"
 
-namespace BFG {
+namespace BFG
+{
 
 class idRotation;
 

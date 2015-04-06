@@ -29,7 +29,8 @@ If you have questions concerning this license or the applicable additional terms
 #ifndef __SCRIPT_COMPILER_H__
 #define __SCRIPT_COMPILER_H__
 
-namespace BFG {
+namespace BFG
+{
 
 const char* const RESULT_STRING = "<RESULT>";
 

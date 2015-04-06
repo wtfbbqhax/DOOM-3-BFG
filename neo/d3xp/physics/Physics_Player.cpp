@@ -59,7 +59,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../idlib/math/Vector.h"
 #include "../renderer/Material.h"
 
-namespace BFG {
+namespace BFG
+{
 
 CLASS_DECLARATION( idPhysics_Actor, idPhysics_Player )
 END_CLASS

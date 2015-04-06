@@ -50,7 +50,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "Game_local.h"
 #include "sys/sys_localuser.h"
 
-namespace BFG {
+namespace BFG
+{
 
 idCVar achievements_Verbose( "achievements_Verbose", "1", CVAR_BOOL, "debug spam" );
 idCVar g_demoMode( "g_demoMode", "0", CVAR_INTEGER, "this is a demo" );

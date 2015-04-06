@@ -4,7 +4,8 @@
 
 #include <cstring>
 
-namespace BFG {
+namespace BFG
+{
 
 /*
    RSA Data Security, Inc., MD4 message-digest algorithm. (RFC1320)

@@ -52,7 +52,8 @@ Contains external code for building ZipFiles.
 #include "Zip.h"
 #include "zconf.h"
 
-namespace BFG {
+namespace BFG
+{
 
 // #undef STDC
 

@@ -33,7 +33,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../idlib/geometry/DrawVert.h"          // for idDrawVert
 #include "../idlib/math/Angles.h"       // for idAngles
 
-namespace BFG {
+namespace BFG
+{
 
 /*
 ================================================================================================

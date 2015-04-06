@@ -38,7 +38,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../idlib/LangDict.h"
 #include "../idlib/containers/StaticList.h"
 
-namespace BFG {
+namespace BFG
+{
 
 class idSWF;
 class idSWFScriptFunction;

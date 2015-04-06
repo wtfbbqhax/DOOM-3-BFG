@@ -44,7 +44,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "SWF_ShapeParser.h"
 #include "SWF_TextInstance.h"
 
-namespace BFG {
+namespace BFG
+{
 
 class idSWFDictionaryEntry
 {

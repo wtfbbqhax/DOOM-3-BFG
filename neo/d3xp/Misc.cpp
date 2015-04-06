@@ -93,7 +93,8 @@ Various utility objects and functions.
 #include "../ui/UserInterface.h"
 #include "Game_local.h"
 
-namespace BFG {
+namespace BFG
+{
 
 /*
 ===============================================================================

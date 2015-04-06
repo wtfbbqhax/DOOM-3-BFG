@@ -37,7 +37,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../idlib/Token.h"
 #include "sys/sys_assert.h"
 
-namespace BFG {
+namespace BFG
+{
 
 /*
 ============

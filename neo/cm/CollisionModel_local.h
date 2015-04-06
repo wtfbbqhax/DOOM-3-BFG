@@ -38,7 +38,8 @@ If you have questions concerning this license or the applicable additional terms
 
 #include "CollisionModel.h"
 
-namespace BFG {
+namespace BFG
+{
 
 #define MIN_NODE_SIZE						64.0f
 #define MAX_NODE_POLYGONS					128

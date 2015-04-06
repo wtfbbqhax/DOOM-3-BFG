@@ -33,7 +33,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../idlib/Heap.h"
 #include "../idlib/geometry/TraceModel.h"
 
-namespace BFG {
+namespace BFG
+{
 
 class idBounds;
 class idRestoreGame;

@@ -37,7 +37,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../idlib/math/Vector.h"
 #include "sys/sys_types.h"
 
-namespace BFG {
+namespace BFG
+{
 
 idBounds bounds_zero( vec3_zero, vec3_zero );
 idBounds bounds_zeroOneCube( idVec3( 0.0f ), idVec3( 1.0f ) );

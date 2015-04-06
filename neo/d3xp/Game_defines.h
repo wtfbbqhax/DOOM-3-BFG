@@ -32,7 +32,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../sys/sys_session.h"  // for MAX_PLAYERS, etc
 #include "../renderer/RenderWorld.h"  // for PS_BLOCK_ALL
 
-namespace BFG {
+namespace BFG
+{
 
 class idRenderWorld;
 class idSoundWorld;

@@ -36,7 +36,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../idlib/containers/List.h"
 #include "../idlib/containers/StrList.h"
 
-namespace BFG {
+namespace BFG
+{
 
 class idFile_Memory;
 

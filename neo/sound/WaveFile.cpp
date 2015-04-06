@@ -43,7 +43,8 @@ Contains the WaveFile implementation.
 #include "../idlib/containers/StaticList.h"
 #include "WaveFile.h"
 
-namespace BFG {
+namespace BFG
+{
 
 /*
 ========================

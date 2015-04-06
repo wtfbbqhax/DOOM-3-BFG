@@ -39,7 +39,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../sys/LightweightCompression.h"
 #include "PacketProcessor.h"
 
-namespace BFG {
+namespace BFG
+{
 
 // DG: workaround for GCC bug
 const int idPacketProcessor::RETURN_TYPE_NONE = 0;

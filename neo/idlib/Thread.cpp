@@ -41,7 +41,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "sys/sys_threading.h"
 #include "sys/sys_threading.h"          // for Sys_DestroyThread, etc
 
-namespace BFG {
+namespace BFG
+{
 
 /*
 ================================================================================================

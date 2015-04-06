@@ -31,7 +31,8 @@ If you have questions concerning this license or the applicable additional terms
 #include <cmath>
 #include <cstdlib>
 
-namespace BFG {
+namespace BFG
+{
 
 static const int SAMPLE_RATE = 60;
 

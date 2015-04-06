@@ -35,7 +35,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../swf/SWF_Bitstream.h"
 #include "../swf/SWF_Enums.h"
 
-namespace BFG {
+namespace BFG
+{
 
 class idFile;
 

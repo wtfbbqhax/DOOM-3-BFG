@@ -54,7 +54,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../idlib/math/Vector.h"
 #include "../idlib/sys/sys_types.h"
 
-namespace BFG {
+namespace BFG
+{
 
 // simple types.  function types are dynamically allocated
 idTypeDef	type_void( ev_void, &def_void, "void", 0, NULL );
@@ -1464,9 +1465,9 @@ byte* idProgram::ReserveDefMemory( int size )
 	if( numVariables > sizeof( variables ) )
 	{
 #if defined(USE_EXCEPTIONS)
-		throw idCompileError(va("Exceeded global memory size (%" BFG_PRIiSIZE " bytes)", sizeof(variables)));
+		throw idCompileError( va( "Exceeded global memory size (%" BFG_PRIiSIZE " bytes)", sizeof( variables ) ) );
 #else
-		gameLocal.Error("Exceeded global memory size (%" BFG_PRIiSIZE " bytes)", sizeof(variables));
+		gameLocal.Error( "Exceeded global memory size (%" BFG_PRIiSIZE " bytes)", sizeof( variables ) );
 #endif
 	}
 	

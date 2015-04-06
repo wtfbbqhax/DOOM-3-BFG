@@ -34,7 +34,8 @@ If you have questions concerning this license or the applicable additional terms
 //
 #include "win_local.h"
 
-namespace BFG {
+namespace BFG
+{
 
 #define DLLEXPORT __declspec(dllexport)
 

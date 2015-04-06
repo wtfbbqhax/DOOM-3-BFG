@@ -155,7 +155,8 @@ If you have questions concerning this license or the applicable additional terms
 
 //-----------------------------------------------------
 
-namespace BFG {
+namespace BFG
+{
 
 // Hacked stuff we may want to consider implementing later
 class idScopedGlobalHeap

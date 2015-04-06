@@ -58,7 +58,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../renderer/Material.h"
 #include "../renderer/RenderWorld.h"
 
-namespace BFG {
+namespace BFG
+{
 
 idCVar binaryLoadParticles( "binaryLoadParticles", "1", 0, "enable binary load/write of particle decls" );
 

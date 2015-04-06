@@ -55,7 +55,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "sys_session_local.h"
 #include "sys_session_savegames.h"
 
-namespace BFG {
+namespace BFG
+{
 
 extern idCVar saveGame_verbose;
 

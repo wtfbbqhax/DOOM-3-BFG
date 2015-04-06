@@ -42,7 +42,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../swf/SWF_TextInstance.h"
 #include "../sys/sys_session.h"
 
-namespace BFG {
+namespace BFG
+{
 
 class idMenuHandler;
 

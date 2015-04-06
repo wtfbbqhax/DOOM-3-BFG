@@ -35,7 +35,8 @@ If you have questions concerning this license or the applicable additional terms
 
 #include "AASBuild_local.h"
 
-namespace BFG {
+namespace BFG
+{
 
 #define BFL_PATCH		0x1000
 

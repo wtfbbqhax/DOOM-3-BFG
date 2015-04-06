@@ -32,7 +32,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "AAS.h"
 #include "../Pvs.h"
 
-namespace BFG {
+namespace BFG
+{
 
 class idRoutingCache
 {

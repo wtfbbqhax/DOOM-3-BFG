@@ -68,7 +68,8 @@ Manager
 #include "../renderer/Image.h"
 #include "tr_local.h"
 
-namespace BFG {
+namespace BFG
+{
 
 /*
 

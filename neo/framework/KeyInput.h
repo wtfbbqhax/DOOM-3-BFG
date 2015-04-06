@@ -32,7 +32,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../idlib/Str.h"               // for idStr
 #include "../sys/sys_public.h"          // for keyNum_t
 
-namespace BFG {
+namespace BFG
+{
 
 struct keyBindings_t
 {

@@ -33,7 +33,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../idlib/bv/Bounds.h"         // for idBounds
 #include "../renderer/Material.h"       // for idMaterial
 
-namespace BFG {
+namespace BFG
+{
 
 class idDeclTable;
 

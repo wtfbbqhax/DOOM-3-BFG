@@ -58,7 +58,8 @@ Event are used for scheduling tasks and for linking script commands.
 #include "../idlib/sys/sys_types.h"
 #include "../renderer/Material.h"
 
-namespace BFG {
+namespace BFG
+{
 
 #define MAX_EVENTSPERFRAME			4096
 //#define CREATE_EVENT_CODE
@@ -180,7 +181,7 @@ idEventDef::idEventDef( const char* command, const char* formatspec, char return
 			{
 				eventError = true;
 				std::sprintf( eventErrorMsg, "idEvent '%s' defined twice with same name but differing format strings ('%s'!='%s').",
-						 command, formatspec, ev->formatspec );
+							  command, formatspec, ev->formatspec );
 				return;
 			}
 			
@@ -188,7 +189,7 @@ idEventDef::idEventDef( const char* command, const char* formatspec, char return
 			{
 				eventError = true;
 				std::sprintf( eventErrorMsg, "idEvent '%s' defined twice with same name but differing return types ('%c'!='%c').",
-						 command, returnType, ev->returnType );
+							  command, returnType, ev->returnType );
 				return;
 			}
 			// Don't bother putting the duplicate event in list.

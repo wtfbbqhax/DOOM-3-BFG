@@ -40,7 +40,8 @@ instancing of objects.
 #include "../idlib/containers/Hierarchy.h"       // for idHierarchy
 #include "../d3xp/Game_local.h"      // gameLocal
 
-namespace BFG {
+namespace BFG
+{
 
 class idClass;
 class idTypeInfo;

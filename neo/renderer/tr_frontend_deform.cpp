@@ -60,7 +60,8 @@ If you have questions concerning this license or the applicable additional terms
 
 class idJointMat;
 
-namespace BFG {
+namespace BFG
+{
 
 /*
 ==========================================================================================

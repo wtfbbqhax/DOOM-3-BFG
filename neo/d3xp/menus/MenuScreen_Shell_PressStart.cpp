@@ -52,7 +52,8 @@ If you have questions concerning this license or the applicable additional terms
 
 #pragma hdrstop
 
-namespace BFG {
+namespace BFG
+{
 
 class idMaterial;
 
@@ -291,7 +292,7 @@ bool idMenuScreen_Shell_PressStart::HandleAction( idWidgetAction& action, const 
 					Update();
 				}
 			}
-
+			
 			if( itemList->GetMoveToIndex() == 1 )
 			{
 				if( session->GetSignInManager().GetMasterLocalUser() == NULL )
@@ -304,8 +305,8 @@ bool idMenuScreen_Shell_PressStart::HandleAction( idWidgetAction& action, const 
 					menuData->SetNextScreen( SHELL_AREA_ROOT, MENU_TRANSITION_SIMPLE );
 				}
 			}
-
-
+			
+			
 			return true;
 		}
 		case WIDGET_ACTION_START_REPEATER:

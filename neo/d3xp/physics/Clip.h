@@ -29,7 +29,8 @@ If you have questions concerning this license or the applicable additional terms
 #ifndef __CLIP_H__
 #define __CLIP_H__
 
-namespace BFG {
+namespace BFG
+{
 
 /*
 ===============================================================================

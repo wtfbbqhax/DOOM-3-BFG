@@ -42,7 +42,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../renderer/Material.h"
 #include "tr_local.h"
 
-namespace BFG {
+namespace BFG
+{
 
 #define	DEFAULT_SIZE	16
 

@@ -44,7 +44,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../d3xp/physics/Force_Grab.h"
 #include "../idlib/math/Vector.h"
 
-namespace BFG {
+namespace BFG
+{
 
 class idBeam;
 class idPlayer;

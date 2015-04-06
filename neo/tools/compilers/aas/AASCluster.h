@@ -29,7 +29,8 @@ If you have questions concerning this license or the applicable additional terms
 #ifndef __AASCLUSTER_H__
 #define __AASCLUSTER_H__
 
-namespace BFG {
+namespace BFG
+{
 
 /*
 ===============================================================================

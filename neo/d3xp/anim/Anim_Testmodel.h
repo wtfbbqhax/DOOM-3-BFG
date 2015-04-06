@@ -33,7 +33,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../d3xp/Entity.h"
 #include "../d3xp/Actor.h"
 
-namespace BFG {
+namespace BFG
+{
 
 /*
 ==============================================================================================

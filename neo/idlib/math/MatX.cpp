@@ -48,7 +48,8 @@ If you have questions concerning this license or the applicable additional terms
 
 #include "../idlib/math/MatX.h"
 
-namespace BFG {
+namespace BFG
+{
 
 //===============================================================
 //

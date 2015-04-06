@@ -32,7 +32,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../sys/Snapshot.h"            // for idSnapShot
 #include "../sys/PacketProcessor.h"     // for idPacketProcessor
 
-namespace BFG {
+namespace BFG
+{
 
 /*
 ================================================

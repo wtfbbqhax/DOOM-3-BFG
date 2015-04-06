@@ -26,7 +26,8 @@ If you have questions concerning this license or the applicable additional terms
 ===========================================================================
 */
 
-namespace BFG {
+namespace BFG
+{
 
 const int NUM_SIMPLEX_CHARS = 95;
 const static int simplex[NUM_SIMPLEX_CHARS][112] =

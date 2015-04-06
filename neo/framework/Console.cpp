@@ -60,7 +60,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "Common_local.h"
 #include "ConsoleHistory.h"
 
-namespace BFG {
+namespace BFG
+{
 
 #define	CON_TEXTSIZE			0x30000
 #define	NUM_CON_TIMES			4

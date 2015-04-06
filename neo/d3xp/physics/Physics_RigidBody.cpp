@@ -56,7 +56,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../idlib/math/Vector.h"
 #include "../renderer/RenderWorld.h"
 
-namespace BFG {
+namespace BFG
+{
 
 class idBounds;
 

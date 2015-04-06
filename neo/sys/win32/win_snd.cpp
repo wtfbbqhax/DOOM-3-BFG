@@ -41,6 +41,7 @@ If you have questions concerning this license or the applicable additional terms
 #include "../../sound/snd_local.h"
 #include "win_local.h"
 
-namespace BFG {
+namespace BFG
+{
 
 } // namespace BFG

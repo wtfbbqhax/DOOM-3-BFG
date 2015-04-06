@@ -42,7 +42,8 @@ If you have questions concerning this license or the applicable additional terms
 
 #include "../d3xp/menus/mpScoreboardInfo.h"
 
-namespace BFG {
+namespace BFG
+{
 
 enum pdaAreas_t
 {

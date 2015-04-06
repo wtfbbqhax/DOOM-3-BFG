@@ -30,7 +30,8 @@ If you have questions concerning this license or the applicable additional terms
 #ifndef __SND_DEFINES_H__
 #define __SND_DEFINES_H__
 
-namespace BFG {
+namespace BFG
+{
 
 // Maximum number of voices we can have allocated
 #define MAX_HARDWARE_VOICES 48

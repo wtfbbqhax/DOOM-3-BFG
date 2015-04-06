@@ -39,7 +39,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../idlib/Str.h"
 #include "../framework/File.h"
 
-namespace BFG {
+namespace BFG
+{
 
 /*
 ===============================================================================

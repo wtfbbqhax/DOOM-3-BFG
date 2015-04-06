@@ -34,7 +34,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "sys_lobby_backend.h"
 #include "sys_lobby_backend_direct.h"
 
-namespace BFG {
+namespace BFG
+{
 
 extern idCVar net_port;
 extern idCVar net_ip;

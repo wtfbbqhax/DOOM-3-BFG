@@ -33,7 +33,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../idlib/sys/sys_types.h"
 #include "Snapshot_Jobs.h"
 
-namespace BFG {
+namespace BFG
+{
 
 uint32 SnapObjChecksum( const uint8* data, int length )
 {

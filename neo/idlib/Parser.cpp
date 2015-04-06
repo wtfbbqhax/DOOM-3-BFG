@@ -63,7 +63,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "sys/sys_assert.h"
 #include "sys/sys_defines.h"
 
-namespace BFG {
+namespace BFG
+{
 
 //#define DEBUG_EVAL
 #define MAX_DEFINEPARMS				128

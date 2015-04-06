@@ -50,7 +50,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "UserInterfaceLocal.h"
 #include "Window.h"
 
-namespace BFG {
+namespace BFG
+{
 
 #define Z_NEAR 100.0f
 #define Z_FAR  4000.0f

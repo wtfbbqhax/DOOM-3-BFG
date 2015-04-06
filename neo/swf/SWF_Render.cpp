@@ -64,7 +64,8 @@ If you have questions concerning this license or the applicable additional terms
 #undef FindText
 #endif
 
-namespace BFG {
+namespace BFG
+{
 
 idCVar swf_timescale( "swf_timescale", "1", CVAR_FLOAT, "timescale for swf files" );
 idCVar swf_stopat( "swf_stopat", "0", CVAR_FLOAT, "stop at a specific frame" );

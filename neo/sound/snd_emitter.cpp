@@ -55,7 +55,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../sound/sound.h"
 #include "../sound/snd_defines.h"
 
-namespace BFG {
+namespace BFG
+{
 
 class idDecl;
 

@@ -33,7 +33,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../idlib/math/Vector.h"
 #include "../idlib/math/Random.h"       // for idRandom
 
-namespace BFG {
+namespace BFG
+{
 
 /*
 ===============================================================================

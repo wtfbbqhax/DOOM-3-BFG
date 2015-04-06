@@ -4,7 +4,8 @@
 
 #include "sys/sys_types.h"
 
-namespace BFG {
+namespace BFG
+{
 
 /*
    CRC-32

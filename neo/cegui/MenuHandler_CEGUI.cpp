@@ -46,7 +46,8 @@ SetShellState 4
 
  */
 
-namespace BFG {
+namespace BFG
+{
 
 struct idMenuHandler::MenuVars
 {

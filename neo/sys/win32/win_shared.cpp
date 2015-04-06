@@ -63,7 +63,8 @@ If you have questions concerning this license or the applicable additional terms
 
 #pragma warning(disable:4740)	// warning C4740: flow in or out of inline asm code suppresses global optimization
 
-namespace BFG {
+namespace BFG
+{
 
 /*
 ================

@@ -35,7 +35,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../sys/sys_stats.h"
 #endif
 
-namespace BFG {
+namespace BFG
+{
 
 struct lobbyUserID_t;
 

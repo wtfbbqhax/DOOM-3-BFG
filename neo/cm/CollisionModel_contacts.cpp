@@ -39,7 +39,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../idlib/math/Vector.h"
 #include "CollisionModel_local.h"
 
-namespace BFG {
+namespace BFG
+{
 
 class idMat3;
 class idTraceModel;

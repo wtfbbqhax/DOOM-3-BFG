@@ -49,7 +49,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../idlib/sys/sys_defines.h"
 #include "Timer.h"
 
-namespace BFG {
+namespace BFG
+{
 
 #define FUNCTION_PRIORITY	2
 #define INT_PRIORITY		2

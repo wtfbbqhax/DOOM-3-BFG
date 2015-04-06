@@ -40,7 +40,8 @@ Contains the DxtDecoder implementation.
 #include "../idlib/sys/sys_types.h"
 #include "DXTCodec.h"
 
-namespace BFG {
+namespace BFG
+{
 
 /*
 ========================

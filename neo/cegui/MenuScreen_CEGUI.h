@@ -32,7 +32,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../d3xp/menus/MenuScreen_Interface.h"   // for idMenuScreen_HUD_Interface
 #include "../d3xp/menus/MenuState.h"
 
-namespace BFG {
+namespace BFG
+{
 
 //*
 //================================================

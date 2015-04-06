@@ -45,7 +45,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "UserInterfaceLocal.h"
 #include "Window.h"
 
-namespace BFG {
+namespace BFG
+{
 
 idSimpleWindow::idSimpleWindow( idWindow* win )
 {

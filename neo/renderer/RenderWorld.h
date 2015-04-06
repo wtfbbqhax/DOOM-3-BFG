@@ -31,7 +31,8 @@ If you have questions concerning this license or the applicable additional terms
 
 #include "../renderer/Model.h"          // for idRenderModel
 
-namespace BFG {
+namespace BFG
+{
 
 /*
 ===============================================================================

@@ -79,7 +79,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "UserInterfaceLocal.h"
 #include "Window.h"
 
-namespace BFG {
+namespace BFG
+{
 
 bool idWindow::registerIsTemporary[MAX_EXPRESSION_REGISTERS];		// statics to assist during parsing
 //float idWindow::shaderRegisters[MAX_EXPRESSION_REGISTERS];

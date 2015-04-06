@@ -32,7 +32,8 @@ If you have questions concerning this license or the applicable additional terms
 
 #include <cstring>                     // for memcmp
 
-namespace BFG {
+namespace BFG
+{
 
 enum textureType_t
 {

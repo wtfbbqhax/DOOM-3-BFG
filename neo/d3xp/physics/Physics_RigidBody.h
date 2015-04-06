@@ -33,7 +33,8 @@ If you have questions concerning this license or the applicable additional terms
 
 #include "../physics/Physics_Base.h"
 
-namespace BFG {
+namespace BFG
+{
 
 /*
 ===================================================================================

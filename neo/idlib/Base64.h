@@ -32,7 +32,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../idlib/Str.h"
 #include "../idlib/Heap.h"
 
-namespace BFG {
+namespace BFG
+{
 
 /*
 ===============================================================================

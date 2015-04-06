@@ -53,7 +53,8 @@ If you have questions concerning this license or the applicable additional terms
 
 #pragma warning(disable: 4355) // 'this' : used in base member initializer list
 
-namespace BFG {
+namespace BFG
+{
 
 #define BSWF_VERSION 16		// bumped to 16 for storing atlas image dimensions for unbuffered loads
 #define BSWF_MAGIC ( ( 'B' << 24 ) | ( 'S' << 16 ) | ( 'W' << 8 ) | BSWF_VERSION )

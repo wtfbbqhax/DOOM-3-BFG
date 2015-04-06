@@ -31,7 +31,8 @@ If you have questions concerning this license or the applicable additional terms
 
 #include "dmap.h"
 
-namespace BFG {
+namespace BFG
+{
 
 int		c_active_brushes;
 

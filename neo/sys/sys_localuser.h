@@ -32,7 +32,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../idlib/sys/sys_types.h"
 #include "sys_profile.h"
 
-namespace BFG {
+namespace BFG
+{
 
 class idPlayerProfile;
 class idProfileMgr;

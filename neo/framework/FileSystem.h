@@ -33,10 +33,11 @@ If you have questions concerning this license or the applicable additional terms
 #include "../idlib/containers/StrList.h"
 #include "../idlib/sys/sys_filesystem.h"
 
-namespace BFG {
+namespace BFG
+{
 
-	class idFile_Cached;
-	class idResourceCacheEntry;
+class idFile_Cached;
+class idResourceCacheEntry;
 
 /*
 ===============================================================================

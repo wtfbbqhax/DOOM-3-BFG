@@ -61,7 +61,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../d3xp/ai/AAS.h"                     // for aasHandle_t
 #include "../d3xp/anim/Anim.h"                  // for idAnimManager
 
-namespace BFG {
+namespace BFG
+{
 
 /*
 class idActor;
@@ -103,8 +104,8 @@ class idMenuHandler_Shell;
 extern idCVar g_demoMode;
 extern idCVar net_ucmdRate;
 extern idCVar net_allowCheats;
-extern idRenderWorld *gameRenderWorld;
-extern idSoundWorld *gameSoundWorld;
+extern idRenderWorld* gameRenderWorld;
+extern idSoundWorld* gameSoundWorld;
 
 // classes used by idGameLocal
 class idEntity;
@@ -179,10 +180,11 @@ typedef struct
 	int			team;
 } spawnSpot_t;
 
-enum {
-    PORTALSKY_STANDARD = 0,	// classic portalsky
-    PORTALSKY_GLOBAL = 1,	// always following portal sky
-    PORTALSKY_LOCAL = 2,	// following portal sky from a spot
+enum
+{
+	PORTALSKY_STANDARD = 0,	// classic portalsky
+	PORTALSKY_GLOBAL = 1,	// always following portal sky
+	PORTALSKY_LOCAL = 2,	// following portal sky from a spot
 };
 
 //============================================================================
@@ -380,21 +382,21 @@ public:
 	
 	idEntityPtr<idEntity>	portalSkyEnt;
 	bool					portalSkyActive;
-
-	bool                    globalPortalSky;	
-    int                     portalSkyScale;	
-    int                     currentPortalSkyType;	//0 = classic, 1 = global, 2 = local
-    idVec3                  portalSkyOrigin;	
-    idVec3                  portalSkyGlobalOrigin;	
-    idVec3                  playerOldEyePos;	
+	
+	bool                    globalPortalSky;
+	int                     portalSkyScale;
+	int                     currentPortalSkyType;	//0 = classic, 1 = global, 2 = local
+	idVec3                  portalSkyOrigin;
+	idVec3                  portalSkyGlobalOrigin;
+	idVec3                  playerOldEyePos;
 	
 	void					SetPortalSkyEnt( idEntity* ent );
 	bool					IsPortalSkyActive();
-
-    bool                    CheckGlobalPortalSky();
-    void                    SetGlobalPortalSky(const char *name);
-    void                    SetCurrentPortalSkyType(int type); // 0 = classic, 1 = global, 2 = local
-    int                     GetCurrentPortalSkyType(); //0 = classic, 1 = global, 2 = local
+	
+	bool                    CheckGlobalPortalSky();
+	void                    SetGlobalPortalSky( const char* name );
+	void                    SetCurrentPortalSkyType( int type ); // 0 = classic, 1 = global, 2 = local
+	int                     GetCurrentPortalSkyType(); //0 = classic, 1 = global, 2 = local
 	
 	timeState_t				fast;
 	timeState_t				slow;

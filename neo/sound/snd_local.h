@@ -36,7 +36,8 @@ If you have questions concerning this license or the applicable additional terms
 
 // FIXME this file layout is a mess, includes please
 
-namespace BFG {
+namespace BFG
+{
 
 // demo sound commands
 typedef enum
@@ -74,7 +75,8 @@ typedef enum
 #include "OpenAL/AL_SoundVoice.h"
 #include "OpenAL/AL_SoundHardware.h"
 
-namespace BFG {
+namespace BFG
+{
 
 ID_INLINE_EXTERN ALenum CheckALErrors_( const char* filename, int line )
 {
@@ -113,7 +115,8 @@ ID_INLINE_EXTERN ALCenum CheckALCErrors_( ALCdevice* device, const char* filenam
 #include <string>
 #include <vector>
 
-namespace BFG {
+namespace BFG
+{
 
 DEFINE_PROPERTYKEY( PKEY_AudioEndpoint_Path, 0x9c119480, 0xddc2, 0x4954, 0xa1, 0x50, 0x5b, 0xd2, 0x40, 0xd4, 0x54, 0xad, 1 );
 
@@ -151,7 +154,8 @@ struct AudioDevice
 #include "stub/SoundStub.h"
 #endif // _MSC_VER ; DG end
 
-namespace BFG {
+namespace BFG
+{
 
 //------------------------
 // Listener data

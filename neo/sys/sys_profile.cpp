@@ -56,7 +56,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../sys/sys_session_savegames.h"
 #include "sys_profile.h"
 
-namespace BFG {
+namespace BFG
+{
 
 #define SAVEGAME_PROFILE_FILENAME			"profile.bin"
 

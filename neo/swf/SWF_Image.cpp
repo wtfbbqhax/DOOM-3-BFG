@@ -47,7 +47,8 @@ extern "C" {
 #include <jmorecfg.h>
 }
 
-namespace BFG {
+namespace BFG
+{
 
 /*
 ========================

@@ -31,7 +31,8 @@ If you have questions concerning this license or the applicable additional terms
 
 #include "../aas/AASFile.h"
 
-namespace BFG {
+namespace BFG
+{
 
 /*
 ===============================================================================

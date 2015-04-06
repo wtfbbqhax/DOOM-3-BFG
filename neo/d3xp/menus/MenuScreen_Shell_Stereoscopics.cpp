@@ -52,7 +52,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../swf/SWF_TextInstance.h"
 #include "../sys/sys_public.h"
 
-namespace BFG {
+namespace BFG
+{
 
 const static int NUM_SYSTEM_OPTIONS_OPTIONS = 4;
 

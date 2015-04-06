@@ -47,7 +47,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../idlib/geometry/Surface.h"           // for idSurface
 #include "../idlib/sys/sys_defines.h"            // for ID_INLINE
 
-namespace BFG {
+namespace BFG
+{
 
 /*
 ===============

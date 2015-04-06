@@ -41,7 +41,8 @@ If you have questions concerning this license or the applicable additional terms
 #undef FindText
 #endif
 
-namespace BFG {
+namespace BFG
+{
 
 class idCmdArgs;
 

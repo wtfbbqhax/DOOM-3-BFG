@@ -7,7 +7,8 @@
 #ifndef MPSCOREBOARDINFO_H_
 #define MPSCOREBOARDINFO_H_
 
-namespace BFG {
+namespace BFG
+{
 
 class mpScoreboardInfo
 {

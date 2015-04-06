@@ -32,7 +32,8 @@ If you have questions concerning this license or the applicable additional terms
 
 #include "Snapshot_Jobs.h"
 
-namespace BFG {
+namespace BFG
+{
 
 extern idCVar net_verboseSnapshot;
 extern idCVar net_ssTemplateDebug;

@@ -41,7 +41,8 @@ Contains the ColorSpace conversion implementation.
 #include "../idlib/math/Vector.h"
 #include "ColorSpace.h"
 
-namespace BFG {
+namespace BFG
+{
 
 /*
 ================================================================================================

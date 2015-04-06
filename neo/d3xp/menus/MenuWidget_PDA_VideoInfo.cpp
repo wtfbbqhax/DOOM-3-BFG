@@ -39,7 +39,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../swf/SWF_SpriteInstance.h"
 #include "../swf/SWF_TextInstance.h"
 
-namespace BFG {
+namespace BFG
+{
 
 void idMenuWidget_PDA_VideoInfo::Update()
 {

@@ -49,7 +49,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../sound/WaveFile.h"
 #include "../sys/sys_public.h"
 
-namespace BFG {
+namespace BFG
+{
 
 extern idCVar s_useCompression;
 extern idCVar s_noSound;

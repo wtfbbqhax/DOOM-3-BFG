@@ -35,7 +35,8 @@ If you have questions concerning this license or the applicable additional terms
 
 #include "../framework/CVarSystem.h"
 
-namespace BFG {
+namespace BFG
+{
 
 class idGame;
 class idRenderWorld;

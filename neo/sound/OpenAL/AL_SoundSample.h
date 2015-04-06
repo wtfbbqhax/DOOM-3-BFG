@@ -41,7 +41,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../framework/FileSystem.h"
 #include "../sound/WaveFile.h"
 
-namespace BFG {
+namespace BFG
+{
 
 ID_INLINE_EXTERN uint32 SamplesToMsec( uint32 samples, uint32 sampleRate );
 

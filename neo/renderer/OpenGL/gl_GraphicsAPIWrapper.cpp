@@ -47,7 +47,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../renderer/ScreenRect.h"
 #include "../tr_local.h"
 
-namespace BFG {
+namespace BFG
+{
 
 /*
 ====================

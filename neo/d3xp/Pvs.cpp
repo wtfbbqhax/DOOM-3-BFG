@@ -43,7 +43,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "Game_local.h"
 #include "Timer.h"
 
-namespace BFG {
+namespace BFG
+{
 
 #define MAX_BOUNDS_AREAS	16
 

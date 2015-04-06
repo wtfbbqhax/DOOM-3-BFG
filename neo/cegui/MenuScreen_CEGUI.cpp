@@ -1,7 +1,8 @@
 
 #include "MenuScreen_CEGUI.h"
 
-namespace BFG {
+namespace BFG
+{
 
 //*
 //================================================

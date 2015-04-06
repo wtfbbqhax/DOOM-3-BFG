@@ -35,7 +35,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../idlib/MapFile.h"
 #include "../tools/compilers/aas/Brush.h"
 
-namespace BFG {
+namespace BFG
+{
 
 /*
 ===============================================================================

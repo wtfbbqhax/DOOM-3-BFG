@@ -38,7 +38,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../framework/CVarSystem.h"  // for idCVar, etc
 #include "../framework/Common.h"        // for MemInfo_t
 
-namespace BFG {
+namespace BFG
+{
 
 extern idCVar stereoRender_warp;
 extern idCVar stereoRender_swapEyes;

@@ -30,7 +30,8 @@ If you have questions concerning this license or the applicable additional terms
 
 #include <stdint.h>                     // for uintptr_t
 
-namespace BFG {
+namespace BFG
+{
 
 /*
 ================================================================================================

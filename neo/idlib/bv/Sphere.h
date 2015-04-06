@@ -33,7 +33,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../idlib/math/Plane.h"
 #include "../idlib/math/Rotation.h"
 
-namespace BFG {
+namespace BFG
+{
 
 /*
 ===============================================================================

@@ -54,7 +54,8 @@ instancing of objects.
 #include "../idlib/containers/List.h"
 #include "../idlib/math/Math.h"
 
-namespace BFG {
+namespace BFG
+{
 
 class idCmdArgs;
 class idRestoreGame;

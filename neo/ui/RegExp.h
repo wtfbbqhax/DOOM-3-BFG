@@ -37,7 +37,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../idlib/containers/List.h"
 #include "../idlib/sys/sys_defines.h"
 
-namespace BFG {
+namespace BFG
+{
 
 class idDemoFile;
 class idFile;

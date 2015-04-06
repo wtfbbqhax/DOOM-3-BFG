@@ -41,7 +41,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../renderer/RenderSystem.h"
 #include "Font.h"
 
-namespace BFG {
+namespace BFG
+{
 
 const char* DEFAULT_FONT = "Arial_Narrow";
 

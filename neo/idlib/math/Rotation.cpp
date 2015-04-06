@@ -36,7 +36,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../idlib/math/Rotation.h"
 #include "../idlib/math/Vector.h"
 
-namespace BFG {
+namespace BFG
+{
 
 /*
 ============

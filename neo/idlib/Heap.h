@@ -42,7 +42,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../idlib/sys/sys_defines.h"
 #include "../idlib/sys/sys_types.h"              // for Max
 
-namespace BFG { // TODO namespace Heap.h too
+namespace BFG   // TODO namespace Heap.h too
+{
 //using BFG::AssertFailed; // temporery for now
 
 /*
@@ -254,7 +255,8 @@ ID_INLINE void operator delete[]( void* p, BFG::memTag_t tag ) throw() // DG: de
 	BFG::Mem_Free( p );
 }
 
-namespace BFG {
+namespace BFG
+{
 
 // Define replacements for the PS3 library's aligned new operator.
 // Without these, allocations of objects with 32 byte or greater alignment
@@ -842,7 +844,8 @@ void idDynamicAlloc<type, baseBlockSize, minBlockSize>::Clear()
 
 #include "containers/BTree.h"
 
-namespace BFG {
+namespace BFG
+{
 
 //#define DYNAMIC_BLOCK_ALLOC_CHECK
 

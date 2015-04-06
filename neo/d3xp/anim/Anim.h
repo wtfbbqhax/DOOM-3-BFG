@@ -32,7 +32,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../renderer/Model.h"          // for jointHandle_t, etc
 #include "../framework/File_Manifest.h"  // for idPreloadManifest, etc
 
-namespace BFG {
+namespace BFG
+{
 
 //
 // animation channels

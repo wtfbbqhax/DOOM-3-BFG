@@ -47,7 +47,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../renderer/RenderWorld.h"
 #include "PredictedValue.h"
 
-namespace BFG {
+namespace BFG
+{
 
 class idBitMsg;
 class idDeclEntityDef;
@@ -249,9 +250,9 @@ public:
 	{
 		return weaponDef;
 	}
-
-    void                    SetIronsight( bool i );
-
+	
+	void                    SetIronsight( bool i );
+	
 	friend class idPlayer;
 private:
 	// script control
@@ -262,7 +263,7 @@ private:
 	idScriptBool			WEAPON_NETFIRING;
 	idScriptBool			WEAPON_RAISEWEAPON;
 	idScriptBool			WEAPON_LOWERWEAPON;
-    idScriptBool            WEAPON_IRONSIGHT;
+	idScriptBool            WEAPON_IRONSIGHT;
 	weaponStatus_t			status;
 	idThread* 				thread;
 	idStr					state;

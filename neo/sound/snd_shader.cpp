@@ -47,7 +47,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../sound/sound.h"
 #include "snd_local.h"
 
-namespace BFG {
+namespace BFG
+{
 
 extern idCVar s_maxSamples;
 

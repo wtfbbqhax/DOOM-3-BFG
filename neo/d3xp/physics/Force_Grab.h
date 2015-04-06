@@ -31,7 +31,8 @@ If you have questions concerning this license or the applicable additional terms
 
 #include "../d3xp/physics/Force.h"
 
-namespace BFG {
+namespace BFG
+{
 
 /*
 ===============================================================================

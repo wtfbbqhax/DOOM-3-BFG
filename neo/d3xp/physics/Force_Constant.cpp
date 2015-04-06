@@ -37,7 +37,8 @@ If you have questions concerning this license or the applicable additional terms
 
 #pragma hdrstop
 
-namespace BFG {
+namespace BFG
+{
 
 CLASS_DECLARATION( idForce, idForce_Constant )
 END_CLASS

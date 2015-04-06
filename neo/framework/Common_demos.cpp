@@ -46,7 +46,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../sys/sys_public.h"
 #include "Common_local.h"
 
-namespace BFG {
+namespace BFG
+{
 
 /*
 ================

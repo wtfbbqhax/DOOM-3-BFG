@@ -31,7 +31,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../idlib/Str.h"
 #include "Window.h"
 
-namespace BFG {
+namespace BFG
+{
 
 class idTokenParser;
 class idUserInterfaceLocal;

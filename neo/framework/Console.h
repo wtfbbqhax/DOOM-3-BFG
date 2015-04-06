@@ -31,7 +31,8 @@ If you have questions concerning this license or the applicable additional terms
 
 #include "../framework/DebugGraph.h"    // for idDebugGraph, etc
 
-namespace BFG {
+namespace BFG
+{
 
 enum justify_t
 {

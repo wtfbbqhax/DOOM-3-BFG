@@ -31,7 +31,8 @@ If you have questions concerning this license or the applicable additional terms
 
 #include "../framework/CVarSystem.h"  // for idCVar, etc
 
-namespace BFG {
+namespace BFG
+{
 
 extern idCVar	developer;
 

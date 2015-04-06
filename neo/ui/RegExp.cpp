@@ -40,7 +40,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "RegExp.h"
 #include "Window.h"
 
-namespace BFG {
+namespace BFG
+{
 
 int idRegister::REGCOUNT[NUMTYPES] = {4, 1, 1, 1, 0, 2, 3, 4};
 

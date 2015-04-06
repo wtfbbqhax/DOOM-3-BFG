@@ -34,7 +34,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../renderer/jobs/dynamicshadowvolume/../../../idlib/math/Vector.h"
 #include "../renderer/jobs/dynamicshadowvolume/../ShadowShared.h"
 
-namespace BFG {
+namespace BFG
+{
 
 class idDrawVert;
 class idJointMat;

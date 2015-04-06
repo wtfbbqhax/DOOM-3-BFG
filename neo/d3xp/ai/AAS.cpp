@@ -40,7 +40,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../idlib/math/Vector.h"
 #include "AAS_local.h"
 
-namespace BFG {
+namespace BFG
+{
 
 class idBounds;
 

@@ -42,7 +42,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../swf/SWF_SpriteInstance.h"
 #include "../swf/SWF_TextInstance.h"
 
-namespace BFG {
+namespace BFG
+{
 
 static const int MAX_AUDIO_ITEMS = 3;
 

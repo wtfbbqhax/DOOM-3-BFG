@@ -3,7 +3,8 @@
 
 #include "../idlib/containers/StaticList.h"      // for idStaticList
 
-namespace BFG {
+namespace BFG
+{
 
 template< int maxItems, int maxBuffer >
 class idDataQueue

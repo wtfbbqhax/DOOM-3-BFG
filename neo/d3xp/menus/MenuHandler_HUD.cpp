@@ -35,7 +35,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../idlib/Heap.h"
 #include "../swf/SWF.h"
 
-namespace BFG {
+namespace BFG
+{
 
 class idSoundWorld;
 

@@ -35,7 +35,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../renderer/jobs/prelightshadowvolume/../../../idlib/math/Vector.h"
 #include "../renderer/jobs/prelightshadowvolume/../ShadowShared.h"
 
-namespace BFG {
+namespace BFG
+{
 
 class idShadowVert;
 struct CellSpursJob128;

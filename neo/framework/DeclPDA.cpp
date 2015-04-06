@@ -40,7 +40,8 @@ If you have questions concerning this license or the applicable additional terms
 
 #pragma hdrstop
 
-namespace BFG {
+namespace BFG
+{
 
 idCVar g_useOldPDAStrings( "g_useOldPDAStrings", "0", CVAR_BOOL, "Read strings from the .pda files rather than from the .lang file" );
 

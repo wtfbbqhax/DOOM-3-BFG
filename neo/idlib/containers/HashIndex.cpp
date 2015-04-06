@@ -36,7 +36,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "Heap.h"
 #include "sys/sys_assert.h"
 
-namespace BFG {
+namespace BFG
+{
 
 int idHashIndex::INVALID_INDEX[1] = { -1 };
 

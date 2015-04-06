@@ -50,7 +50,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../renderer/RenderWorld.h"
 #include "AAS_local.h"
 
-namespace BFG {
+namespace BFG
+{
 
 /*
 ============

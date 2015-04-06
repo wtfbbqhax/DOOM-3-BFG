@@ -34,7 +34,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../idlib/math/Math.h"
 #include "../idlib/sys/sys_defines.h"
 
-namespace BFG {
+namespace BFG
+{
 
 class idFile;
 
@@ -640,7 +641,7 @@ void lwFreeTags( lwTagList* tlist );
 int lwGetTags( idFile* fp, int cksize, lwTagList* tlist );
 int lwGetPolygonTags( idFile* fp, int cksize, lwTagList* tlist,
 					  lwPolygonList* plist );
-
+					  
 /* vmap.c */
 
 void lwFreeVMap( lwVMap* vmap );
@@ -689,7 +690,7 @@ void lwListFree( void* list, void ( *freeNode )( void* ) );
 void lwListAdd( void** list, void* node );
 void lwListInsert( void** vlist, void* vitem,
 				   int ( *compare )( void*, void* ) );
-
+				   
 /* vecmath.c */
 
 float dot( float a[], float b[] );

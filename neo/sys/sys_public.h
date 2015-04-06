@@ -37,7 +37,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../idlib/sys/sys_defines.h"
 #include "../idlib/CmdArgs.h"
 
-namespace BFG {
+namespace BFG
+{
 
 /*
 ===============================================================================
@@ -654,7 +655,7 @@ typedef void ( *execOutputFunction_t )( const char* text );
 bool Sys_Exec(	const char* appPath, const char* workingPath, const char* args,
 				execProcessWorkFunction_t workFn, execOutputFunction_t outputFn, const int waitMS,
 				unsigned int& exitCode );
-
+				
 // localization
 
 #define ID_LANG_ENGLISH		"english"

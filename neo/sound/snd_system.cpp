@@ -60,7 +60,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../sound/snd_defines.h"
 #include "snd_local.h"
 
-namespace BFG {
+namespace BFG
+{
 
 class idDecl;
 class idRenderWorld;

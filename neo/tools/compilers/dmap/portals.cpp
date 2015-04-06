@@ -31,7 +31,8 @@ If you have questions concerning this license or the applicable additional terms
 
 #include "dmap.h"
 
-namespace BFG {
+namespace BFG
+{
 
 interAreaPortal_t interAreaPortals[MAX_INTER_AREA_PORTALS];
 int					numInterAreaPortals;

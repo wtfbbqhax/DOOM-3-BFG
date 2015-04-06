@@ -29,7 +29,8 @@ If you have questions concerning this license or the applicable additional terms
 #ifndef __SDL_LOCAL_H__
 #define __SDL_LOCAL_H__
 
-namespace BFG {
+namespace BFG
+{
 
 // glimp.cpp
 const int GRAB_ENABLE		= ( 1 << 0 );

@@ -63,7 +63,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../swf/SWF_TextInstance.h"
 #include "../swf/SWF_Types.h"
 
-namespace BFG {
+namespace BFG
+{
 
 class idEntity;
 class idMaterial;

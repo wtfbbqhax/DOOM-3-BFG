@@ -46,7 +46,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "PlayerProfile.h"
 #include "sys/sys_localuser.h"
 
-namespace BFG {
+namespace BFG
+{
 
 // After releasing a version to the market, here are limitations for compatibility:
 //	- the major version should not ever change

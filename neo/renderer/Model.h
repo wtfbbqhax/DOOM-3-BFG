@@ -38,7 +38,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "jobs/staticshadowvolume/StaticShadowVolume.h"
 #include "jobs/dynamicshadowvolume/DynamicShadowVolume.h"
 
-namespace BFG {
+namespace BFG
+{
 
 /*
 ===============================================================================

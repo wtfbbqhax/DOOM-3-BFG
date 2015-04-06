@@ -38,7 +38,8 @@ If you have questions concerning this license or the applicable additional terms
 //#include <GL/glaux.h>
 #endif // if 0
 
-namespace BFG {
+namespace BFG
+{
 
 #if 0
 #define	WIN_SIZE	1024

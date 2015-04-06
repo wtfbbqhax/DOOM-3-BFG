@@ -54,7 +54,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "sys/sys_assert.h"
 #include "sys/sys_types.h"
 
-namespace BFG {
+namespace BFG
+{
 
 #ifdef USE_STRING_DATA_ALLOCATOR
 static idDynamicBlockAlloc < char, 1 << 18, 128, TAG_STRING >	stringDataAllocator;

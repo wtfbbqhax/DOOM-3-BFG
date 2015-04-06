@@ -30,7 +30,8 @@ If you have questions concerning this license or the applicable additional terms
 
 #include "../renderer/RenderSystem.h"   // for stereoDepthType_t
 
-namespace BFG {
+namespace BFG
+{
 
 ID_INLINE float SWFTWIP( int twip )
 {

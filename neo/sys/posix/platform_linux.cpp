@@ -45,7 +45,8 @@ If you have questions concerning this license or the applicable additional terms
 #include <sys/stat.h>
 #include <unistd.h>
 
-namespace BFG {
+namespace BFG
+{
 
 static const char** cmdargv = NULL;
 static int cmdargc = 0;

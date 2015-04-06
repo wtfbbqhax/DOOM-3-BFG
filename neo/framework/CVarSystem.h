@@ -35,7 +35,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../idlib/CmdArgs.h"
 #include "../framework/CmdSystem.h"
 
-namespace BFG {
+namespace BFG
+{
 
 /*
 ===============================================================================

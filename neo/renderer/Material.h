@@ -32,7 +32,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../framework/DeclManager.h"
 #include "../idlib/geometry/TraceModel.h"
 
-namespace BFG {
+namespace BFG
+{
 
 class idImage;
 class idCinematic;

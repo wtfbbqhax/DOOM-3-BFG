@@ -31,7 +31,8 @@ If you have questions concerning this license or the applicable additional terms
 
 #include "../idlib/containers/List.h"
 
-namespace BFG {
+namespace BFG
+{
 
 /*
 ===============================================================================

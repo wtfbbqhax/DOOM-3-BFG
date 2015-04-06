@@ -17,7 +17,8 @@
 #ifndef _SDL2_SCANCODE_TO_DINPUT_MAPPINGS_H_
 #define _SDL2_SCANCODE_TO_DINPUT_MAPPINGS_H_
 
-namespace BFG {
+namespace BFG
+{
 
 // TODO: map the following keys, if possible:
 // #define DIK_UNDERLINE       0x93    /*                     (NEC PC98) */

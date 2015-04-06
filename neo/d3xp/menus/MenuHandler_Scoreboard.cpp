@@ -47,7 +47,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../swf/SWF_SpriteInstance.h"
 #include "../sys/sys_session.h"
 
-namespace BFG {
+namespace BFG
+{
 
 class idPlayer;
 class idSWFParmList;

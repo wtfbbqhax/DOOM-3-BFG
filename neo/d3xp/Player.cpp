@@ -129,7 +129,8 @@ If you have questions concerning this license or the applicable additional terms
 #undef FindText
 #endif
 
-namespace BFG {
+namespace BFG
+{
 
 idCVar flashlight_batteryDrainTimeMS( "flashlight_batteryDrainTimeMS", "30000", CVAR_INTEGER, "amount of time (in MS) it takes for full battery to drain (-1 == no battery drain)" );
 idCVar flashlight_batteryChargeTimeMS( "flashlight_batteryChargeTimeMS", "3000", CVAR_INTEGER, "amount of time (in MS) it takes to fully recharge battery" );
@@ -8986,12 +8987,12 @@ void idPlayer::Think()
 	{
 		if( ( usercmd.buttons & BUTTON_ZOOM ) && weapon.GetEntity() )
 		{
-            weapon.GetEntity()->SetIronsight( true );
+			weapon.GetEntity()->SetIronsight( true );
 			zoomFov.Init( gameLocal.time, 200.0f, CalcFov( false ), weapon.GetEntity()->GetZoomFov() );
 		}
 		else
 		{
-            weapon.GetEntity()->SetIronsight( false );
+			weapon.GetEntity()->SetIronsight( false );
 			zoomFov.Init( gameLocal.time, 200.0f, zoomFov.GetCurrentValue( gameLocal.time ), DefaultFov() );
 		}
 	}
@@ -11455,7 +11456,7 @@ void idPlayer::ClientThink( const int curTime, const float fraction, const bool 
 			{
 				zoomFov.Init( gameLocal.time, 200.0f, zoomFov.GetCurrentValue( gameLocal.time ), DefaultFov() );
 			}
-		}        
+		}
 	}
 	
 	// clear the ik before we do anything else so the skeleton doesn't get updated twice

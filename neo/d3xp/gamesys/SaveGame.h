@@ -35,7 +35,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../d3xp/Game.h"               // for refSound_t
 #include "../framework/UsercmdGen.h"    // for usercmd_t
 
-namespace BFG {
+namespace BFG
+{
 
 /*
 

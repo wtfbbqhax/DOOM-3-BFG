@@ -41,7 +41,8 @@ If you have questions concerning this license or the applicable additional terms
 
 #pragma hdrstop
 
-namespace BFG {
+namespace BFG
+{
 
 int c_PlaceObject2;
 int c_PlaceObject3;

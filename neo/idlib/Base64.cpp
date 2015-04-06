@@ -5,7 +5,8 @@
 #include "Base64.h"
 #include "../framework/File.h"          // for idFile
 
-namespace BFG {
+namespace BFG
+{
 
 /*
 Copyright (c) 1996 Lars Wirzenius.  All rights reserved.
@@ -45,7 +46,7 @@ idBase64::Encode
 */
 static const char sixtet_to_base64[] =
 	"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
-
+	
 void idBase64::Encode( const byte* from, int size )
 {
 	int i, j;

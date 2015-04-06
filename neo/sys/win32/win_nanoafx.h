@@ -1,7 +1,8 @@
 #ifndef __WIN_NANOAFX_HPP__
 #define __WIN_NANOAFX_HPP__
 
-namespace BFG {
+namespace BFG
+{
 
 #define	_T(n)	L##n
 

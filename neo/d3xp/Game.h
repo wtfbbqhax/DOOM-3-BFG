@@ -49,7 +49,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../ui/UserInterface.h"        // for idUserInterfaceManager, etc
 #include "../cm/CollisionModel.h"       // for idCollisionModelManager
 
-namespace BFG {
+namespace BFG
+{
 
 /*
 ===============================================================================

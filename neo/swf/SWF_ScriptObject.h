@@ -37,7 +37,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../idlib/sys/sys_types.h"
 #include "../swf/SWF_ScriptVar.h"
 
-namespace BFG {
+namespace BFG
+{
 
 class idSWFSpriteInstance;
 class idSWFTextInstance;

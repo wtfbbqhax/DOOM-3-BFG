@@ -28,7 +28,8 @@ If you have questions concerning this license or the applicable additional terms
 #ifndef __RESOLUTIONSCALE_H__
 #define __RESOLUTIONSCALE_H__
 
-namespace BFG {
+namespace BFG
+{
 
 class idStr;
 

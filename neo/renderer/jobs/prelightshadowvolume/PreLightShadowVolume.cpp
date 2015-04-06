@@ -40,7 +40,8 @@ PreLightShadowVolumeJob
 #include "../renderer/jobs/prelightshadowvolume/PreLightShadowVolume.h"
 #include "ParallelJobList.h"
 
-namespace BFG {
+namespace BFG
+{
 
 void PreLightShadowVolumeJob( const preLightShadowVolumeParms_t* parms )
 {

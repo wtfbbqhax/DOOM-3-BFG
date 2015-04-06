@@ -52,7 +52,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../sys_savegame.h"
 #include "sys/sys_threading.h"
 
-namespace BFG {
+namespace BFG
+{
 
 class idLocalUser;
 

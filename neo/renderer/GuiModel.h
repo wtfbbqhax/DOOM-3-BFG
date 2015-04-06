@@ -35,7 +35,8 @@ If you have questions concerning this license or the applicable additional terms
 #include "../renderer/RenderSystem.h"
 #include "../renderer/VertexCache.h"
 
-namespace BFG {
+namespace BFG
+{
 
 struct guiModelSurface_t
 {
