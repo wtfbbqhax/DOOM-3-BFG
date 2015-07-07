@@ -63,9 +63,6 @@ If you have questions concerning this license or the applicable additional terms
 #include "../../cegui/CEGUI_Hooks.h"
 #endif // USE_CEGUI
 
-namespace BFG
-{
-
 #if !SDL_VERSION_ATLEAST(2, 0, 0)
 #define SDL_Keycode SDLKey
 #define SDLK_APPLICATION SDLK_COMPOSE
@@ -87,7 +84,13 @@ namespace BFG
 // DG: SDL1 doesn't seem to have defines for scancodes.. add the (only) one we need
 #define SDL_SCANCODE_GRAVE 49 // in SDL2 this is 53.. but according to two different systems and keyboards this works for SDL1
 // DG end
+#else
+// SDL2 scancodes
+#include "sdl2_scancode_mappings.h"
 #endif
+
+namespace BFG
+{
 
 // DG: those are needed for moving/resizing windows
 extern idCVar r_windowX;
@@ -159,8 +162,6 @@ int SDL_joystick_has_hat = 0;
 
 
 #if SDL_VERSION_ATLEAST(2, 0, 0)
-
-#include "sdl2_scancode_mappings.h"
 
 static int SDLScanCodeToKeyNum( SDL_Scancode sc )
 {
