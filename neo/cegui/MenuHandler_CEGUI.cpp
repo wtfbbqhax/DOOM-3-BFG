@@ -51,7 +51,7 @@ namespace BFG
 
 struct idMenuHandler::MenuVars
 {
-	idMenuScreen_HUD *ourHud;
+	idMenuScreen_HUD* ourHud;
 };
 
 
@@ -130,8 +130,8 @@ void idMenuHandler_Shell::SetShellState( shellState_t s )
 	{
 		state = s;
 		common->Printf( "idMenuHandler_Shell::SetShellState CHANGED %d\n", s );
-
-		if (state == SHELL_STATE_PAUSED)
+		
+		if( state == SHELL_STATE_PAUSED )
 		{
 			// no pause menu yet so we just hide the main and get going
 			CEGUIMenu::MenuLocator::getMain()->setVisible( false );

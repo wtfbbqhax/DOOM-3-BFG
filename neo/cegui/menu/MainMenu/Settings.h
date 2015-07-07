@@ -10,21 +10,23 @@
 
 #include <cegui/menu/GameMenu.h>
 
-namespace CEGUIMenu {
+namespace CEGUIMenu
+{
 
-class Settings: public GameMenu {
+class Settings: public GameMenu
+{
 public:
 	Settings();
 	virtual ~Settings();
-
+	
 	virtual void init();
 	virtual void destroy();
-
-
+	
+	
 protected:
 	virtual void LoadNestedWindows();
 	virtual void RegisterHandlers();
-
+	
 private:
 	void hide();
 };

@@ -28,7 +28,7 @@ void GameMenu::CreateCEGUIWindow()
 	if( idCEGUI::IsInitialized() )
 	{
 		window = CEGUI::WindowManager::getSingleton().
-				loadLayoutFromFile( layoutFile );
+				 loadLayoutFromFile( layoutFile );
 	}
 }
 

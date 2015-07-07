@@ -14,7 +14,7 @@ namespace CEGUIMenu
 {
 
 MenuSystem::MenuSystem() :
-		mainMenu()
+	mainMenu()
 {
 	// TODO Auto-generated constructor stub
 	

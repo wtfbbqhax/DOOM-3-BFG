@@ -25,7 +25,7 @@ void MainMenu::init()
 	CreateCEGUIWindow();
 	AttachCEGUIRootWindow();
 	setVisible( false );
-
+	
 	LoadNestedWindows();
 	RegisterHandlers();
 }
@@ -40,7 +40,7 @@ void MainMenu::AttachCEGUIRootWindow()
 	if( idCEGUI::IsInitialized() )
 	{
 		CEGUI::System::getSingleton().getDefaultGUIContext()
-				.getRootWindow()->addChild(window);
+		.getRootWindow()->addChild( window );
 	}
 }
 
@@ -56,32 +56,32 @@ void MainMenu::RegisterHandlers()
 {
 	if( idCEGUI::IsInitialized() )
 	{
-
-		window->getChild("MenuVertical/TopSelect/Campaign")->subscribeEvent(
+	
+		window->getChild( "MenuVertical/TopSelect/Campaign" )->subscribeEvent(
 			CEGUI::PushButton::EventClicked,
 			&MainMenu::Handle_CampaignClick,
 			( this )
 		);
-
-		window->getChild("MenuVertical/TopSelect/Multiplayer")->subscribeEvent(
+		
+		window->getChild( "MenuVertical/TopSelect/Multiplayer" )->subscribeEvent(
 			CEGUI::PushButton::EventClicked,
 			&MainMenu::Handle_MultiplayerClick,
 			( this )
 		);
-
-		window->getChild("MenuVertical/TopSelect/Settings")->subscribeEvent(
+		
+		window->getChild( "MenuVertical/TopSelect/Settings" )->subscribeEvent(
 			CEGUI::PushButton::EventClicked,
 			&MainMenu::Handle_SettingsClick,
 			( this )
 		);
-
-		window->getChild("MenuVertical/TopSelect/Credits")->subscribeEvent(
+		
+		window->getChild( "MenuVertical/TopSelect/Credits" )->subscribeEvent(
 			CEGUI::PushButton::EventClicked,
 			&MainMenu::Handle_CreditsClick,
 			( this )
 		);
-
-		window->getChild("MenuVertical/TopSelect/Quit")->subscribeEvent(
+		
+		window->getChild( "MenuVertical/TopSelect/Quit" )->subscribeEvent(
 			CEGUI::PushButton::EventClicked,
 			&MainMenu::Handle_QuitClick,
 			( this )
@@ -94,7 +94,7 @@ void MainMenu::setVisible( bool visible )
 	if( idCEGUI::IsInitialized() )
 	{
 		window->setVisible( visible );
-
+		
 		if( visible )
 		{
 			CEGUI::System::getSingleton().getDefaultGUIContext().getMouseCursor().show();
@@ -130,7 +130,7 @@ bool MainMenu::Handle_SettingsClick( const CEGUI::EventArgs& )
 {
 	if( idCEGUI::IsInitialized() )
 	{
-		settings->setVisible(true);
+		settings->setVisible( true );
 		return true;
 	}
 	return false;

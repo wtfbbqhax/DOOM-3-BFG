@@ -25,12 +25,15 @@ public:
 	
 	virtual void init() = 0;
 	virtual void destroy() = 0;
-
+	
 	virtual void setVisible( bool visible );
 	virtual bool isVisible();
-
-	virtual CEGUI::Window* getWindowPtr() { return window; }
-
+	
+	virtual CEGUI::Window* getWindowPtr()
+	{
+		return window;
+	}
+	
 protected:
 	virtual void CreateCEGUIWindow();
 	virtual void RegisterHandlers() = 0;

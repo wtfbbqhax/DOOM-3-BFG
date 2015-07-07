@@ -18,23 +18,23 @@ public:
 	
 	virtual void init();
 	virtual void destroy();
-
+	
 	virtual void setVisible( bool visible );
-
+	
 protected:
 	virtual void LoadNestedWindows();
 	virtual void RegisterHandlers();
 	
 private:
 	void AttachCEGUIRootWindow();
-
+	
 	bool Handle_CampaignClick( const CEGUI::EventArgs& );
 	bool Handle_MultiplayerClick( const CEGUI::EventArgs& );
 	bool Handle_SettingsClick( const CEGUI::EventArgs& );
 	bool Handle_CreditsClick( const CEGUI::EventArgs& );
 	bool Handle_QuitClick( const CEGUI::EventArgs& );
-
-	GameMenu *settings;
+	
+	GameMenu* settings;
 };
 
 

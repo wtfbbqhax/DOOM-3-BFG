@@ -7,16 +7,18 @@
 
 #include <cegui/menu/MainMenu/Settings.h>
 
-namespace CEGUIMenu {
+namespace CEGUIMenu
+{
 
 Settings::Settings() :
-	GameMenu("MainMenu/Settings.layout")
+	GameMenu( "MainMenu/Settings.layout" )
 {
 
 
 }
 
-Settings::~Settings() {
+Settings::~Settings()
+{
 
 }
 
@@ -24,7 +26,7 @@ void Settings::init()
 {
 	CreateCEGUIWindow();
 	setVisible( false );
-
+	
 	LoadNestedWindows();
 	RegisterHandlers();
 }
