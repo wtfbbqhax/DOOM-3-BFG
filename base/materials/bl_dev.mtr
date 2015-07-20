@@ -3,55 +3,55 @@
 textures/bl/dev/16x16_gray
 {
     stone
-	qer_editorimage textures/dev/16gray.tga
-	diffusemap textures/dev/16gray.tga
+	qer_editorimage textures/dev/16gray.png
+	diffusemap textures/dev/16gray.png
 }
 
 textures/bl/dev/16x16_red
 {
     stone
-	qer_editorimage textures/dev/16red.tga
-	diffusemap textures/dev/16red.tga
+	qer_editorimage textures/dev/16red.png
+	diffusemap textures/dev/16red.png
 }
 
 textures/bl/dev/16x16_blue
 {
     stone
-	qer_editorimage textures/dev/16blue.tga
-	diffusemap textures/dev/16blue.tga
+	qer_editorimage textures/dev/16blue.png
+	diffusemap textures/dev/16blue.png
 }
 
 textures/bl/dev/16x16_green
 {
     stone
-    qer_editorimage textures/dev/16green.tga
-	diffusemap textures/dev/16green.tga
+    qer_editorimage textures/dev/16green.png
+	diffusemap textures/dev/16green.png
 }
 
 textures/bl/dev/16x16_yellow
 {
     stone
-	qer_editorimage textures/dev/16yellow.tga
-	diffusemap textures/dev/16yellow.tga
+	qer_editorimage textures/dev/16yellow.png
+	diffusemap textures/dev/16yellow.png
 }
 
 textures/bl/dev/16x16_fucsia
 {
     stone
-	qer_editorimage textures/dev/16fucsia.tga
-	diffusemap textures/dev/16fucsia.tga
+	qer_editorimage textures/dev/16fucsia.png
+	diffusemap textures/dev/16fucsia.png
 }
 
 textures/bl/dev/16x16_cian
 {
     stone
-	qer_editorimage textures/dev/16cian.tga
-	diffusemap textures/dev/16cian.tga
+	qer_editorimage textures/dev/16cian.png
+	diffusemap textures/dev/16cian.png
 }
 
 textures/bl/dev/16x16_orange
 {
     stone
-	qer_editorimage textures/dev/16orange.tga
-	diffusemap textures/dev/16orange.tga
+	qer_editorimage textures/dev/16orange.png
+	diffusemap textures/dev/16orange.png
 }
