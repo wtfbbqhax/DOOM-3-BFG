@@ -249,7 +249,7 @@ static bool IsAMD() {
 	processorString[11] = pstring[11];
 	processorString[12] = 0;
 
-	if ( strcmp( processorString, "AuthenticAMD" ) == 0 ) {
+	if ( idStr::Cmp( processorString, "AuthenticAMD" ) == 0 ) {
 		return true;
 	}
 	return false;

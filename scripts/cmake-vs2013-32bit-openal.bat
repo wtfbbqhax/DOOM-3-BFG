@@ -2,5 +2,5 @@ cd ..
 del /s /q build
 mkdir build
 cd build
-cmake -G "Visual Studio 12" -DCMAKE_INSTALL_PREFIX=../bin/win8-32 -DOPENAL=ON ../
+cmake -G "Visual Studio 12" -DCMAKE_INSTALL_PREFIX=../bin/win8-32 -DOPENAL=ON -DBUNDLED_FREETYPE=ON ../
 pause
