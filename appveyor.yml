@@ -1,0 +1,16 @@
+version: 1.0.{build}
+os:
+- Default Azure
+- Windows Server 2012 R2
+- Visual Studio 2015
+clone_folder: c:\projects\OpenTechBFG
+before_build:
+- cd c:\projects\OpenTechBFG\
+- git submodule init
+- git submodule update
+- mkdir build
+- cd build
+- cmake -G "Visual Studio 12 Win64" -DCMAKE_INSTALL_PREFIX=../bin/win8-64 -DOPENAL=OFF -DBUNDLED_FREETYPE=ON ../
+build:
+  project: C:\projects\OpenTechBFG\build\ALL_BUILD.vcxproj
+  verbosity: normal
