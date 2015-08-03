@@ -10,6 +10,7 @@
 ```
 
 [![Build Status](https://travis-ci.org/OpenTechEngine/OpenTechBFG.svg?branch=projectLayout)](https://travis-ci.org/OpenTechEngine/OpenTechBFG)
+[![Build status|MSVC](https://ci.appveyor.com/api/projects/status/r183363mibm3nypu?svg=true)](https://ci.appveyor.com/project/kortemik/opentechbfg)
 [![Coverity Scan](https://scan.coverity.com/projects/4341/badge.svg)](https://scan.coverity.com/projects/4341)
 
 Thank you for downloading OpenTechEngine.

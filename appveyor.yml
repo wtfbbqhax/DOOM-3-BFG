@@ -1,9 +1,13 @@
 version: 1.0.{build}
-os:
-- Default Azure
-- Windows Server 2012 R2
-- Visual Studio 2015
+os: Default Azure
+configuration: Debug
+platform: x64
 clone_folder: c:\projects\OpenTechBFG
+
+environment:
+  encryptionkey:
+    secure: 9Urg0eGnS5HKgBq7lQQAtuwwobSySAi5rtxr2kadkQpOeCxa5PTLL15AJ/RPDgAJ
+
 before_build:
 - cd c:\projects\OpenTechBFG\
 - git submodule init
@@ -11,6 +15,25 @@ before_build:
 - mkdir build
 - cd build
 - cmake -G "Visual Studio 12 Win64" -DCMAKE_INSTALL_PREFIX=../bin/win8-64 -DOPENAL=OFF -DBUNDLED_FREETYPE=ON ../
+
 build:
   project: C:\projects\OpenTechBFG\build\ALL_BUILD.vcxproj
   verbosity: normal
+
+deploy_script:
+- ps: >-
+    nuget install secure-file -ExcludeVersion
+
+    secure-file\tools\secure-file -decrypt c:\projects\OpenTechBFG\.appveyor\id_rsa.enc -secret %encryptionkey%
+
+    move C:\projects\OpenTechBFG\build\bin C:\projects\OpenTechBFG\build\OpenTechBFG\
+
+    move C:\projects\OpenTechBFG\base C:\projects\OpenTechBFG\build\OpenTechBFG\
+
+    [Reflection.Assembly]::LoadWithPartialName( "System.IO.Compression.FileSystem" )
+
+    [System.IO.Compression.ZipFile]::CreateFromDirectory('C:\projects\OpenTechBFG\build\OpenTechBFG', 'C:\projects\OpenTechBFG\build\OpenTechBFG.zip')
+
+    $unixtimestamp = [int][double]::Parse((Get-Date -UFormat %s))
+
+    scp -B -i C:\projects\OpenTechBFG\.appveyor\id_rsa -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no C:\projects\OpenTechBFG\build\OpenTechBFG.zip kordex@frs.sourceforge.net:/home/frs/project/testrepositoryproject/TestRel/$unixtimestamp.msvc.OpenTechEngine.zip
