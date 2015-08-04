@@ -5,7 +5,7 @@ platform: x64
 clone_folder: c:\projects\OpenTechBFG
 
 environment:
-  encryptionkey:
+  encryption_key:
     secure: 9Urg0eGnS5HKgBq7lQQAtuwwobSySAi5rtxr2kadkQpOeCxa5PTLL15AJ/RPDgAJ
 
 before_build:
@@ -20,20 +20,22 @@ build:
   project: C:\projects\OpenTechBFG\build\ALL_BUILD.vcxproj
   verbosity: normal
 
+test: off
+
 deploy_script:
 - ps: >-
     nuget install secure-file -ExcludeVersion
 
-    secure-file\tools\secure-file -decrypt c:\projects\OpenTechBFG\.appveyor\id_rsa.enc -secret %encryptionkey%
+    secure-file\tools\secure-file -decrypt c:\projects\OpenTechBFG\.appveyor\id_rsa.enc -secret $env:encryption_key
 
-    move C:\projects\OpenTechBFG\build\bin C:\projects\OpenTechBFG\build\OpenTechBFG\
-
-    move C:\projects\OpenTechBFG\base C:\projects\OpenTechBFG\build\OpenTechBFG\
-
-    [Reflection.Assembly]::LoadWithPartialName( "System.IO.Compression.FileSystem" )
-
-    [System.IO.Compression.ZipFile]::CreateFromDirectory('C:\projects\OpenTechBFG\build\OpenTechBFG', 'C:\projects\OpenTechBFG\build\OpenTechBFG.zip')
+    move C:\projects\OpenTechBFG\base C:\projects\OpenTechBFG\build\bin
 
     $unixtimestamp = [int][double]::Parse((Get-Date -UFormat %s))
 
-    scp -B -i C:\projects\OpenTechBFG\.appveyor\id_rsa -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no C:\projects\OpenTechBFG\build\OpenTechBFG.zip kordex@frs.sourceforge.net:/home/frs/project/testrepositoryproject/TestRel/$unixtimestamp.msvc.OpenTechEngine.zip
+    move C:\projects\OpenTechBFG\build\bin C:\projects\OpenTechBFG\build\OpenTechBFG-$unixtimestamp
+
+    [Reflection.Assembly]::LoadWithPartialName( "System.IO.Compression.FileSystem" )
+
+    [System.IO.Compression.ZipFile]::CreateFromDirectory("C:\projects\OpenTechBFG\build\OpenTechBFG-$unixtimestamp", "C:\projects\OpenTechBFG\build\OpenTechBFG-$unixtimestamp.zip")
+
+    scp -q -B -i /c/projects/OpenTechBFG/.appveyor/id_rsa -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no /c/projects/OpenTechBFG/build/OpenTechBFG-$unixtimestamp.zip kordex@frs.sourceforge.net:/home/frs/project/opentechengine/snapshot/Windows/VisualStudio/OpenTechEngine-$unixtimestamp.zip
