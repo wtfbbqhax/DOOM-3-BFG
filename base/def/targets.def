@@ -1,76 +1,91 @@
 // recreated definitions of entities of Doom3, originally in target.def
 // (C) 2015 Daniel Gibson and Yamagi Burmeister, licensed under WTFPL v2
 
+// TODO: you can have multiple targets by naming them "target", "target1", "target2", ...
+// TODO: does this have to be explicitly documented in each entity?
+
 entityDef target_ai_followalternatepath1 {
 	"spawnclass"	"idTarget_CallObjectFunction"
 
-	"editor_usage"	"TODO: Meaningful description, this is a stub!"
+	"editor_usage"	"NOTE: TODO: currently not functional in OpenTech due to missing monster AI scripts!"
+	"editor_usage1"	"the targeted monsters/NPCs will follow the path entity referenced in the 'alt_path1' property of its entity"
 
-	"editor_color"	"0.0 0.5 0.8"
+	"editor_color"	"1 1 0"
 	"editor_maxs"	"8 8 8"
 	"editor_mins"	"-8 -8 -8"
 
-	// TODO: This is just a stub - add proper entity definition and explanation!
+	"call"			"follow_alternate_path1"
+
+	// TODO: doesn't work yet!
 }
 
 entityDef target_ai_followalternatepath2 {
 	"spawnclass"	"idTarget_CallObjectFunction"
 
-	"editor_usage"	"TODO: Meaningful description, this is a stub!"
+	"editor_usage"	"NOTE: TODO: currently not functional in OpenTech due to missing monster AI scripts!"
+	"editor_usage1"	"the targeted monsters/NPCs will follow the path entity referenced in the 'alt_path2' property of its entity"
 
-	"editor_color"	"0.0 0.5 0.8"
+	"editor_color"	"1 1 0"
 	"editor_maxs"	"8 8 8"
 	"editor_mins"	"-8 -8 -8"
 
-	// TODO: This is just a stub - add proper entity definition and explanation!
+	"call"			"follow_alternate_path2"
+
+	// TODO: doesn't work yet!
 }
 
 entityDef target_ai_followalternatepath3 {
 	"spawnclass"	"idTarget_CallObjectFunction"
 
-	"editor_usage"	"TODO: Meaningful description, this is a stub!"
+	"editor_usage"	"NOTE: TODO: currently not functional in OpenTech due to missing monster AI scripts!"
+	"editor_usage1"	"the targeted monsters/NPCs will follow the path entity referenced in the 'alt_path3' property of its entity"
 
-	"editor_color"	"0.0 0.5 0.8"
+	"editor_color"	"1 1 0"
 	"editor_maxs"	"8 8 8"
 	"editor_mins"	"-8 -8 -8"
 
-	// TODO: This is just a stub - add proper entity definition and explanation!
+	"call"			"follow_alternate_path3"
+
+	// TODO: doesn't work yet!
 }
 
 entityDef target_callobjectfunction {
 	"spawnclass"	"idTarget_CallObjectFunction"
 
-	"editor_usage"	"TODO: Meaningful description, this is a stub!"
+	"editor_usage"	"Calls the given script function on the targeted entities"
 
-	"editor_color"	"0.0 0.5 0.8"
+	"editor_color"	"1 1 0"
 	"editor_maxs"	"8 8 8"
 	"editor_mins"	"-8 -8 -8"
 
-	// TODO: This is just a stub - add proper entity definition and explanation!
+	"editor_var call"	"Scriptfunction to call"
 }
 
 entityDef target_enableStamina {
 	"spawnclass"	"idTarget_EnableStamina"
 
-	"editor_usage"	"TODO: Meaningful description, this is a stub!"
+	"editor_usage"	"Enables/disables stamina of all players (player's 'pm_stamina' is set to 0 or its default value)"
 
-	"editor_color"	"0.0 0.5 0.8"
+	"editor_color"	"1 0 1"
 	"editor_maxs"	"8 8 8"
 	"editor_mins"	"-8 -8 -8"
 
-	// TODO: This is just a stub - add proper entity definition and explanation!
+	"editor_bool enable"	"if set (to 1), enable stamine, else disable it"
 }
 
 entityDef target_enableweapons {
 	"spawnclass"	"idTarget_EnableLevelWeapons"
 
-	"editor_usage"	"TODO: Meaningful description, this is a stub!"
+	"editor_usage"	"Enables/disables the players weapons for the current level"
 
-	"editor_color"	"0.0 0.5 0.8"
+	"editor_color"	"1 1 0"
 	"editor_maxs"	"8 8 8"
 	"editor_mins"	"-8 -8 -8"
 
-	// TODO: This is just a stub - add proper entity definition and explanation!
+	"editor_bool disable"	"if set (to 1), the weapons are disabled, otherwise enabled"
+	"editor_var weapon"		"which weapon to draw when enabling; must be in players inventory!"
+
+	"weapon"	"weapon_pistol" // TODO: do we even have this?
 }
 
 entityDef target_endLevel {

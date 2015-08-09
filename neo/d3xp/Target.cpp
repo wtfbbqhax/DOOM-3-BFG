@@ -2175,7 +2175,7 @@ void idTarget_FadeSoundClass::Event_RestoreVolume()
 {
 	float fadeTime = spawnArgs.GetFloat( "fadeTime" );
 	float fadeDB = spawnArgs.GetFloat( "fadeDB" );
-	//int fadeClass = spawnArgs.GetInt( "fadeClass" );
+	//int fadeClass = spawnArgs.GetInt( "fadeClass" ); // FIXME: DG: why is this not used?
 	// restore volume
 	gameSoundWorld->FadeSoundClasses( 0, fadeDB, fadeTime );
 }
