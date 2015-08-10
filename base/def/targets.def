@@ -206,7 +206,7 @@ entityDef target_givesecurity {
 
 	"editor_usage"	"Gives the player a new security clearance when triggered"
 
-	"editor_color"	"0.0 0.5 0.8"
+	"editor_color"	"1 1 0"
 	"editor_maxs"	"8 8 8"
 	"editor_mins"	"-8 -8 -8"
 
@@ -218,49 +218,56 @@ entityDef target_givesecurity {
 entityDef target_levelTrigger {
 	"spawnclass"	"idTarget_LevelTrigger"
 
-	"editor_usage"	"TODO: Meaningful description, this is a stub!"
+	"editor_usage"	"If triggered, activates a trigger in another map when the player is next spawned there"
+	"editor_usage1"	"This allows you to do something in other maps (i.e. not the one you're currently played)"
+	"editor_usage2"	"Like unlocking a door in another map by pressing a button in this one"
 
-	"editor_color"	"0.0 0.5 0.8"
+	"editor_color"	"1 1 0"
 	"editor_maxs"	"8 8 8"
 	"editor_mins"	"-8 -8 -8"
 
-	// TODO: This is just a stub - add proper entity definition and explanation!
+	"editor_var levelName"		"name of the map (without path) you wanna trigger something in"
+	"editor_var triggerName"	"name of the trigger to activate in the other map"
 }
 
 entityDef target_light_fadein {
 	"spawnclass"	"idTarget_LightFadeIn"
 
-	"editor_usage"	"TODO: Meaningful description, this is a stub!"
+	"editor_usage"	"fades in targeted lights when triggered"
 
-	"editor_color"	"0.0 0.5 0.8"
+	"editor_color"	"1 1 0"
 	"editor_maxs"	"8 8 8"
 	"editor_mins"	"-8 -8 -8"
 
-	// TODO: This is just a stub - add proper entity definition and explanation!
+	"editor_float fadetime"		"duration of fade-in in seconds"
+
+	"fadetime"	"1.0"
 }
 
 entityDef target_light_fadeout {
 	"spawnclass"	"idTarget_LightFadeOut"
 
-	"editor_usage"	"TODO: Meaningful description, this is a stub!"
+	"editor_usage"	"fades out targeted lights when triggered"
 
-	"editor_color"	"0.0 0.5 0.8"
+	"editor_color"	"1 1 0"
 	"editor_maxs"	"8 8 8"
 	"editor_mins"	"-8 -8 -8"
 
-	// TODO: This is just a stub - add proper entity definition and explanation!
+	"editor_float fadetime"		"duration of fade-out in seconds"
+
+	"fadetime"	"1.0"
 }
 
 entityDef target_lock {
 	"spawnclass"	"idTarget_LockDoor"
 
-	"editor_usage"	"TODO: Meaningful description, this is a stub!"
+	"editor_usage"	"(un)locks targeted doors. toggles that state each time it's triggered"
 
 	"editor_color"	"0.0 0.5 0.8"
 	"editor_maxs"	"8 8 8"
 	"editor_mins"	"-8 -8 -8"
 
-	// TODO: This is just a stub - add proper entity definition and explanation!
+	"editor_int locked"	"toggle the doors 'locked' state between this value and 0"
 }
 
 entityDef target_npc_talk {
