@@ -91,97 +91,128 @@ entityDef target_enableweapons {
 entityDef target_endLevel {
 	"spawnclass"	"idTarget_EndLevel"
 
-	"editor_usage"	"TODO: Meaningful description, this is a stub!"
+	"editor_usage"	"Ends the current level, shows statistics and switches to next map. entity orientation sets view orientation for viewing stats"
 
-	"editor_color"	"0.0 0.5 0.8"
+	"editor_color"	"1 1 0"
 	"editor_maxs"	"8 8 8"
 	"editor_mins"	"-8 -8 -8"
 
-	// TODO: This is just a stub - add proper entity definition and explanation!
+	"editor_bool endOfGame"	"if set (to 1), it's the end of the game and no other maps follow"
+	// "editor_gui guiName"	"UNUSED: name of the GUI to show at end of the level?" // TODO this is from unused d3xp/EndLevel.cpp code!
+	"editor_var nextMap"	"name of the next map (e.g. testmaps/portalsky)"
+
+	// "nextMap"	"guis/EndLevel.gui" // TODO: we don't have that .gui and passing this to "map" in the console in d3bfg fails anyway!
 }
 
 entityDef target_entity_fadein {
 	"spawnclass"	"idTarget_FadeEntity"
 
-	"editor_usage"	"TODO: Meaningful description, this is a stub!"
+	"editor_usage"	"the targeted entity is faded in when this is triggered"
 
-	"editor_color"	"0.0 0.5 0.8"
+	"editor_color"	"1 1 0"
 	"editor_maxs"	"8 8 8"
 	"editor_mins"	"-8 -8 -8"
 
-	// TODO: This is just a stub - add proper entity definition and explanation!
+	"editor_color _color"	"the color the entity should fade to"
+	"editor_float fadeTime"	"duration of fade-in in seconds"
+
+	"_color"	"1 1 1"
+	"fadeTime"	"1.0"
 }
 
 entityDef target_entity_fadeout {
 	"spawnclass"	"idTarget_FadeEntity"
 
-	"editor_usage"	"TODO: Meaningful description, this is a stub!"
+	"editor_usage"	"the targeted entity is faded out when this is triggered"
 
-	"editor_color"	"0.0 0.5 0.8"
+	"editor_color"	"1 1 0"
 	"editor_maxs"	"8 8 8"
 	"editor_mins"	"-8 -8 -8"
 
-	// TODO: This is just a stub - add proper entity definition and explanation!
+	"editor_color _color"	"the color the entity should fade to"
+	"editor_float fadeTime"	"duration of fade-out in seconds"
+
+	"_color"	"0 0 0"
+	"fadeTime"	"1.0"
 }
 
 entityDef target_entity_setcolor {
 	"spawnclass"	"idTarget_FadeEntity"
 
-	"editor_usage"	"TODO: Meaningful description, this is a stub!"
+	"editor_usage"	"the targeted entity is faded to the given color when this is triggered"
 
-	"editor_color"	"0.0 0.5 0.8"
+	"editor_color"	"1 1 0"
 	"editor_maxs"	"8 8 8"
 	"editor_mins"	"-8 -8 -8"
 
-	// TODO: This is just a stub - add proper entity definition and explanation!
+	"editor_color _color"	"the color the entity should fade to"
+	"editor_float fadeTime"	"duration of fading in seconds"
+
+	"fadeTime"	"0.0"
 }
 
 entityDef target_FadeSoundClass {
 	"spawnclass"	"idTarget_FadeSoundClass"
 
-	"editor_usage"	"TODO: Meaningful description, this is a stub!"
+	"editor_usage"	"Fades a whole sound-class in or out (eg to silence environment during cut scenes; sounds default to class 0)"
 
-	"editor_color"	"0.0 0.5 0.8"
+	"editor_color"	"0.1 1.0 0.1"
 	"editor_maxs"	"8 8 8"
 	"editor_mins"	"-8 -8 -8"
 
-	// TODO: This is just a stub - add proper entity definition and explanation!
+	"editor_bool fadeIn"		"if set (to 1), fade in (fade to current vol + fadeDB decibels), else fade out"
+	"editor_int fadeClass"		"Sound-class to fade (valid values: 0,1,2,3), default is 0"
+	"editor_float fadeDB"		"how many decibels to fade in/out - must be positive"
+	"editor_float fadeTime"		"how long the fading (between current volume and cur. vol. +/- fadeDB) takes in seconds"
+	"editor_float fadeDuration"	"amount of seconds to stay faded in/out before going back to original volume"
+
+	"fadeClass"	"0"
+	"fadeDB"	"20"
+	"fadeTime"	"0.5"
 }
 
 entityDef target_give {
 	"spawnclass"	"idTarget_Give"
 
-	"editor_usage"	"TODO: Meaningful description, this is a stub!"
+	"editor_usage"	"adds items to the player's intentory"
+	"editor_usage1"	"use item2, item3, ... for more than one item"
 
-	"editor_color"	"0.0 0.5 0.8"
-	"editor_maxs"	"8 8 8"
-	"editor_mins"	"-8 -8 -8"
+	"editor_color"	"0.2 0.7 0.5"
+	"editor_maxs"	"6.0 6.0 6.0"
+	"editor_mins"	"-6.0 -6.0 -6.0"
 
-	// TODO: This is just a stub - add proper entity definition and explanation!
+	"editor_bool development"	"if set (to 1), only do give the items in development mode"
+	"editor_var item1"			"name of the item given to the player; use item2, item3, ... keys for more items"
+	"editor_bool onspawn"		"if set (to 1), the items are given to the player on spawn (otherwise when this is triggered)"
+
+	"developer"	"1"
+	"onspawn"	"1"
 }
 
 entityDef target_giveemail {
 	"spawnclass"	"idTarget_GiveEmail"
 
-	"editor_usage"	"TODO: Meaningful description, this is a stub!"
+	"editor_usage"	"Sends an E-Mail to the player's PDA when triggered"
 
-	"editor_color"	"0.0 0.5 0.8"
+	"editor_color"	"1 1 0"
 	"editor_maxs"	"8 8 8"
 	"editor_mins"	"-8 -8 -8"
 
-	// TODO: This is just a stub - add proper entity definition and explanation!
+	"editor_var email"	"name of the E-Mail to send, refers to an email declaration, usually(?) in .pda files"
 }
 
 entityDef target_givesecurity {
 	"spawnclass"	"idTarget_GiveSecurity"
 
-	"editor_usage"	"TODO: Meaningful description, this is a stub!"
+	"editor_usage"	"Gives the player a new security clearance when triggered"
 
 	"editor_color"	"0.0 0.5 0.8"
 	"editor_maxs"	"8 8 8"
 	"editor_mins"	"-8 -8 -8"
 
-	// TODO: This is just a stub - add proper entity definition and explanation!
+	"editor_var text_security" "the security clearance"
+
+	"text_security"		"Unlimited Access"
 }
 
 entityDef target_levelTrigger {

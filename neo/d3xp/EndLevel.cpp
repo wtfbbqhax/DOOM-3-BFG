@@ -31,6 +31,8 @@ If you have questions concerning this license or the applicable additional terms
 
 #include "Game_local.h"
 
+// FIXME: DG: seems like this source file is not used, idTarget_EndLevel is in Target.h/cpp with less features!
+
 namespace BFG
 {
 

@@ -346,7 +346,7 @@ void idTarget_EndLevel::Event_Activate( idEntity* activator )
 	idStr nextMap;
 	if( !spawnArgs.GetString( "nextMap", "", nextMap ) )
 	{
-		gameLocal.Printf( "idTarget_SessionCommand::Event_Activate: no nextMap key\n" );
+		gameLocal.Printf( "idTarget_EndLevel::Event_Activate: no nextMap key\n" );
 		return;
 	}
 	
