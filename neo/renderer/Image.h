@@ -38,6 +38,11 @@ If you have questions concerning this license or the applicable additional terms
 #include "../framework/Common.h"        // for MemInfo_t
 #include "../renderer/ImageOpts.h"
 
+#include "ImageOpts.h"
+#include "BinaryImage.h"
+
+#define	MAX_IMAGE_NAME	256
+
 namespace BFG
 {
 
@@ -89,11 +94,6 @@ enum imageFileType_t
 	PNG,
 	JPG
 };
-
-#include "ImageOpts.h"
-#include "BinaryImage.h"
-
-#define	MAX_IMAGE_NAME	256
 
 class idImage
 {
