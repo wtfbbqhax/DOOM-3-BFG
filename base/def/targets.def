@@ -273,71 +273,83 @@ entityDef target_lock {
 entityDef target_npc_talk {
 	"spawnclass"	"idTarget_CallObjectFunction"
 
-	"editor_usage"	"TODO: Meaningful description, this is a stub!"
+	"editor_usage"	"when activated, the targeted NPC talks to the player"
+	"editor_usage1"	"NOTE: TODO: currently not functional in OpenTech due to missing NPC AI scripts!"
 
-	"editor_color"	"0.0 0.5 0.8"
+	"editor_color"	"1 1 0"
 	"editor_maxs"	"8 8 8"
 	"editor_mins"	"-8 -8 -8"
 
-	// TODO: This is just a stub - add proper entity definition and explanation!
+	"call" "target_talk"
+
+	// TODO: doesn't work yet!
 }
 
 entityDef target_npc_talk_primary {
 	"spawnclass"	"idTarget_CallObjectFunction"
 
-	"editor_usage"	"TODO: Meaningful description, this is a stub!"
+	"editor_usage"	"when activated, the targeted NPC does its standard talk animation to the player"
+	"editor_usage1"	"NOTE: TODO: currently not functional in OpenTech due to missing NPC AI scripts!"
 
-	"editor_color"	"0.0 0.5 0.8"
+	"editor_color"	"1 1 0"
 	"editor_maxs"	"8 8 8"
 	"editor_mins"	"-8 -8 -8"
 
-	// TODO: This is just a stub - add proper entity definition and explanation!
+	"call" "say_primary"
+
+	// TODO: doesn't work yet!
 }
 
 entityDef target_npc_talk_secondary {
 	"spawnclass"	"idTarget_CallObjectFunction"
 
-	"editor_usage"	"TODO: Meaningful description, this is a stub!"
+	"editor_usage"	"when activated, the targeted NPC does its alternative talk animation to the player"
+	"editor_usage1"	"NOTE: TODO: currently not functional in OpenTech due to missing NPC AI scripts!"
 
-	"editor_color"	"0.0 0.5 0.8"
+	"editor_color"	"1 1 0"
 	"editor_maxs"	"8 8 8"
 	"editor_mins"	"-8 -8 -8"
 
-	// TODO: This is just a stub - add proper entity definition and explanation!
+	"call" "say_secondary"
+
+	// TODO: doesn't work yet!
 }
 
 entityDef target_npc_talk_triggered {
 	"spawnclass"	"idTarget_CallObjectFunction"
 
-	"editor_usage"	"TODO: Meaningful description, this is a stub!"
+	"editor_usage"	"when activated, the targeted NPC does its triggered talk animation to the player"
+	"editor_usage1"	"NOTE: TODO: currently not functional in OpenTech due to missing NPC AI scripts!"
 
-	"editor_color"	"0.0 0.5 0.8"
+	"editor_color"	"1 1 0"
 	"editor_maxs"	"8 8 8"
 	"editor_mins"	"-8 -8 -8"
 
-	// TODO: This is just a stub - add proper entity definition and explanation!
+	"call" "say_triggered"
+
+	// TODO: doesn't work yet!
 }
 
 entityDef target_null {
 	"spawnclass"	"idTarget"
 
-	"editor_usage"	"TODO: Meaningful description, this is a stub!"
+	"editor_usage"	"generic target to orient cameras etc at"
 
-	"editor_color"	"0.0 0.5 0.8"
-	"editor_maxs"	"8 8 8"
-	"editor_mins"	"-8 -8 -8"
-
-	// TODO: This is just a stub - add proper entity definition and explanation!
+	"editor_color"	"1 1 0"
+	"editor_maxs"	"6 6 6"
+	"editor_mins"	"-6 -6 -6"
 }
 
 entityDef target_primaryobjective {
 	"spawnclass"	"idTarget_SetPrimaryObjective"
 
-	"editor_usage"	"TODO: Meaningful description, this is a stub!"
+	"editor_usage"	"changes the primary objective text when activated"
 
-	"editor_color"	"0.0 0.5 0.8"
+	"editor_color"	"1 0 1"
 	"editor_maxs"	"8 8 8"
 	"editor_mins"	"-8 -8 -8"
+
+	"editor_var text"	"the new objective (string or string-id for string table)"
 
 	// TODO: This is just a stub - add proper entity definition and explanation!
 }
@@ -345,49 +357,53 @@ entityDef target_primaryobjective {
 entityDef target_removeweapons {
 	"spawnclass"	"idTarget_RemoveWeapons"
 
-	"editor_usage"	"TODO: Meaningful description, this is a stub!"
+	"editor_usage"	"removes all but the 'essential' weapons of all players when activated"
+	"editor_usage1"	"'essential' are currently: fists, soulcube, pda, flashlight"
 
-	"editor_color"	"0.0 0.5 0.8"
+	"editor_color"	"1 1 0"
 	"editor_maxs"	"8 8 8"
 	"editor_mins"	"-8 -8 -8"
 
-	// TODO: This is just a stub - add proper entity definition and explanation!
+	// TODO: the following is documented in the original .def, but not supported in the C++ code!
+	// "editor_var weapon"	"slot the weapons should be removed from, use weapon1, weapon2, .. for multiple slots"
 }
 
 entityDef target_sessionCommand {
 	"spawnclass"	"idTarget_SessionCommand"
 
-	"editor_usage"	"TODO: Meaningful description, this is a stub!"
+	"editor_usage"	"sends the given command to the engine when activated (eg 'map horstshome')"
 
-	"editor_color"	"0.0 0.5 0.8"
+	"editor_color"	"1 1 0"
 	"editor_maxs"	"8 8 8"
 	"editor_mins"	"-8 -8 -8"
 
-	// TODO: This is just a stub - add proper entity definition and explanation!
+	"editor_var command"	"the command to execute"
 }
 
 entityDef target_setfov {
 	"spawnclass"	"idTarget_SetFov"
 
-	"editor_usage"	"TODO: Meaningful description, this is a stub!"
+	"editor_usage"	"fades the player's FOV (field of view) to given value when activated"
 
-	"editor_color"	"0.0 0.5 0.8"
+	"editor_color"	"1 0 1"
 	"editor_maxs"	"8 8 8"
 	"editor_mins"	"-8 -8 -8"
 
-	// TODO: This is just a stub - add proper entity definition and explanation!
+	"editor_float fov"	"the new FOV"
+	"editor_float time"	"seconds until the new FOV is reached"
 }
 
 entityDef target_setglobalparmtime {
 	"spawnclass"	"idTarget_SetGlobalShaderTime"
 
-	"editor_usage"	"TODO: Meaningful description, this is a stub!"
+	"editor_usage"	"sets the negative (?!) current game time (as float in seconds) as a global shader parm when activated"
+	"editor_usage"	"it's -MS2SEC( gameLocal.time ), if that's any help..."
 
-	"editor_color"	"0.0 0.5 0.8"
+	"editor_color"	"1 1 0"
 	"editor_maxs"	"8 8 8"
 	"editor_mins"	"-8 -8 -8"
 
-	// TODO: This is just a stub - add proper entity definition and explanation!
+	"editor_int globalParm"	"which global shader parm to set"
 }
 
 entityDef target_setinfluence {
