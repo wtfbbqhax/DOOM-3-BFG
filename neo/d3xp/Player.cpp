@@ -5694,20 +5694,27 @@ void idPlayer::Weapon_Combat()
 			
 			if( weapon.GetEntity()->IsHolstered() )
 			{
-				assert( idealWeapon.Get() >= 0 );
-				assert( idealWeapon.Get() < MAX_WEAPONS );
-				
-				if( currentWeapon != weapon_pda && !spawnArgs.GetBool( va( "weapon%d_toggle", currentWeapon ) ) )
+				if ( idealWeapon.Get() == 0 )
 				{
-					previousWeapon = currentWeapon;
+					common->Warning( "Not enough weapons defined" );
 				}
-				currentWeapon = idealWeapon.Get();
-				weaponGone = false;
-				animPrefix = spawnArgs.GetString( va( "def_weapon%d", currentWeapon ) );
-				weapon.GetEntity()->GetWeaponDef( animPrefix, inventory.GetClipAmmoForWeapon( currentWeapon ) );
-				animPrefix.Strip( "weapon_" );
+				else
+				{
+					assert( idealWeapon.Get() >= 0 );
+					assert( idealWeapon.Get() < MAX_WEAPONS );
 				
-				weapon.GetEntity()->Raise();
+					if( currentWeapon != weapon_pda && !spawnArgs.GetBool( va( "weapon%d_toggle", currentWeapon ) ) )
+					{
+						previousWeapon = currentWeapon;
+					}
+					currentWeapon = idealWeapon.Get();
+					weaponGone = false;
+					animPrefix = spawnArgs.GetString( va( "def_weapon%d", currentWeapon ) );
+					weapon.GetEntity()->GetWeaponDef( animPrefix, inventory.GetClipAmmoForWeapon( currentWeapon ) );
+					animPrefix.Strip( "weapon_" );
+				
+					weapon.GetEntity()->Raise();
+				}
 			}
 		}
 	}
