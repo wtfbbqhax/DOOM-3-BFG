@@ -1,6 +1,6 @@
 version: 1.0.{build}
 os: Default Azure
-configuration: Debug
+configuration: Release
 platform: x64
 clone_folder: c:\projects\OpenTechBFG
 
