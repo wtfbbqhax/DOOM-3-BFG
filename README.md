@@ -203,7 +203,7 @@ _________________________
 
 2. Generate the Makefiles using CMake:
 
-	> cd neo/scripts  
+	> cd scripts  
 	> ./cmake-eclipse-linux-profile.sh
 	
 3. Compile OpenTechEngine targets with
