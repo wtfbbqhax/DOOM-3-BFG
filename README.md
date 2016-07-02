@@ -189,7 +189,7 @@ _________________________
 
 	On ArchLinux
 
-		> sudo pacman -S sdl ffmpeg openal cmake
+		> sudo pacman -S sdl ffmpeg openal cmake  
 
 		Alternatively you can install sdl2 instead of sdl.
 	
@@ -244,8 +244,8 @@ Then you can download Doom 3 BFG with
 
 > ./steamcmd.sh +@sSteamCmdForcePlatformType windows +login <YOUR_STEAM_LOGIN_NAME> +force_install_dir ./doom3bfg/ +app_update 208200 validate +quit
 
-(replace <YOUR_STEAM_LOGIN_NAME> with your steam login name)
-When it's done you should have the normal windows installation of Doom 3 BFG in ./doom3bfg/ and the needed files in ./doom3bfg/base/
+(replace <YOUR_STEAM_LOGIN_NAME> with your steam login name)  
+When it's done you should have the normal windows installation of Doom 3 BFG in ./doom3bfg/ and the needed files in ./doom3bfg/base/  
 That number is the "AppID" of Doom 3 BFG; if you wanna use this to get the data of other games you own, you can look up the AppID at https://steamdb.info/
 
 NOTE that we've previously recommended using download_depot in the Steam console to install the game data. That turned out to be unreliable and result in broken, unusable game data. So use SteamCMD instead, as described above.
