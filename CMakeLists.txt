@@ -62,7 +62,13 @@ option(BUNDLED_OGGVORBIS
   "Use bundled oggvorbis" OFF)
   
 option(BUNDLED_OPENAL
-  "Use bundled openal")
+  "Use bundled openal" OFF)
+
+if(NOT MSVC)
+  # on other platforms we must use openal because they don't have xaudio - and mingw is missing XAudio2.h
+  # FIXME: can we somehow have it default to OFF on windows and ON everywhere else?
+  set(BUNDLED_OPENAL TRUE)
+endif()
 
 option(BUNDLED_SDL
   "Use bundled SDL" OFF)
@@ -104,7 +110,7 @@ endif()
 
 # openal
 if(BUNDLED_OPENAL)
-#  add_subdirectory(libs/openal)
+  add_subdirectory(libs/openal-soft)
 endif()
 
 # sdl
