@@ -26,6 +26,17 @@ else()
   set(SDLx_LIBRARY ${SDL_LIBRARY})
 endif()
 
+if(BUNDLED_CEGUI)
+  # set RPATH for Unix-y systems (except for OS X), so they can find the cegui libs.
+  # must be done here so it's used for both the OpenTech executable and the cegui libs
+  if(UNIX AND NOT APPLE AND NOT WIN32)
+    # use $ORIGIN/lib as RPATH to have a relative rpath (lib/ should always be next to the executable)
+    set(CMAKE_INSTALL_RPATH "\$ORIGIN/../lib")
+    # this RPATH should be used immediately, not only after installing
+    set(CMAKE_BUILD_WITH_INSTALL_RPATH ON)
+  endif()
+endif()
+
 if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
   list(REMOVE_ITEM POSIX_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/sys/posix/platform_linux.cpp)
 else()
@@ -55,10 +66,6 @@ list(REMOVE_DUPLICATES OpenTechBFG_SOURCES)
 GET_DIRECTORY_PROPERTY(_directory_flags DEFINITIONS)
 LIST(APPEND _compiler_FLAGS ${_directory_flags})
 SEPARATE_ARGUMENTS(_compiler_FLAGS)
-
-# I want the executable in build/, not build/neo/
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
-
 
 add_executable(OpenTechEngine ${OpenTechBFG_SOURCES})
 
@@ -91,3 +98,5 @@ target_link_libraries(OpenTechEngine
   ${CEGUIGLR_LIBRARY}
   )
 #endif()
+
+install (TARGETS OpenTechEngine RUNTIME DESTINATION bin COMPONENT OpenTechEngine)
