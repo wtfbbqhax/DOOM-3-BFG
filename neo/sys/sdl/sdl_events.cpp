@@ -63,6 +63,9 @@ If you have questions concerning this license or the applicable additional terms
 #include "../../cegui/CEGUI_Hooks.h"
 #endif // USE_CEGUI
 
+#include "../../imgui/ImGui_Hooks.h"
+#include "tools/Tools.h"
+
 #if !SDL_VERSION_ATLEAST(2, 0, 0)
 #define SDL_Keycode SDLKey
 #define SDLK_APPLICATION SDLK_COMPOSE
@@ -821,29 +824,6 @@ unsigned char Sys_MapCharForKey( int key )
 }
 
 /*
-===============
-Sys_GrabMouseCursor
-===============
-*/
-void Sys_GrabMouseCursor( bool grabIt )
-{
-	int flags;
-	
-	if( grabIt )
-	{
-		// DG: disabling the cursor is now done once in GLimp_Init() because it should always be disabled
-		flags = GRAB_ENABLE | GRAB_SETSTATE;
-		// DG end
-	}
-	else
-	{
-		flags = GRAB_SETSTATE;
-	}
-	
-	GLimp_GrabInput( flags );
-}
-
-/*
 ================
 Sys_GetEvent
 ================
@@ -962,6 +942,8 @@ sysEvent_t Sys_GetEvent()
 						// DG: cegui must know about the changed window size
 						idCEGUI::NotifyDisplaySizeChanged( glConfig.nativeScreenWidth, glConfig.nativeScreenHeight );
 #endif // USE_CEGUI
+						// same for imgui
+						ImGuiHook::NotifyDisplaySizeChanged( glConfig.nativeScreenWidth, glConfig.nativeScreenHeight );
 						
 						break;
 					}
@@ -1031,6 +1013,8 @@ sysEvent_t Sys_GetEvent()
 				// DG: cegui must know about the changed window size
 				idCEGUI::NotifyDisplaySizeChanged( glConfig.nativeScreenWidth, glConfig.nativeScreenHeight );
 #endif // USE_CEGUI
+				// same for imgui
+				ImGuiHook::NotifyDisplaySizeChanged( glConfig.nativeScreenWidth, glConfig.nativeScreenHeight );
 			
 				// for some reason this needs a vid_restart in SDL1 but not SDL2 so GLimp_SetScreenParms() is called
 				PushConsoleEvent( "vid_restart" );
@@ -1176,7 +1160,7 @@ sysEvent_t Sys_GetEvent()
 				// to fix cursor problems in windowed mode
 				
 				// TODO we should have some method to tell if we want absolute or relative mouse
-				if( ( game && game->Shell_IsActive() ) || ( console && console->Active() ) )
+				if( ( game && game->Shell_IsActive() ) || ( console && console->Active() ) || Tools::ReleaseMouseForTools() )
 				{
 					res.evType = SE_MOUSE_ABSOLUTE;
 					res.evValue = ev.motion.x;
@@ -1202,8 +1186,13 @@ sysEvent_t Sys_GetEvent()
 				continue; // Avoid 'unknown event' spam when testing with touchpad by skipping this
 				
 			case SDL_MOUSEWHEEL:
-				res.evType = SE_KEY;
+				if( ev.wheel.y == 0 )
+				{
+					// ignore horizontal scrolling events
+					continue;
+				}
 				
+				res.evType = SE_KEY;
 				res.evValue = ( ev.wheel.y > 0 ) ? K_MWHEELUP : K_MWHEELDOWN;
 				
 				mouse_polls.Append( mouse_poll_t( M_DELTAZ, ev.wheel.y ) );

@@ -59,6 +59,9 @@ If you have questions concerning this license or the applicable additional terms
 #include "Common_local.h"
 #include "sys/sys_savegame.h"
 
+#include "../imgui/ImGui_Hooks.h"
+#include "tools/Tools.h"
+
 #pragma hdrstop
 
 #ifdef _WIN32
@@ -464,6 +467,9 @@ void idCommonLocal::Frame()
 		
 		eventLoop->RunEventLoop();
 		
+		// DG: prepare new ImGui frame - I guess this is a good place, as all new events should be available?
+		ImGuiHook::NewFrame();
+		
 		// Activate the shell if it's been requested
 		if( showShellRequested && game )
 		{
@@ -474,16 +480,12 @@ void idCommonLocal::Frame()
 		// if the console or another gui is down, we don't need to hold the mouse cursor
 		bool chatting = false;
 		
-		// DG: Add pause from com_pause cvar
+		// DG: Add pause from com_pause cvar and let tools release the mouse
 		if( com_pause.GetInteger() || console->Active() || Dialog().IsDialogActive() || session->IsSystemUIShowing()
-				|| ( game && game->InhibitControls() ) )
+				|| ( game && game->InhibitControls() ) || Tools::ReleaseMouseForTools() )
 			// DG end
 		{
-			// RB: don't release the mouse when opening a PDA or menu
-			if( console->Active() )
-			{
-				Sys_GrabMouseCursor( false );
-			}
+			Sys_GrabMouseCursor( false );
 			usercmdGen->InhibitUsercmd( INHIBIT_SESSION, true );
 			chatting = true;
 		}

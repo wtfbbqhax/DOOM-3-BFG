@@ -83,7 +83,7 @@ If you have questions concerning this license or the applicable additional terms
 #include "../renderer/Image.h"
 
 #if defined(USE_IDTOOLS)
-#include "../tools/compilers/compiler_public.h"
+#include "../tools/Tools.h"
 #endif
 
 
@@ -92,6 +92,8 @@ If you have questions concerning this license or the applicable additional terms
 #ifdef USE_CEGUI // in idCommonLocal::ProcessEvent() we events into cegui
 #include "../cegui/CEGUI_Hooks.h"
 #endif // USE_CEGUI
+
+#include "../imgui/ImGui_Hooks.h"
 
 namespace BFG
 {
@@ -405,6 +407,35 @@ void idCommonLocal::AddStartupCommands()
 		cmdSystem->BufferCommandArgs( CMD_EXEC_APPEND, com_consoleLines[i] );
 	}
 }
+
+// DG: add doom3 tools
+/*
+=================
+idCommonLocal::InitTool
+=================
+*/
+void idCommonLocal::InitTool( const toolFlag_t tool, const idDict* dict, idEntity* entity )
+{
+#ifdef ID_ALLOW_TOOLS
+	if( tool & EDITOR_SOUND )
+	{
+		//SoundEditorInit( dict ); // TODO: implement this somewhere
+	}
+	else if( tool & EDITOR_LIGHT )
+	{
+		Tools::LightEditorInit( dict, entity );
+	}
+	else if( tool & EDITOR_PARTICLE )
+	{
+		//ParticleEditorInit( dict );
+	}
+	else if( tool & EDITOR_AF )
+	{
+		//AFEditorInit( dict );
+	}
+#endif
+}
+// DG end
 
 /*
 ==================
@@ -1526,6 +1557,9 @@ void idCommonLocal::Shutdown()
 	printf( "idCEGUI::Destroy();\n" );
 	idCEGUI::Destroy();
 	
+	printf( "ImGuiHook::Destroy();\n" );
+	ImGuiHook::Destroy();
+	
 	printf( "delete renderWorld;\n" );
 	delete renderWorld;
 	renderWorld = NULL;
@@ -1715,6 +1749,9 @@ void idCommonLocal::InitCommands()
 	cmdSystem->AddCommand( "runAAS", RunAAS_f, CMD_FL_TOOL, "compiles an AAS file for a map", idCmdSystem::ArgCompletion_MapName );
 	cmdSystem->AddCommand( "runAASDir", RunAASDir_f, CMD_FL_TOOL, "compiles AAS files for all maps in a folder", idCmdSystem::ArgCompletion_MapName );
 	cmdSystem->AddCommand( "runReach", RunReach_f, CMD_FL_TOOL, "calculates reachability for an AAS file", idCmdSystem::ArgCompletion_MapName );
+	
+	// cmdSystem->AddCommand( "showEditors", ShowEditors_f, CMD_FL_TOOL, "compiles a map" );
+	
 #endif
 }
 
@@ -1795,7 +1832,6 @@ bool idCommonLocal::ProcessEvent( const sysEvent_t* event )
 			{
 				if( !game->Shell_IsActive() )
 				{
-				
 					// menus / etc
 					if( MenuEvent( event ) )
 					{
@@ -1823,11 +1859,8 @@ bool idCommonLocal::ProcessEvent( const sysEvent_t* event )
 		}
 	}
 	
-#ifdef USE_CEGUI
-	// send events to cegui
-	// TODO: should this always be injected or only if a cegui window is active?
-	idCEGUI::InjectSysEvent( event ); // TODO: could check return value?
-#endif // USE_CEGUI
+	// NOTE: idCEGUI::InjectSysEvent() is now called in the menu/console code
+	//       where cegui is actually used
 	
 	// let the pull-down console take it if desired
 	if( console->ProcessEvent( event, false ) )
@@ -1847,6 +1880,11 @@ bool idCommonLocal::ProcessEvent( const sysEvent_t* event )
 	
 	// menus / etc
 	if( MenuEvent( event ) )
+	{
+		return true;
+	}
+	
+	if( ImGuiHook::InjectSysEvent( event ) )
 	{
 		return true;
 	}
