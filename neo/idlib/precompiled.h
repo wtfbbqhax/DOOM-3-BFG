@@ -85,9 +85,6 @@ const int MAX_EXPRESSION_REGISTERS = 4096;
 
 // renderer
 
-#include "Material.h"
-
-#if 0
 // RB: replaced QGL with GLEW
 #include <GL/glew.h>
 // RB end
@@ -174,4 +171,3 @@ const int MAX_EXPRESSION_REGISTERS = 4096;
 #include <algorithm>	// for min / max / swap
 
 #endif /* !__PRECOMPILED_H__ */
-#endif
