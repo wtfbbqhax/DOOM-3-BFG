@@ -26,7 +26,7 @@ If you have questions concerning this license or the applicable additional terms
 ===========================================================================
 */
 
-#include "global.inc"
+#include "renderprogs/global.inc"
 
 uniform samplerCUBE samp0 : register(s0);
 
@@ -41,5 +41,5 @@ struct PS_OUT {
 };
 
 void main( PS_IN fragment, out PS_OUT result ) {
-	result.color = texCUBE( samp0, fragment.texcoord0 ) * fragment.color;
+	result.color = sRGBAToLinearRGBA( texCUBE( samp0, fragment.texcoord0 ) ) * fragment.color;
 }
