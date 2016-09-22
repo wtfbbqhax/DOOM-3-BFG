@@ -28,7 +28,8 @@ If you have questions concerning this license or the applicable additional terms
 #ifndef __FILE_SAVEGAME_H__
 #define __FILE_SAVEGAME_H__
 
-#include <zlib.h>
+#include "zconf.h"
+#include "zlib.h"
 
 // Listing of the types of files within a savegame package
 enum saveGameType_t

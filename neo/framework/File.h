@@ -29,6 +29,8 @@ If you have questions concerning this license or the applicable additional terms
 #ifndef __FILE_H__
 #define __FILE_H__
 
+#include "ioapi.h" // XXX Need this for ZPOS64_t
+
 /*
 ==============================================================
 
