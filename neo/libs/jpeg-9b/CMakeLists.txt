@@ -9,18 +9,9 @@ if ( APPLE )
     )
 endif ( APPLE )
 
-include ( FindPkgConfig )
-#Do this if user wants to build against system packages
-#pkg_search_module ( SDL2 REQUIRED SDL2>=2.0.3 )
-#pkg_search_module ( JPEG REQUIRED)
-#pkg_search_module ( PNG REQUIRED )
-#pkg_search_module ( FREETYPE REQUIRED )
-#pkg_search_module ( OPENAL REQUIRED )
-#pkg_search_module ( OPENGL REQUIRED )
-
 # TODO move install headers to 
 add_library (
-    jpeg-9b STATIC
+    jpeg-9b SHARED 
     cderror.h
     cdjpeg.h
     jdct.h
@@ -43,6 +34,7 @@ add_library (
     jquant2.c jutils.c jmemmgr.c jmemnobs.c
 )
 
+#if(BUILD_BINARIES)
 add_executable(
     cjpeg
     cjpeg.c rdppm.c rdgif.c rdtarga.c
@@ -75,13 +67,14 @@ target_link_libraries( djpeg jpeg-9b )
 target_link_libraries( jpegtran jpeg-9b )
 target_link_libraries( rdjpgcom jpeg-9b )
 target_link_libraries( wrjpgcom jpeg-9b )
+#endif(BUILD_BINARIES)
 
 set ( CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=c11" )
 
-target_include_directories (
-    jpeg-9b PUBLIC
-    #${IDTECH4_INCLUDE_DIRS}
-)
+#target_include_directories (
+#    jpeg-9b PUBLIC
+#    #${IDTECH4_INCLUDE_DIRS}
+#)
 
 #install (
 #    TARGETS jpeg-9b
