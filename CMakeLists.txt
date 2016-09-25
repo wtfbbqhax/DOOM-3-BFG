@@ -4,6 +4,7 @@ option(EXTERNAL_PROJECTS "Fetch and build external project dependencies" ON)
 
 cmake_policy(SET CMP0026 OLD)
 cmake_policy(SET CMP0059 OLD)
+
 if (EXTERNAL_PROJECTS)
   include(ExternalProject)
 #      ___       _                        _   ____                 
@@ -76,4 +77,6 @@ message(STATUS " EXTERNAL_INCLUDES: ${EXTERNAL_INCLUDES}")
 
 message(STATUS " CMAKE_SYSTEM_PREFIX_PATH: ${CMAKE_SYSTEM_PREFIX_PATH}")
 include_directories(${EXTERNAL_INCLUDES})
+
+set(CXX_STANDARD 14)
 add_subdirectory(neo)

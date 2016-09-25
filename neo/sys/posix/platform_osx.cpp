@@ -26,9 +26,10 @@ If you have questions concerning this license or the applicable additional terms
 
 ===========================================================================
 */
-//#include "../../idlib/precompiled.h"
+#include <stdio.h>
+#include "../../idlib/precompiled.h"
 #include "../posix/posix_public.h"
-//#include "../sys_local.h"
+#include "../sys_local.h"
 
 #include <pthread.h>
 #include <errno.h>

@@ -1,37 +1,38 @@
 cmake_minimum_required(VERSION 2.8)
 set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake)
-
 project(RBDoom3BFG)
 
-option(USE_MFC_TOOLS
-		"Compile the built-in MFC based tools" OFF)
-		
+#set_property(TARGET tgt PROPERTY CXX_STANDARD 11)
+
 option(MONOLITH
-		"Embed game logic into main executable" ON)
+    "Embed game logic into main executable" ON)
 
 option(USE_PRECOMPILED_HEADERS
-		"Use precompiled headers during build" ON)
-		
+    "Use precompiled headers during build" OFF)
+
 option(SDL2
-		"Use SDL2 instead of SDL1.2" ON)
-		
+    "Use SDL2 instead of SDL1.2" ON)
+
 option(OPENAL
-		"Use OpenAL soft instead of XAudio2" OFF)
+    "Use OpenAL soft instead of XAudio2" OFF)
 
 option(FFMPEG
-		"Use FMPEG to render Bink videos" ON)
+    "Use FMPEG to render Bink videos" ON)
 
 option(ONATIVE
-		"Optimize for the host CPU" OFF)
-		
+    "Optimize for the host CPU" OFF)
+
+option(USE_MFC_TOOLS
+    "Compile the built-in MFC based tools" OFF)
+
 option(WINRT
-		"Build for Windows RT" OFF)
-		
+    "Build for Windows RT" OFF)
+
 option(WINDOWS10
-		"Build for Windows 10" OFF)
-		
+    "Build for Windows 10" OFF)
+
 option(USE_SYSTEM_LIBGLEW
-                "Use the system libglew instead of the bundled one" OFF)
+    "Use the system libglew instead of the bundled one" OFF)
 
 set(CPU_TYPE "" CACHE STRING "When set, passes this string as CPU-ID which will be embedded into the binary.")
 
@@ -61,18 +62,22 @@ endif()
 
 if(CMAKE_COMPILER_IS_GNUCC OR CMAKE_C_COMPILER_ID STREQUAL "Clang")
 	add_definitions(-pipe)
-	#add_definitions(-Wall)
+	add_definitions(-Wall)
 	add_definitions(-Werror=format-security)
 	add_definitions(-Werror=format)
+
 	if(CPU_TYPE)
 		add_definitions(-DCPUSTRING="${CPU_TYPE}")
 	endif()
+
 	if (CPU_OPTIMIZATION)
 		add_definitions(${CPU_OPTIMIZATION})
 	endif()
+
 	if (USE_INTRINSICS)
 		add_definitions(-DUSE_INTRINSICS)
 	endif()
+
 	if(WIN32)
 		# require msvcr70.dll or newer for _aligned_malloc etc
 		# I think it is from Visual C++ .NET 2002, so it should be available on any remotely modern system.
@@ -88,97 +93,27 @@ if(CMAKE_COMPILER_IS_GNUCC OR CMAKE_C_COMPILER_ID STREQUAL "Clang")
 		add_definitions(-DUSE_EXCEPTIONS)
 	#endif()
 	
-	# the warnings are used for every profile anyway, so put them in a variable
-	set(my_warn_flags "-Wno-pragmas -Wno-unused-variable -Wno-switch -Wno-unused-value -Winvalid-pch -Wno-multichar")
-	
-	if(CMAKE_C_COMPILER_ID STREQUAL "Clang")
-		# append clang-specific settings for warnings (the second one make sure clang doesn't complain
-		# about unknown -W flags, like -Wno-unused-but-set-variable)
-		set(my_warn_flags "${my_warn_flags} -Wno-local-type-template-args -Wno-unknown-warning-option -Wno-inline-new-delete -Wno-switch-enum")
-	endif()
-	
 	if(NOT CMAKE_CROSSCOMPILING AND ONATIVE)
 		add_definitions(-march=native)
 	endif()
 
-	set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} -D_DEBUG -O0 -ggdb -fno-strict-aliasing ${my_warn_flags}")
-	#set(CMAKE_C_FLAGS_DEBUGALL "${CMAKE_C_FLAGS_DEBUGALL} -g -ggdb -D_DEBUG -fno-strict-aliasing ${my_warn_flags}")
-	#set(CMAKE_C_FLAGS_PROFILE "${CMAKE_C_FLAGS_PROFILE} -g -ggdb -D_DEBUG -O1 -fno-omit-frame-pointer -fno-strict-aliasing ${my_warn_flags}")
-	set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -O3 -ffast-math -fno-unsafe-math-optimizations -fomit-frame-pointer -fno-strict-aliasing ${my_warn_flags}")
-	set(CMAKE_C_FLAGS_RELWITHDEBINFO "${CMAKE_C_FLAGS_RELWITHDEBINFO} -g -O3 -ffast-math -fno-unsafe-math-optimizations -fomit-frame-pointer -fno-strict-aliasing ${my_warn_flags}")
-	set(CMAKE_C_FLAGS_MINSIZEREL "${CMAKE_C_FLAGS_MINSIZEREL} -Os -ffast-math -fno-unsafe-math-optimizations -fomit-frame-pointer -fno-strict-aliasing ${my_warn_flags}")
-	
-	set(CMAKE_CXX_FLAGS_DEBUG ${CMAKE_C_FLAGS_DEBUG})
-	#set(CMAKE_CXX_FLAGS_DEBUGALL ${CMAKE_C_FLAGS_DEBUGALL})
-	#set(CMAKE_CXX_FLAGS_PROFILE ${CMAKE_C_FLAGS_PROFILE})
-	set(CMAKE_CXX_FLAGS_RELEASE ${CMAKE_C_FLAGS_RELEASE})
-	set(CMAKE_CXX_FLAGS_RELWITHDEBINFO ${CMAKE_C_FLAGS_RELWITHDEBINFO})
-	set(CMAKE_CXX_FLAGS_MINSIZEREL ${CMAKE_C_FLAGS_MINSIZEREL})
+    set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS} -std=c11 -D_DEBUG -O2 -ggdb -fno-strict-aliasing -fsanitize=address -fno-omit-frame-pointer")
+    set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS} -std=c++14 -D_DEBUG -O2 -ggdb -fno-strict-aliasing -fsanitize=address -fno-omit-frame-pointer")
+    #	#set(CMAKE_C_FLAGS_DEBUGALL "${CMAKE_C_FLAGS_DEBUGALL} -g -ggdb -D_DEBUG -fno-strict-aliasing ${my_warn_flags}")
+    #	#set(CMAKE_C_FLAGS_PROFILE "${CMAKE_C_FLAGS_PROFILE} -g -ggdb -D_DEBUG -O1 -fno-omit-frame-pointer -fno-strict-aliasing ${my_warn_flags}")
+    #	set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -O3 -ffast-math -fno-unsafe-math-optimizations -fomit-frame-pointer -fno-strict-aliasing ${my_warn_flags}")
+    #	set(CMAKE_C_FLAGS_RELWITHDEBINFO "${CMAKE_C_FLAGS_RELWITHDEBINFO} -g -O3 -ffast-math -fno-unsafe-math-optimizations -fomit-frame-pointer -fno-strict-aliasing ${my_warn_flags}")
+    #	set(CMAKE_C_FLAGS_MINSIZEREL "${CMAKE_C_FLAGS_MINSIZEREL} -Os -ffast-math -fno-unsafe-math-optimizations -fomit-frame-pointer -fno-strict-aliasing ${my_warn_flags}")
+    #	
+    #	set(CMAKE_CXX_FLAGS_DEBUG ${CMAKE_C_FLAGS_DEBUG})
+    #	#set(CMAKE_CXX_FLAGS_DEBUGALL ${CMAKE_C_FLAGS_DEBUGALL})
+    #	#set(CMAKE_CXX_FLAGS_PROFILE ${CMAKE_C_FLAGS_PROFILE})
+    #	set(CMAKE_CXX_FLAGS_RELEASE ${CMAKE_C_FLAGS_RELEASE})
+    #	set(CMAKE_CXX_FLAGS_RELWITHDEBINFO ${CMAKE_C_FLAGS_RELWITHDEBINFO})
+    #	set(CMAKE_CXX_FLAGS_MINSIZEREL ${CMAKE_C_FLAGS_MINSIZEREL})
 
 elseif(MSVC)
-	
-	# Multiprocessor support for compiling
-	# /MP
-	
-	# /MT  use multithreaded, static runtime library
-	#      (=> binary won't need MSVCP100D.dll or similar)
-	# /MTd the same with debug symbols
-	# /MD and /MDd - the same with dynamic runtime lib
-	#     (=> MSVCP100D.dll or similar is needed to run binary)
-
-	# Inline Function Expansion: Any Suitable (/Ob2)
-	# "/Ob2",
-			
-	# enable Intrinsic Functions
-	# "/Oi",
-			
-	# Omit Frame Pointers
-	# "/Oy",
-	
-	# if(MSVC_VERSION EQUAL 1700)
-		# #message(STATUS "$ENV{LIBPATH}")
-		
-		# find_path(Windows_winmd_DIR NAMES Windows.winmd
-			# HINTS
-			# C:/Program Files (x86)/Windows Kits/8.0/References/CommonConfiguration/Neutral
-			# PATH_SUFFIXES "Neutral")
-			
-		# message(STATUS "${Windows_winmd_DIR}")
-		
-		# #set(WINRT_OPTIONS "/ZW /D USE_WINRT /AI \"C:\Program Files (x86)\Windows Kits\8.0\References\CommonConfiguration\Neutral\"")
-		# #set(WINRT_OPTIONS "/ZW /D USE_WINRT /AI \"$ENV{LIBPATH}\" ")
-		# set(WINRT_OPTIONS "/ZW /D USE_WINRT")
-	
-		# set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} /D _DEBUG /MP ${WINRT_OPTIONS}")
-		# set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} /MP /Oi /Oy ${WINRT_OPTIONS}")
-		# set(CMAKE_C_FLAGS_RELWITHDEBINFO "${CMAKE_C_FLAGS_RELWITHDEBINFO} /MP /Oi ${WINRT_OPTIONS}")
-		# set(CMAKE_C_FLAGS_MINSIZEREL "${CMAKE_C_FLAGS_MINSIZEREL} /MP /Oi /Oy ${WINRT_OPTIONS}")
-		
-		# set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} /MP ${WINRT_OPTIONS}")
-		# set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /MP /Oi /Oy ${WINRT_OPTIONS}")
-		# set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "${CMAKE_CXX_FLAGS_RELWITHDEBINFO} /MP ${WINRT_OPTIONS}")
-		# set(CMAKE_CXX_FLAGS_MINSIZEREL "${CMAKE_CXX_FLAGS_MINSIZEREL} /MP /Oi /Oy ${WINRT_OPTIONS}")
-	# else()
-		set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} /D _DEBUG /MP /MTd")
-		set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} /MP /Oi /Oy /MT")
-		set(CMAKE_C_FLAGS_RELWITHDEBINFO "${CMAKE_C_FLAGS_RELWITHDEBINFO} /MP /Oi /MTd")
-		set(CMAKE_C_FLAGS_MINSIZEREL "${CMAKE_C_FLAGS_MINSIZEREL} /MP /Oi /Oy /MT")
-		
-		set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} /MP /MTd")
-		set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /MP /Oi /Oy /MT")
-		set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "${CMAKE_CXX_FLAGS_RELWITHDEBINFO} /MP /MTd")
-		set(CMAKE_CXX_FLAGS_MINSIZEREL "${CMAKE_CXX_FLAGS_MINSIZEREL} /MP /Oi /Oy /MT")
-		
-		# RB: without /SAFESEH:NO we can't link against ffmpeg libs and VS2013 or we have to build our own
-		# libs for newer compilers
-		set(CMAKE_EXE_LINKER_FLAGS_DEBUG "${CMAKE_EXE_LINKER_FLAGS_DEBUG} /SAFESEH:NO")
-		set(CMAKE_EXE_LINKER_FLAGS_MINSIZEREL "${CMAKE_EXE_LINKER_FLAGS_MINSIZEREL} /SAFESEH:NO")
-		set(CMAKE_EXE_LINKER_FLAGS_RELEASE "${CMAKE_EXE_LINKER_FLAGS_RELEASE} /SAFESEH:NO")
-		set(CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO "${CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO} /SAFESEH:NO")
-	# endif()
-	
-
-	add_definitions(-DWIN32 
+		add_definitions(-DWIN32 
 					-D_WINDOWS
 					-D_CRT_SECURE_NO_DEPRECATE
 					-D_CRT_NONSTDC_NO_DEPRECATE
@@ -216,18 +151,6 @@ set(ZLIB_LIBRARY ${ZLIB_LIBRARIES})
 
 find_package(PNG REQUIRED)
 find_package(JPEG REQUIRED)
-#set(EXTERNAL_LIBRARIES
-#    ${ZLIB_LIBRARY}
-#    ${PNG_LIBRARY}
-#    ${JPEG_LIBRARY}
-#    )
-#
-#
-#set(EXTERNAL_INCLUDES
-#    ${ZLIB_INCLUDE_DIR}
-#    ${PNG_INCLUDE_DIR}
-#    ${JPEG_INCLUDE_DIR}
-#    )
 
 if (USE_SYSTEM_LIBGLEW)
 find_package(GLEW)
@@ -1314,14 +1237,14 @@ else()
 		list(REMOVE_ITEM RBDOOM3_PRECOMPILED_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/renderer/jobs/ShadowShared.cpp)
 		list(REMOVE_ITEM RBDOOM3_PRECOMPILED_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/renderer/RenderLog.cpp)
 
-		foreach( src_file ${RBDOOM3_PRECOMPILED_SOURCES} )
-			#message(STATUS "-include precompiled.h for ${src_file}")
-			set_source_files_properties(
-				${src_file}
-				PROPERTIES
-				COMPILE_FLAGS "-include ${CMAKE_CURRENT_SOURCE_DIR}/idlib/precompiled.h"
-				)
-		endforeach()
+        #foreach( src_file ${RBDOOM3_PRECOMPILED_SOURCES} )
+		#	message(STATUS "-include precompiled.h for ${src_file}")
+        #    #set_source_files_properties(
+		#	#	${src_file}
+		#	#	PROPERTIES
+		#	#	COMPILE_FLAGS "-include ${CMAKE_CURRENT_SOURCE_DIR}/idlib/precompiled.h"
+		#	#	)
+		#endforeach()
 
 		# precompiled magic for GCC/clang, adapted from https://gist.github.com/573926
 		STRING(TOUPPER "CMAKE_CXX_FLAGS_${CMAKE_BUILD_TYPE}" _flags_var_name)
@@ -1399,3 +1322,6 @@ else()
 	endif()
     
 endif()
+
+message(STATUS "PNG_LIBRARY: ${PNG_LIBRARY}")
+message(STATUS "JPEG_LIBRARY: ${JPEG_LIBRARY}")
