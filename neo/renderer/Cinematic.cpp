@@ -34,10 +34,11 @@ If you have questions concerning this license or the applicable additional terms
 
 extern idCVar s_noSound;
 
-#define JPEG_INTERNALS
+//#define JPEG_INTERNALS
 //extern "C" {
 #include <jpeglib.h>
 //}
+#define USE_NEWER_JPEG
 
 #include "tr_local.h"
 

@@ -30,15 +30,6 @@ option(WINRT
 option(WINDOWS10
 		"Build for Windows 10" OFF)
 		
-option(USE_SYSTEM_ZLIB
-                "Use the system zlib instead of the bundled one" OFF)
-
-option(USE_SYSTEM_LIBPNG
-                "Use the system libpng instead of the bundled one" OFF)
-
-option(USE_SYSTEM_LIBJPEG
-                "Use the system libjpeg instead of the bundled one" OFF)
-
 option(USE_SYSTEM_LIBGLEW
                 "Use the system libglew instead of the bundled one" OFF)
 
@@ -218,47 +209,25 @@ elseif(MSVC)
 	endif()
 endif()
 
-#if(STANDALONE)
-#	add_definitions(-DSTANDALONE)
-#endif()
+find_package(ZLIB REQUIRED)
 
-if (USE_SYSTEM_ZLIB)
-  find_package(ZLIB REQUIRED)
-endif(USE_SYSTEM_ZLIB)
+include_directories(${ZLIB_INCLUDE_DIRS})
+set(ZLIB_LIBRARY ${ZLIB_LIBRARIES})
 
-if (ZLIB_FOUND)
-    include_directories(${ZLIB_INCLUDE_DIRS})
-    set(ZLIB_LIBRARY ${ZLIB_LIBRARIES})
-else (ZLIB_FOUND)
-    include_directories("libs/zlib")
-    set(ZLIB_LIBRARY "" )
-endif (ZLIB_FOUND)
-
-if(USE_SYSTEM_LIBPNG)
 find_package(PNG REQUIRED)
-endif (USE_SYSTEM_LIBPNG)
-
-if (PNG_FOUND)
-    include_directories(${PNG_INCLUDE_DIRS})
-    set(PNG_LIBRARY ${PNG_LIBRARIES})
-else (PNG_FOUND)
-    include_directories("libs/png")
-    set(PNG_LIBRARY "" )
-endif (PNG_FOUND)
-
-
-if(USE_SYSTEM_LIBJPEG)
 find_package(JPEG REQUIRED)
-endif(USE_SYSTEM_LIBJPEG)
-
-if (JPEG_FOUND)
-    include_directories(${JPEG_INCLUDE_DIRS})
-    set(JPEG_LIBRARY ${JPEG_LIBRARIES})
-    add_definitions(-DUSE_NEWER_JPEG)
-else (JPEG_FOUND)
-    include_directories("libs/jpeg-6")
-    set(JPEG_LIBRARY "" )
-endif (JPEG_FOUND)
+#set(EXTERNAL_LIBRARIES
+#    ${ZLIB_LIBRARY}
+#    ${PNG_LIBRARY}
+#    ${JPEG_LIBRARY}
+#    )
+#
+#
+#set(EXTERNAL_INCLUDES
+#    ${ZLIB_INCLUDE_DIR}
+#    ${PNG_INCLUDE_DIR}
+#    ${JPEG_INCLUDE_DIR}
+#    )
 
 if (USE_SYSTEM_LIBGLEW)
 find_package(GLEW)
@@ -307,91 +276,6 @@ file(GLOB RENDERER_SMAA_INCLUDES renderer/SMAA/*.h)
 
 file(GLOB IRRXML_INCLUDES libs/irrxml/src/*.h)
 file(GLOB IRRXML_SOURCES libs/irrxml/src/*.cpp)
-
-if (NOT JPEG_FOUND)
-    set(JPEG_INCLUDES
-        libs/jpeg-6/jchuff.h
-        libs/jpeg-6/jconfig.h
-        libs/jpeg-6/jdct.h
-        libs/jpeg-6/jdhuff.h
-        libs/jpeg-6/jerror.h
-        libs/jpeg-6/jinclude.h
-        libs/jpeg-6/jmemsys.h
-        libs/jpeg-6/jmorecfg.h
-        libs/jpeg-6/jpegint.h
-        libs/jpeg-6/jpeglib.h
-        libs/jpeg-6/jversion.h)
-
-    set(JPEG_SOURCES
-        libs/jpeg-6/jcapimin.cpp
-        libs/jpeg-6/jcapistd.cpp
-        libs/jpeg-6/jccoefct.cpp
-        libs/jpeg-6/jccolor.cpp
-        libs/jpeg-6/jcdctmgr.cpp
-        libs/jpeg-6/jchuff.cpp
-        libs/jpeg-6/jcinit.cpp
-        libs/jpeg-6/jcmainct.cpp
-        libs/jpeg-6/jcmarker.cpp
-        libs/jpeg-6/jcmaster.cpp
-        libs/jpeg-6/jcomapi.cpp
-        libs/jpeg-6/jcparam.cpp
-        libs/jpeg-6/jcphuff.cpp
-        libs/jpeg-6/jcprepct.cpp
-        libs/jpeg-6/jcsample.cpp
-        libs/jpeg-6/jctrans.cpp
-        libs/jpeg-6/jdapimin.cpp
-        libs/jpeg-6/jdapistd.cpp
-        libs/jpeg-6/jdatadst.cpp
-        libs/jpeg-6/jdatasrc.cpp
-        libs/jpeg-6/jdcoefct.cpp
-        libs/jpeg-6/jdcolor.cpp
-        libs/jpeg-6/jddctmgr.cpp
-        libs/jpeg-6/jdhuff.cpp
-        libs/jpeg-6/jdinput.cpp
-        libs/jpeg-6/jdmainct.cpp
-        libs/jpeg-6/jdmarker.cpp
-        libs/jpeg-6/jdmaster.cpp
-        libs/jpeg-6/jdmerge.cpp
-        libs/jpeg-6/jdphuff.cpp
-        libs/jpeg-6/jdpostct.cpp
-        libs/jpeg-6/jdsample.cpp
-        libs/jpeg-6/jdtrans.cpp
-        libs/jpeg-6/jerror.cpp
-        libs/jpeg-6/jfdctflt.cpp
-        libs/jpeg-6/jfdctfst.cpp
-        libs/jpeg-6/jfdctint.cpp
-        libs/jpeg-6/jidctflt.cpp
-        libs/jpeg-6/jidctfst.cpp
-        libs/jpeg-6/jidctint.cpp
-        libs/jpeg-6/jidctred.cpp
-        #libs/jpeg-6/jload.cpp
-        libs/jpeg-6/jmemmgr.cpp
-        libs/jpeg-6/jmemnobs.cpp
-        #libs/jpeg-6/jpegtran.cpp
-        libs/jpeg-6/jquant1.cpp
-        libs/jpeg-6/jquant2.cpp
-        libs/jpeg-6/jutils.cpp)
-else (NOT JPEG_FOUND)
-   set(JPEG_INCLUDES "")
-   set(JPEG_SOURCES "")
-endif (NOT JPEG_FOUND)
-
-if (NOT PNG_FOUND)
-    file(GLOB PNG_INCLUDES libs/png/*.h)
-    file(GLOB PNG_SOURCES libs/png/*.c)
-else (NOT PNG_FOUND)
-    set(PNG_INCLUDES "")
-    set(PNG_SOURCES "")
-endif (NOT PNG_FOUND)
-
-if (NOT ZLIB_FOUND)
-file(GLOB ZLIB_INCLUDES libs/zlib/*.h)
-file(GLOB ZLIB_SOURCES libs/zlib/*.c)
-else (NOT ZLIB_FOUND)
-  set(ZLIB_INCLUDES "")
-  set(ZLIB_SOURCES "")
-endif (NOT ZLIB_FOUND)
-
 
 file(GLOB MINIZIP_INCLUDES libs/zlib/minizip/*.h)
 file(GLOB MINIZIP_SOURCES libs/zlib/minizip/*.c libs/zlib/minizip/*.cpp)
@@ -899,9 +783,6 @@ source_group("renderer\\SMAA" FILES ${RENDERER_SMAA_INCLUDES})
 source_group("libs\\irrxml" FILES ${IRRXML_INCLUDES})
 source_group("libs\\irrxml" FILES ${IRRXML_SOURCES})
 
-source_group("libs\\jpeg-6" FILES ${JPEG_INCLUDES})
-source_group("libs\\jpeg-6" FILES ${JPEG_SOURCES})
-
 source_group("libs\\png" FILES ${PNG_INCLUDES})
 source_group("libs\\png" FILES ${PNG_SOURCES})
 
@@ -1062,9 +943,7 @@ set(RBDOOM3_INCLUDES
 			${RENDERER_OPENGL_INCLUDES}
 			${RENDERER_SMAA_INCLUDES}
 			${IRRXML_INCLUDES}
-			${JPEG_INCLUDES}
-			${PNG_INCLUDES}
-			${ZLIB_INCLUDES}
+            ${EXTERNAL_INCLUDES}
 			${MINIZIP_INCLUDES}
 			${GLEW_INCLUDES}
 			${RAPIDJSON_INCLUDES}
@@ -1098,9 +977,6 @@ set(RBDOOM3_SOURCES
 			${RENDERER_JOBS_STATICSHADOWVOLUME_SOURCES}
 			${RENDERER_OPENGL_SOURCES}
 			${IRRXML_SOURCES}
-			${JPEG_SOURCES}
-			${PNG_SOURCES}
-			${ZLIB_SOURCES}
 			${MINIZIP_SOURCES}
 			${GLEW_SOURCES}
 			#${FREETYPE_SOURCES}
@@ -1117,6 +993,7 @@ set(RBDOOM3_SOURCES
 			#${COMPILER_RENDERBUMP_SOURCES}
 			#${COMPILER_ROQVQ_SOURCES}
 			)
+
 
 add_definitions(-DUSE_DOOMCLASSIC)
 
@@ -1293,7 +1170,6 @@ if(MSVC)
 	
 	if(USE_PRECOMPILED_HEADERS) 
 		set(RBDOOM3_PRECOMPILED_SOURCES ${RBDOOM3_SOURCES})
-		list(REMOVE_ITEM RBDOOM3_PRECOMPILED_SOURCES ${TIMIDITY_SOURCES} ${JPEG_SOURCES} ${PNG_SOURCES} ${ZLIB_SOURCES} ${GLEW_SOURCES})
 		list(REMOVE_ITEM RBDOOM3_PRECOMPILED_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/libs/zlib/minizip/ioapi.c)
 		list(REMOVE_ITEM RBDOOM3_PRECOMPILED_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/renderer/DXT/DXTDecoder.cpp)
 		list(REMOVE_ITEM RBDOOM3_PRECOMPILED_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/renderer/DXT/DXTEncoder.cpp)
@@ -1428,7 +1304,6 @@ else()
 	
 	if(USE_PRECOMPILED_HEADERS) 	
 		set(RBDOOM3_PRECOMPILED_SOURCES ${RBDOOM3_SOURCES})
-		list(REMOVE_ITEM RBDOOM3_PRECOMPILED_SOURCES ${TIMIDITY_SOURCES} ${JPEG_SOURCES} ${PNG_SOURCES} ${ZLIB_SOURCES} ${GLEW_SOURCES})
 		list(REMOVE_ITEM RBDOOM3_PRECOMPILED_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/libs/zlib/minizip/ioapi.c)
 		list(REMOVE_ITEM RBDOOM3_PRECOMPILED_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/renderer/DXT/DXTDecoder.cpp)
 		list(REMOVE_ITEM RBDOOM3_PRECOMPILED_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/renderer/DXT/DXTEncoder.cpp)
