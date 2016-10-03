@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.6)
 project(DOOM-3-BFG)
-option(EXTERNAL_PROJECTS "Fetch and build external project dependencies" ON)
+option(EXTERNAL_PROJECTS "Fetch and build external project dependencies" OFF)
 
 cmake_policy(SET CMP0026 OLD)
 cmake_policy(SET CMP0059 OLD)
